@@ -9,9 +9,9 @@ const MySQLAdapter = require('@bot-whatsapp/database/mysql')
  */
 const MYSQL_DB_HOST = 'localhost'
 const MYSQL_DB_USER = 'root'
-const MYSQL_DB_PASSWORD = 'root'
+const MYSQL_DB_PASSWORD = ''
 const MYSQL_DB_NAME = 'chat_org'
-const MYSQL_DB_PORT = '3306'
+const MYSQL_DB_PORT = '127.0.0.1'
 
 
 
