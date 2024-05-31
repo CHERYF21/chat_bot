@@ -1,8 +1,8 @@
-const { createBot, createProvider, createFlow, addKeyword } = require('@bot-whatsapp/bot')
-const QRPortalWeb = require('@bot-whatsapp/portal')
-const BaileysProvider = require('@bot-whatsapp/provider/baileys')
-const MySQLAdapter = require('@bot-whatsapp/database/mysql')
-const axios = require('axios')
+const { createBot, createProvider, createFlow, addKeyword } = require('@bot-whatsapp/bot');
+const QRPortalWeb = require('@bot-whatsapp/portal');
+const BaileysProvider = require('@bot-whatsapp/provider/baileys');
+const MySQLAdapter = require('@bot-whatsapp/database/mysql');
+const axios = require('axios');
 
 /**
  * Declaramos las conexiones de MySQL
@@ -16,7 +16,7 @@ const MYSQL_DB_PORT = "3306";
 /**
  * Configuración de GLPI
  */
-const GLPI_API_URL = 'http://localhost:8200/apirest.php';
+const GLPI_API_URL = 'http://127.0.0.1:8200/apirest.php';
 const GLPI_API_TOKEN = 'PSeaV8EpdZnZzRxMAg3kJsilbBkq6BhdF8zucnlX';
 
 const createGLPITicket = async (title, description) => {
@@ -38,7 +38,7 @@ const createGLPITicket = async (title, description) => {
         console.error('Error creando ticket en GLPI:', error.response ? error.response.data : error.message);
         return null;
     }
-}
+};
 
 const primerFiltro = addKeyword(['hola', 'ola', 'Buenos días', 'buenos dias', 'buenas tardes'])
     .addAnswer(['Bienvenido a soporte TI', 'atenderemos tu solicitud'])
@@ -64,18 +64,18 @@ const primerFiltro = addKeyword(['hola', 'ola', 'Buenos días', 'buenos dias', '
             const sedevalida = sedes.some(sede => userInput.includes(sede.toLowerCase()));
 
             if (!sedevalida) {
-                return fallBack()
+                return fallBack();
             }
-            console.log('mensaje entrante', ctx.body)
+            console.log('mensaje entrante', ctx.body);
         })
     .addAnswer(['Ingresa el área donde se presenta el inconveniente: ',
         'Administracion',
         'Lineal de cajas',
         'Recibo',
         'CCTV'
-    ])
+    ]);
 
-// opciones para administracion 
+// Opciones para administración
 const AdminFiltro = addKeyword(['Administracion', 'administracion'])
     .addAnswer(['Selecciona cuál es el caso: ',
         '1- Impresora no imprime',
@@ -96,16 +96,17 @@ const AdminFiltro = addKeyword(['Administracion', 'administracion'])
             const responseValida = optionsAdmin.some(option => respAdmin.includes(option.toLowerCase()));
 
             if (!responseValida) {
-                return fallBack()
+                return fallBack();
             }
             console.log("respuesta admin", ctx.body);
             await createGLPITicket('Problema en Administración', ctx.body);
         })
-    .addAnswer(["Escribe una descripción del problema: "], { capture: true }, (ctx) => {
+    .addAnswer(["Escribe una descripción del problema: "], { capture: true }, async (ctx) => {
         console.log("descripción: ", ctx.body);
-    })
+        await createGLPITicket('Descripción del problema en Administración', ctx.body);
+    });
 
-// opciones para lineal de cajas 
+// Opciones para lineal de cajas
 const Lineal = addKeyword(['Lineal cajas', 'lineal cajas'])
     .addAnswer(['Selecciona cuál es el caso: ',
         '1- Impresora no imprime',
@@ -126,14 +127,17 @@ const Lineal = addKeyword(['Lineal cajas', 'lineal cajas'])
         const optionValida = optionsLineal.some(option => userInput.includes(option.toLowerCase()));
 
         if (!optionValida) {
-            return fallBack()
+            return fallBack();
         }
         console.log('mensaje entrante', ctx.body);
         await createGLPITicket('Problema en Lineal de Cajas', ctx.body);
     })
-    .addAnswer(['Escribe una breve descripción del caso: '])
+    .addAnswer(['Escribe una breve descripción del caso: '], { capture: true }, async (ctx) => {
+        console.log("descripción: ", ctx.body);
+        await createGLPITicket('Descripción del problema en Lineal de Cajas', ctx.body);
+    });
 
-// opciones para recibo 
+// Opciones para recibo
 const Recibo = addKeyword(['Recibo', 'recibo'])
     .addAnswer(['Selecciona cuál es el caso: ',
         '1- Equipo no enciende',
@@ -152,13 +156,17 @@ const Recibo = addKeyword(['Recibo', 'recibo'])
         const optionValida = optionsRecibo.some(option => reciboOption.includes(option.toLowerCase()));
 
         if (!optionValida) {
-            return fallBack()
+            return fallBack();
         }
         console.log('mensaje entrante', ctx.body);
         await createGLPITicket('Problema en Recibo', ctx.body);
     })
-    .addAnswer(['Escribe una breve descripción del caso: '])
+    .addAnswer(['Escribe una breve descripción del caso: '], { capture: true }, async (ctx) => {
+        console.log("descripción: ", ctx.body);
+        await createGLPITicket('Descripción del problema en Recibo', ctx.body);
+    });
 
+// Opciones para CCTV
 const CCTV = addKeyword(['CCTV', 'Cctv', 'cctv'])
     .addAnswer(['Selecciona cuál es el caso: ',
         '1- Alarmas',
@@ -177,12 +185,15 @@ const CCTV = addKeyword(['CCTV', 'Cctv', 'cctv'])
         const optionValida = optionsCCTV.some(option => CCTVOption.includes(option.toLowerCase()));
 
         if (!optionValida) {
-            return fallBack()
+            return fallBack();
         }
         console.log('mensaje entrante', ctx.body);
         await createGLPITicket('Problema en CCTV', ctx.body);
     })
-    .addAnswer(['Escribe una breve descripción del caso: '])
+    .addAnswer(['Escribe una breve descripción del caso: '], { capture: true }, async (ctx) => {
+        console.log("descripción: ", ctx.body);
+        await createGLPITicket('Descripción del problema en CCTV', ctx.body);
+    });
 
 const main = async () => {
     const adapterDB = new MySQLAdapter({
@@ -191,15 +202,15 @@ const main = async () => {
         database: MYSQL_DB_NAME,
         password: MYSQL_DB_PASSWORD,
         port: MYSQL_DB_PORT,
-    })
-    const adapterFlow = createFlow([primerFiltro, AdminFiltro, Lineal, Recibo, CCTV])
-    const adapterProvider = createProvider(BaileysProvider)
+    });
+    const adapterFlow = createFlow([primerFiltro, AdminFiltro, Lineal, Recibo, CCTV]);
+    const adapterProvider = createProvider(BaileysProvider);
     createBot({
         flow: adapterFlow,
         provider: adapterProvider,
         database: adapterDB,
-    })
-    QRPortalWeb()
+    });
+    QRPortalWeb();
 }
 
-main()
+main();
