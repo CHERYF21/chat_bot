@@ -2,10 +2,10 @@
   key: {
     remoteJid: '573212380006@s.whatsapp.net',
     fromMe: false,
-    id: '3AEFF8EDFF4A2B6D76BD',
+    id: '3AFA32C5B7D65C66FFE9',
     participant: undefined
   },
-  messageTimestamp: 1717182732,
+  messageTimestamp: 1717186809,
   pushName: '~AndresM🤪~',
   broadcast: false,
   message: Message {
@@ -19,9 +19,9 @@
   from: '573212380006'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_e556af76-370f-4f76-a789-6fd9a9a2d02b',
-  keyword: 'key_42ac1b88-6219-4fbd-919c-c09a7a014335',
-  answer: 'Bienvenido a sopporte TI\ntenderemos tu solicitud',
+  ref: 'ans_0fb848d7-0e9b-4768-b269-fdc4716c9254',
+  keyword: 'key_29926aac-52a7-4529-92a2-5a1ef98225dc',
+  answer: 'Bienvenido a soporte TI\natenderemos tu solicitud',
   options: {
     media: null,
     buttons: [],
@@ -34,12 +34,12 @@
     keyword: {},
     callback: false
   },
-  refSerialize: '44c87bcbcd964e4c152c035fa3da72bb'
+  refSerialize: '09cd228ad1814826fa9b8a479428296e'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_f97d9f48-c0a9-469d-8573-4e358cafaa6c',
-  keyword: 'ans_e556af76-370f-4f76-a789-6fd9a9a2d02b',
-  answer: 'De que sede te comunicas?\n' +
+  ref: 'ans_d5730f0d-2685-4da0-9972-65b2b052a78f',
+  keyword: 'ans_0fb848d7-0e9b-4768-b269-fdc4716c9254',
+  answer: '¿De qué sede te comunicas?\n' +
     'La 33\n' +
     'Floresta\n' +
     'Pedregal\n' +
@@ -61,32 +61,32 @@
     keyword: {},
     callback: true
   },
-  refSerialize: 'ce3a2a97be82793971e78d740858133a'
+  refSerialize: '66062a151907d01300749caab10069ef'
 }
 [handleMsg]:  {
   key: {
     remoteJid: '573212380006@s.whatsapp.net',
     fromMe: false,
-    id: '3A847FC9F8A9ADEAD54A',
+    id: '3A5A2848E8FFD927AFD7',
     participant: undefined
   },
-  messageTimestamp: 1717182749,
+  messageTimestamp: 1717186827,
   pushName: '~AndresM🤪~',
   broadcast: false,
   message: Message {
-    conversation: 'La 33',
+    conversation: 'Pedregal',
     messageContextInfo: MessageContextInfo {
       deviceListMetadata: [DeviceListMetadata],
       deviceListMetadataVersion: 2
     }
   },
-  body: 'La 33',
+  body: 'Pedregal',
   from: '573212380006'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_87cafb4d-8027-49c9-a5a6-90ac6841dacd',
-  keyword: 'ans_f97d9f48-c0a9-469d-8573-4e358cafaa6c',
-  answer: 'ingresa el area donde se presenta el inconveniente: \n' +
+  ref: 'ans_ea810721-cdf9-4f4f-8521-d46b7267a85a',
+  keyword: 'ans_d5730f0d-2685-4da0-9972-65b2b052a78f',
+  answer: 'Ingresa el área donde se presenta el inconveniente: \n' +
     'Administracion\n' +
     'Lineal de cajas\n' +
     'Recibo\n' +
@@ -103,139 +103,32 @@
     keyword: {},
     callback: false
   },
-  refSerialize: '69d1f0d946c17c7456f12cb32ebfe534'
+  refSerialize: 'd83007d383e0e693602c5c5d83ea123b'
 }
 [handleMsg]:  {
   key: {
     remoteJid: '573212380006@s.whatsapp.net',
     fromMe: false,
-    id: '3A19FAB50E66F650709B',
+    id: '3AB18D7E229F9372573E',
     participant: undefined
   },
-  messageTimestamp: 1717182768,
+  messageTimestamp: 1717186839,
   pushName: '~AndresM🤪~',
   broadcast: false,
   message: Message {
-    conversation: 'Admitrativo',
+    conversation: 'Cctv',
     messageContextInfo: MessageContextInfo {
       deviceListMetadata: [DeviceListMetadata],
       deviceListMetadataVersion: 2
     }
   },
-  body: 'Admitrativo',
-  from: '573212380006'
-}
-[handleMsg]:  {
-  key: {
-    remoteJid: '573212380006@s.whatsapp.net',
-    fromMe: false,
-    id: '3A8EAF3E1E1C1F73CEE0',
-    participant: undefined
-  },
-  messageTimestamp: 1717182780,
-  pushName: '~AndresM🤪~',
-  broadcast: false,
-  message: Message {
-    conversation: 'Administrativo',
-    messageContextInfo: MessageContextInfo {
-      deviceListMetadata: [DeviceListMetadata],
-      deviceListMetadataVersion: 2
-    }
-  },
-  body: 'Administrativo',
-  from: '573212380006'
-}
-[handleMsg]:  {
-  key: {
-    remoteJid: '573212380006@s.whatsapp.net',
-    fromMe: false,
-    id: '3A44B2DB626D776EC497',
-    participant: undefined
-  },
-  messageTimestamp: 1717182786,
-  pushName: '~AndresM🤪~',
-  broadcast: false,
-  message: Message {
-    conversation: '2',
-    messageContextInfo: MessageContextInfo {
-      deviceListMetadata: [DeviceListMetadata],
-      deviceListMetadataVersion: 2
-    }
-  },
-  body: '2',
-  from: '573212380006'
-}
-[handleMsg]:  {
-  key: {
-    remoteJid: '573212380006@s.whatsapp.net',
-    fromMe: false,
-    id: '3A80162E1997D2D5CD6E',
-    participant: undefined
-  },
-  messageTimestamp: 1717182827,
-  pushName: '~AndresM🤪~',
-  broadcast: false,
-  message: Message {
-    conversation: 'Lineal de cajas',
-    messageContextInfo: MessageContextInfo {
-      deviceListMetadata: [DeviceListMetadata],
-      deviceListMetadataVersion: 2
-    }
-  },
-  body: 'Lineal de cajas',
-  from: '573212380006'
-}
-[handleMsg]:  {
-  key: {
-    remoteJid: '573212380006@s.whatsapp.net',
-    fromMe: false,
-    id: '3AAF9C2D28E6522A1A7F',
-    participant: undefined
-  },
-  messageTimestamp: 1717182849,
-  pushName: '~AndresM🤪~',
-  broadcast: false,
-  message: Message {
-    conversation: 'Hola',
-    messageContextInfo: MessageContextInfo {
-      deviceListMetadata: [DeviceListMetadata],
-      deviceListMetadataVersion: 2
-    }
-  },
-  body: 'Hola',
+  body: 'Cctv',
   from: '573212380006'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_e556af76-370f-4f76-a789-6fd9a9a2d02b',
-  keyword: 'key_42ac1b88-6219-4fbd-919c-c09a7a014335',
-  answer: 'Bienvenido a sopporte TI\ntenderemos tu solicitud',
-  options: {
-    media: null,
-    buttons: [],
-    capture: false,
-    child: null,
-    delay: 0,
-    idle: null,
-    ref: null,
-    nested: [],
-    keyword: {},
-    callback: false
-  },
-  refSerialize: '44c87bcbcd964e4c152c035fa3da72bb'
-}
-[QUEUE_SE_ENVIO]:  {
-  ref: 'ans_f97d9f48-c0a9-469d-8573-4e358cafaa6c',
-  keyword: 'ans_e556af76-370f-4f76-a789-6fd9a9a2d02b',
-  answer: 'De que sede te comunicas?\n' +
-    'La 33\n' +
-    'Floresta\n' +
-    'Pedregal\n' +
-    'Sabaneta parque\n' +
-    'Sabaneta avenida\n' +
-    'Almendros\n' +
-    'San Joaquin\n' +
-    'Rionegro\n' +
-    'San Antonio De Prado',
+  ref: 'ans_1aa37dea-6919-499a-a4ea-fb4acc0077ca',
+  keyword: 'key_d2722c92-b27a-4380-84fc-3bda7fc91016',
+  answer: 'Selecciona cuál es el caso: \n1- Alarmas\n2- Cámaras\n3- DVR\n4- Televisores',
   options: {
     media: null,
     buttons: [],
@@ -248,100 +141,16 @@
     keyword: {},
     callback: true
   },
-  refSerialize: 'ce3a2a97be82793971e78d740858133a'
+  refSerialize: '1492894814cd26a07d0f4362f991012c'
 }
 [handleMsg]:  {
   key: {
     remoteJid: '573212380006@s.whatsapp.net',
     fromMe: false,
-    id: '3A44F58B13FEDE36D136',
+    id: '3A7B0AC01ABC83DCB621',
     participant: undefined
   },
-  messageTimestamp: 1717182855,
-  pushName: '~AndresM🤪~',
-  broadcast: false,
-  message: Message {
-    conversation: 'Floresta',
-    messageContextInfo: MessageContextInfo {
-      deviceListMetadata: [DeviceListMetadata],
-      deviceListMetadataVersion: 2
-    }
-  },
-  body: 'Floresta',
-  from: '573212380006'
-}
-[QUEUE_SE_ENVIO]:  {
-  ref: 'ans_87cafb4d-8027-49c9-a5a6-90ac6841dacd',
-  keyword: 'ans_f97d9f48-c0a9-469d-8573-4e358cafaa6c',
-  answer: 'ingresa el area donde se presenta el inconveniente: \n' +
-    'Administracion\n' +
-    'Lineal de cajas\n' +
-    'Recibo\n' +
-    'CCTV',
-  options: {
-    media: null,
-    buttons: [],
-    capture: false,
-    child: null,
-    delay: 0,
-    idle: null,
-    ref: null,
-    nested: [],
-    keyword: {},
-    callback: false
-  },
-  refSerialize: '69d1f0d946c17c7456f12cb32ebfe534'
-}
-[handleMsg]:  {
-  key: {
-    remoteJid: '573212380006@s.whatsapp.net',
-    fromMe: false,
-    id: '3ABE0A7351A8B97AD3BE',
-    participant: undefined
-  },
-  messageTimestamp: 1717182863,
-  pushName: '~AndresM🤪~',
-  broadcast: false,
-  message: Message {
-    conversation: 'Recibo',
-    messageContextInfo: MessageContextInfo {
-      deviceListMetadata: [DeviceListMetadata],
-      deviceListMetadataVersion: 2
-    }
-  },
-  body: 'Recibo',
-  from: '573212380006'
-}
-[QUEUE_SE_ENVIO]:  {
-  ref: 'ans_8b0143b7-f482-4f8c-8a51-9ebe18d06f1d',
-  keyword: 'key_64089cb0-f59d-4f12-92f5-8293c63e16c2',
-  answer: 'Selecciona cual es el caso: \n' +
-    '1- Equipo no enciende\n' +
-    '2- Impresora no imprime\n' +
-    '3- Equipo sin conexion o navegacion\n' +
-    '4- Sin acceso a SIEZA InterPrice',
-  options: {
-    media: null,
-    buttons: [],
-    capture: true,
-    child: null,
-    delay: 0,
-    idle: null,
-    ref: null,
-    nested: [],
-    keyword: {},
-    callback: true
-  },
-  refSerialize: '83d0c67c0e796f23a3ccdfe20638c9c4'
-}
-[handleMsg]:  {
-  key: {
-    remoteJid: '573212380006@s.whatsapp.net',
-    fromMe: false,
-    id: '3A9B4B882146E42FC564',
-    participant: undefined
-  },
-  messageTimestamp: 1717182888,
+  messageTimestamp: 1717186845,
   pushName: '~AndresM🤪~',
   broadcast: false,
   message: Message {
@@ -355,9 +164,9 @@
   from: '573212380006'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_c7e11e56-32a3-4f90-ab9c-fad4504578c7',
-  keyword: 'ans_8b0143b7-f482-4f8c-8a51-9ebe18d06f1d',
-  answer: 'Escribe una breve descripcion del caso: ',
+  ref: 'ans_d28d7392-7018-47eb-84dd-a30d0805aa1b',
+  keyword: 'ans_1aa37dea-6919-499a-a4ea-fb4acc0077ca',
+  answer: 'Escribe una breve descripción del caso: ',
   options: {
     media: null,
     buttons: [],
@@ -370,130 +179,5 @@
     keyword: {},
     callback: false
   },
-  refSerialize: 'e365a2054abbbd0361d3208b10c95606'
-}
-[handleMsg]:  {
-  key: {
-    remoteJid: '573212380006@s.whatsapp.net',
-    fromMe: false,
-    id: '3A43D8AD1BF200120B2F',
-    participant: undefined
-  },
-  messageTimestamp: 1717182917,
-  pushName: '~AndresM🤪~',
-  broadcast: false,
-  message: Message {
-    conversation: 'No tengo acceso a siesa',
-    messageContextInfo: MessageContextInfo {
-      deviceListMetadata: [DeviceListMetadata],
-      deviceListMetadataVersion: 2
-    }
-  },
-  body: 'No tengo acceso a siesa',
-  from: '573212380006'
-}
-[handleMsg]:  {
-  key: {
-    remoteJid: '573212380006@s.whatsapp.net',
-    fromMe: false,
-    id: '3A47C7C6F2FEA9B903BE',
-    participant: undefined
-  },
-  messageTimestamp: 1717184905,
-  pushName: '~AndresM🤪~',
-  broadcast: false,
-  message: Message {
-    conversation: 'Buenas!',
-    messageContextInfo: MessageContextInfo {
-      deviceListMetadata: [DeviceListMetadata],
-      deviceListMetadataVersion: 2
-    }
-  },
-  body: 'Buenas!',
-  from: '573212380006'
-}
-[handleMsg]:  {
-  key: {
-    remoteJid: '573212380006@s.whatsapp.net',
-    fromMe: false,
-    id: '3A24B54C6F388E351098',
-    participant: undefined
-  },
-  messageTimestamp: 1717184938,
-  pushName: '~AndresM🤪~',
-  broadcast: false,
-  message: Message {
-    conversation: 'Hola',
-    messageContextInfo: MessageContextInfo {
-      deviceListMetadata: [DeviceListMetadata],
-      deviceListMetadataVersion: 2
-    }
-  },
-  body: 'Hola',
-  from: '573212380006'
-}
-[QUEUE_SE_ENVIO]:  {
-  ref: 'ans_e556af76-370f-4f76-a789-6fd9a9a2d02b',
-  keyword: 'key_42ac1b88-6219-4fbd-919c-c09a7a014335',
-  answer: 'Bienvenido a sopporte TI\ntenderemos tu solicitud',
-  options: {
-    media: null,
-    buttons: [],
-    capture: false,
-    child: null,
-    delay: 0,
-    idle: null,
-    ref: null,
-    nested: [],
-    keyword: {},
-    callback: false
-  },
-  refSerialize: '44c87bcbcd964e4c152c035fa3da72bb'
-}
-[QUEUE_SE_ENVIO]:  {
-  ref: 'ans_f97d9f48-c0a9-469d-8573-4e358cafaa6c',
-  keyword: 'ans_e556af76-370f-4f76-a789-6fd9a9a2d02b',
-  answer: 'De que sede te comunicas?\n' +
-    'La 33\n' +
-    'Floresta\n' +
-    'Pedregal\n' +
-    'Sabaneta parque\n' +
-    'Sabaneta avenida\n' +
-    'Almendros\n' +
-    'San Joaquin\n' +
-    'Rionegro\n' +
-    'San Antonio De Prado',
-  options: {
-    media: null,
-    buttons: [],
-    capture: true,
-    child: null,
-    delay: 0,
-    idle: null,
-    ref: null,
-    nested: [],
-    keyword: {},
-    callback: true
-  },
-  refSerialize: 'ce3a2a97be82793971e78d740858133a'
-}
-[handleMsg]:  {
-  key: {
-    remoteJid: '573212380006@s.whatsapp.net',
-    fromMe: false,
-    id: '3A529389A19E212F0DB0',
-    participant: undefined
-  },
-  messageTimestamp: 1717184950,
-  pushName: '~AndresM🤪~',
-  broadcast: false,
-  message: Message {
-    conversation: 'Hola',
-    messageContextInfo: MessageContextInfo {
-      deviceListMetadata: [DeviceListMetadata],
-      deviceListMetadataVersion: 2
-    }
-  },
-  body: 'Hola',
-  from: '573212380006'
+  refSerialize: '035cf51ca0d85a0c7081ea6fafc49efc'
 }
