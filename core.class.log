@@ -1,0 +1,183 @@
+[handleMsg]:  {
+  key: {
+    remoteJid: '573212380006@s.whatsapp.net',
+    fromMe: false,
+    id: '3AFA32C5B7D65C66FFE9',
+    participant: undefined
+  },
+  messageTimestamp: 1717186809,
+  pushName: '~AndresM🤪~',
+  broadcast: false,
+  message: Message {
+    conversation: 'Hola',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'Hola',
+  from: '573212380006'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_0fb848d7-0e9b-4768-b269-fdc4716c9254',
+  keyword: 'key_29926aac-52a7-4529-92a2-5a1ef98225dc',
+  answer: 'Bienvenido a soporte TI\natenderemos tu solicitud',
+  options: {
+    media: null,
+    buttons: [],
+    capture: false,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: false
+  },
+  refSerialize: '09cd228ad1814826fa9b8a479428296e'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_d5730f0d-2685-4da0-9972-65b2b052a78f',
+  keyword: 'ans_0fb848d7-0e9b-4768-b269-fdc4716c9254',
+  answer: '¿De qué sede te comunicas?\n' +
+    'La 33\n' +
+    'Floresta\n' +
+    'Pedregal\n' +
+    'Sabaneta parque\n' +
+    'Sabaneta avenida\n' +
+    'Almendros\n' +
+    'San Joaquin\n' +
+    'Rionegro\n' +
+    'San Antonio De Prado',
+  options: {
+    media: null,
+    buttons: [],
+    capture: true,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: '66062a151907d01300749caab10069ef'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '573212380006@s.whatsapp.net',
+    fromMe: false,
+    id: '3A5A2848E8FFD927AFD7',
+    participant: undefined
+  },
+  messageTimestamp: 1717186827,
+  pushName: '~AndresM🤪~',
+  broadcast: false,
+  message: Message {
+    conversation: 'Pedregal',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'Pedregal',
+  from: '573212380006'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_ea810721-cdf9-4f4f-8521-d46b7267a85a',
+  keyword: 'ans_d5730f0d-2685-4da0-9972-65b2b052a78f',
+  answer: 'Ingresa el área donde se presenta el inconveniente: \n' +
+    'Administracion\n' +
+    'Lineal de cajas\n' +
+    'Recibo\n' +
+    'CCTV',
+  options: {
+    media: null,
+    buttons: [],
+    capture: false,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: false
+  },
+  refSerialize: 'd83007d383e0e693602c5c5d83ea123b'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '573212380006@s.whatsapp.net',
+    fromMe: false,
+    id: '3AB18D7E229F9372573E',
+    participant: undefined
+  },
+  messageTimestamp: 1717186839,
+  pushName: '~AndresM🤪~',
+  broadcast: false,
+  message: Message {
+    conversation: 'Cctv',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'Cctv',
+  from: '573212380006'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_1aa37dea-6919-499a-a4ea-fb4acc0077ca',
+  keyword: 'key_d2722c92-b27a-4380-84fc-3bda7fc91016',
+  answer: 'Selecciona cuál es el caso: \n1- Alarmas\n2- Cámaras\n3- DVR\n4- Televisores',
+  options: {
+    media: null,
+    buttons: [],
+    capture: true,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: '1492894814cd26a07d0f4362f991012c'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '573212380006@s.whatsapp.net',
+    fromMe: false,
+    id: '3A7B0AC01ABC83DCB621',
+    participant: undefined
+  },
+  messageTimestamp: 1717186845,
+  pushName: '~AndresM🤪~',
+  broadcast: false,
+  message: Message {
+    conversation: '4',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: '4',
+  from: '573212380006'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_d28d7392-7018-47eb-84dd-a30d0805aa1b',
+  keyword: 'ans_1aa37dea-6919-499a-a4ea-fb4acc0077ca',
+  answer: 'Escribe una breve descripción del caso: ',
+  options: {
+    media: null,
+    buttons: [],
+    capture: false,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: false
+  },
+  refSerialize: '035cf51ca0d85a0c7081ea6fafc49efc'
+}
