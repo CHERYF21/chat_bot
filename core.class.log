@@ -1,0 +1,187 @@
+[handleMsg]:  {
+  key: {
+    remoteJid: '573212380006@s.whatsapp.net',
+    fromMe: false,
+    id: '3A725DBDF5E1D1BBB655',
+    participant: undefined
+  },
+  messageTimestamp: 1717188849,
+  pushName: '~AndresM🤪~',
+  broadcast: false,
+  message: Message {
+    conversation: 'Hola',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'Hola',
+  from: '573212380006'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_6a31ee31-9c0c-453e-806e-41b49f3c4b74',
+  keyword: 'key_89531c3b-24d8-4bf9-9a3b-b86c90d5081e',
+  answer: 'Bienvenido a soporte TI\natenderemos tu solicitud',
+  options: {
+    media: null,
+    buttons: [],
+    capture: false,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: false
+  },
+  refSerialize: '0635b1f136d507e0966ba9f6cf12522d'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_c5f531da-1603-4b50-ad70-95d341c9a703',
+  keyword: 'ans_6a31ee31-9c0c-453e-806e-41b49f3c4b74',
+  answer: '¿De qué sede te comunicas?\n' +
+    'La 33\n' +
+    'Floresta\n' +
+    'Pedregal\n' +
+    'Sabaneta parque\n' +
+    'Sabaneta avenida\n' +
+    'Almendros\n' +
+    'San Joaquin\n' +
+    'Rionegro\n' +
+    'San Antonio De Prado',
+  options: {
+    media: null,
+    buttons: [],
+    capture: true,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: '9d4831df206e892993e21991c47d875c'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '573212380006@s.whatsapp.net',
+    fromMe: false,
+    id: '3AAD9EE627D3EC77186E',
+    participant: undefined
+  },
+  messageTimestamp: 1717188856,
+  pushName: '~AndresM🤪~',
+  broadcast: false,
+  message: Message {
+    conversation: 'Floresta!',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'Floresta!',
+  from: '573212380006'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_86ec68a3-62fd-40bf-b5a9-3b3cb7d51525',
+  keyword: 'ans_c5f531da-1603-4b50-ad70-95d341c9a703',
+  answer: 'Ingresa el área donde se presenta el inconveniente: \n' +
+    'Administracion\n' +
+    'Lineal de cajas\n' +
+    'Recibo\n' +
+    'CCTV',
+  options: {
+    media: null,
+    buttons: [],
+    capture: false,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: false
+  },
+  refSerialize: '676cd5b3df3dc1a53a77716c1126acef'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '573212380006@s.whatsapp.net',
+    fromMe: false,
+    id: '3ACB42CE3495875B6192',
+    participant: undefined
+  },
+  messageTimestamp: 1717188864,
+  pushName: '~AndresM🤪~',
+  broadcast: false,
+  message: Message {
+    conversation: 'Recibo',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'Recibo',
+  from: '573212380006'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_e300a502-d16a-4121-85dd-a418b825b74c',
+  keyword: 'key_84e40220-3a2e-469b-95d2-3ae57d567447',
+  answer: 'Selecciona cuál es el caso: \n' +
+    '1- Equipo no enciende\n' +
+    '2- Impresora no imprime\n' +
+    '3- Equipo sin conexión o navegación\n' +
+    '4- Sin acceso a SIEZA InterPrice',
+  options: {
+    media: null,
+    buttons: [],
+    capture: true,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: '3cd57205728b333a3399fc49ef6b0a2b'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '573212380006@s.whatsapp.net',
+    fromMe: false,
+    id: '3AED6B213B316B6EBD48',
+    participant: undefined
+  },
+  messageTimestamp: 1717188886,
+  pushName: '~AndresM🤪~',
+  broadcast: false,
+  message: Message {
+    conversation: '3',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: '3',
+  from: '573212380006'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_ece11c06-4467-4b32-815e-324792dbe81f',
+  keyword: 'ans_e300a502-d16a-4121-85dd-a418b825b74c',
+  answer: 'Escribe una breve descripción del caso: ',
+  options: {
+    media: null,
+    buttons: [],
+    capture: true,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: '87b92f81b9a9be10e6af5ab530a197cc'
+}
