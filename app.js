@@ -9,7 +9,7 @@ const axios = require('axios')
  */
 const MYSQL_DB_HOST = "localhost";
 const MYSQL_DB_USER = "root";
-const MYSQL_DB_PASSWORD = "Wmurillo66*";
+const MYSQL_DB_PASSWORD = "root";
 const MYSQL_DB_NAME = "chat_org";
 const MYSQL_DB_PORT = "3306";
 
@@ -182,7 +182,9 @@ const CCTV = addKeyword(['CCTV', 'Cctv', 'cctv'])
         console.log('mensaje entrante', ctx.body);
         await createGLPITicket('Problema en CCTV', ctx.body);
     })
-    .addAnswer(['Escribe una breve descripción del caso: '])
+    .addAnswer(['Escribe una breve descripción del caso: '], { capture: true }, (ctx) => {
+        console.log("descripción: ", ctx.body);
+    })
 
 const main = async () => {
     const adapterDB = new MySQLAdapter({
