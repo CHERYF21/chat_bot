@@ -177,12 +177,14 @@
     media: null,
     buttons: [],
     capture: true,
+    capture: true,
     child: null,
     delay: 0,
     idle: null,
     ref: null,
     nested: [],
     keyword: {},
+    callback: true
     callback: true
   },
   refSerialize: '1cea88af4975a365b5625fa6b9ab9cf0'
