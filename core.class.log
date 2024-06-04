@@ -1,0 +1,189 @@
+[handleMsg]:  {
+  key: {
+    remoteJid: '573113884877@s.whatsapp.net',
+    fromMe: false,
+    id: '3D1DBB163612E4FA4BA3029C73BAF65C',
+    participant: undefined
+  },
+  messageTimestamp: 1717460884,
+  pushName: 'Cheryf',
+  broadcast: false,
+  message: Message {
+    conversation: 'Hola',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'Hola',
+  from: '573113884877'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_a11d5011-6d09-445b-8fd0-9cca9c1b78f2',
+  keyword: 'key_f8c7ed75-a14a-4de5-979a-960ffe64fd9a',
+  answer: 'Bienvenido a soporte TI\natenderemos tu solicitud',
+  options: {
+    media: null,
+    buttons: [],
+    capture: false,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: false
+  },
+  refSerialize: '6b8952c9b46f9016ca5c7a1fb40b74bd'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_dbfc9d84-b34f-4434-bacc-6a12fb744c17',
+  keyword: 'ans_a11d5011-6d09-445b-8fd0-9cca9c1b78f2',
+  answer: '¿De qué sede te comunicas?\n' +
+    'La 33\n' +
+    'Floresta\n' +
+    'Pedregal\n' +
+    'Sabaneta parque\n' +
+    'Sabaneta avenida\n' +
+    'Almendros\n' +
+    'San Joaquin\n' +
+    'Rionegro\n' +
+    'San Antonio De Prado',
+  options: {
+    media: null,
+    buttons: [],
+    capture: true,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: 'c521fbc5d4587b06fa796c926914604f'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '573113884877@s.whatsapp.net',
+    fromMe: false,
+    id: '62B7154A172DBA81DBA4BED5276367EC',
+    participant: undefined
+  },
+  messageTimestamp: 1717460887,
+  pushName: 'Cheryf',
+  broadcast: false,
+  message: Message {
+    conversation: 'La 33',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'La 33',
+  from: '573113884877'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_02cd8873-2ad0-4acf-9ac4-b17e8c3daf4f',
+  keyword: 'ans_dbfc9d84-b34f-4434-bacc-6a12fb744c17',
+  answer: 'Ingresa el área donde se presenta el inconveniente: \n' +
+    'Administración\n' +
+    'Lineal de cajas\n' +
+    'Recibo\n' +
+    'CCTV',
+  options: {
+    media: null,
+    buttons: [],
+    capture: false,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: false
+  },
+  refSerialize: '4800dea65b72185ccc245f64accad10e'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '573113884877@s.whatsapp.net',
+    fromMe: false,
+    id: '84FE571D02360A3A6F71FE58E1B25E99',
+    participant: undefined
+  },
+  messageTimestamp: 1717460892,
+  pushName: 'Cheryf',
+  broadcast: false,
+  message: Message {
+    conversation: 'Administración',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'Administración',
+  from: '573113884877'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_714bee3f-7deb-4204-b678-6b247256a31b',
+  keyword: 'key_b4b1d033-54e5-492b-9fef-6ae33f284748',
+  answer: 'Selecciona cuál es el caso: \n' +
+    '1- Impresora no imprime\n' +
+    '2- Equipo sin conexión o navegación\n' +
+    '3- Sin acceso a SIEZA Interprice\n' +
+    '4- Monarch no imprime\n' +
+    '5- Equipo no enciende\n' +
+    '6-Emisora no suena',
+  options: {
+    media: null,
+    buttons: [],
+    capture: true,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: 'ed33d86ecbd5e110f564015c5be4ba0e'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '573113884877@s.whatsapp.net',
+    fromMe: false,
+    id: '0C0AC98B3A53D8AC747D179A441AF906',
+    participant: undefined
+  },
+  messageTimestamp: 1717460894,
+  pushName: 'Cheryf',
+  broadcast: false,
+  message: Message {
+    conversation: '1',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: '1',
+  from: '573113884877'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_67a97991-ceb6-413f-be3d-44232d0c8423',
+  keyword: 'ans_714bee3f-7deb-4204-b678-6b247256a31b',
+  answer: 'Escribe una descripción del problema: ',
+  options: {
+    media: null,
+    buttons: [],
+    capture: true,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: '1cea88af4975a365b5625fa6b9ab9cf0'
+}

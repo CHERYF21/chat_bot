@@ -7,6 +7,9 @@
 
 /bot_sessions
 
+/core.class.log
+/queue.class.log
+
 # testing
 /coverage
 
