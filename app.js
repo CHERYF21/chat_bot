@@ -177,11 +177,8 @@ const AdminFiltro = addKeyword(["Administración", "administracion"])
         DescAdmin =
           ctx.message.imageMessage.caption || "imagen recinida sin descripcion";
       }
-      console.log("descripción admin: ", DescAdmin);
-      await createGLPITicket(
-        "Descripción del problema en Administracion: ",
-        ctx.body
-      );
+      console.log("descripción admin: ", DescAdmin, imageFilePath);
+      await createGLPITicket("Descripción del problema en Administracion: ",DescAdmin, imageFilePath);
     }
   )
   .addAnswer(
@@ -229,10 +226,7 @@ const Lineal = addKeyword(["Lineal de cajas", "lineal de cajas"])
       }
       console.log("descripción admin: ", DescLineal);
       console.log("descripción: ", ctx.body);
-      await createGLPITicket(
-        "Descripción del problema en Lineal de Cajas",
-        ctx.body
-      );
+      await createGLPITicket("Descripción del problema en Lineal de Cajas",DescLineal, imageFilePath);
     }
   )
   .addAnswer(
@@ -278,7 +272,7 @@ const Recibo = addKeyword(["Recibo", "recibo"])
           ctx.message.imageMessage.caption || "imagen recinida sin descripcion";
       }
       console.log("descripción: ", DescRecibo);
-      await createGLPITicket("Descripción del problema en Recibo", ctx.body);
+      await createGLPITicket("Descripción del problema en Recibo", DescRecibo, imageFilePath);
     }
   )
   .addAnswer("En un promedio de 10 min recibiras respuesta");
@@ -321,7 +315,7 @@ const CCTV = addKeyword(["CCTV", "Cctv", "cctv"])
           ctx.message.imageMessage.caption || "imagen recinida sin descripcion";
       }
       console.log("descripción: ", DescCCTV);
-      await createGLPITicket("Descripción del problema en Recibo", ctx.body);
+      await createGLPITicket("Descripción del problema en Recibo", DescCCTV, imageFilePath);
     }
   )
   .addAnswer("En un promedio de 10 min recibiras respuesta");
