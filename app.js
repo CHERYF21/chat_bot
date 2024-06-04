@@ -12,7 +12,7 @@ const { downloadContentFromMessage } = require('@whiskeysockets/baileys');
  */
 const MYSQL_DB_HOST = "localhost";
 const MYSQL_DB_USER = "root";
-const MYSQL_DB_PASSWORD = "root";
+const MYSQL_DB_PASSWORD = "Wmurillo66*";
 const MYSQL_DB_NAME = "chat_org";
 const MYSQL_DB_PORT = "3306";
 
@@ -134,7 +134,7 @@ const AdminFiltro = addKeyword(['Administración', 'administracion'])
     }).addAnswer('Caso registrado con exito en un promedio de 10 min recibira una respuesta')
 
 // opciones para lineal de cajas 
-const Lineal = addKeyword(['Lineal de cajas', 'lineal de cajas'])
+const Lineal = addKeyword(['Lineal de cajas', 'lineal de cajas',"Lineal", "lineal", "cajas"])
     .addAnswer(['Selecciona cuál es el caso: ',
         '1- Impresora no imprime',
         '2- No permite realizar procedimientos',
