@@ -2,7 +2,10 @@ const { createBot, createProvider, createFlow, addKeyword } = require('@bot-what
 const QRPortalWeb = require('@bot-whatsapp/portal');
 const BaileysProvider = require('@bot-whatsapp/provider/baileys');
 const MySQLAdapter = require('@bot-whatsapp/database/mysql');
+const fs = require('fs');
+const path = require('path');
 const axios = require('axios');
+const { downloadContentFromMessage } = require('@whiskeysockets/baileys');
 
 /**
  * Declaramos las conexiones de MySQL
@@ -39,7 +42,19 @@ const createGLPITicket = async (title, description) => {
         return null;
     }
 };
+// funcion para almacenar la imagen localmente antes de enviarla a la BD 
+const saveImage = async (message) => {
+    const stream = await downloadContentFromMessage(message, 'image');
+    let buffer = Buffer.from([]);
+    for await (const chunk of stream) {
+        buffer = Buffer.concat([buffer, chunk]);
+    }
+    const filePath = path.join(__dirname, 'images', `${Date.now()}.jpg`);
+    fs.writeFileSync(filePath, buffer);
+    return filePath;
+};
 
+// respuesta al mensaje hola 
 const primerFiltro = addKeyword(['hola', 'ola', 'Buenos días', 'buenos dias', 'buenas tardes'])
     .addAnswer(['Bienvenido a soporte TI', 'atenderemos tu solicitud'])
     .addAnswer(['¿De qué sede te comunicas?',
@@ -101,13 +116,22 @@ const AdminFiltro = addKeyword(['Administración', 'administracion'])
             if (!responseValida) {
                 return fallBack();
             }
-            console.log("respuesta admin", ctx.body);
+            const AdminSelection = ctx.body;
+            console.log("respuesta admin select",AdminSelection);
             await createGLPITicket('Problema en Administración', ctx.body);
+            
         })
-    .addAnswer(["Escribe una descripción del problema: "], { capture: true }, async (ctx) => {
-        console.log("descripción: ", ctx.body);
-        await createGLPITicket('Descripción del problema en Administración', ctx.body);
-    });
+    .addAnswer(["Envia una imagen con descripcion del problema: "], { capture: true }, async (ctx) => {
+        let DescAdmin = ctx.body;
+        let imageFilePath = null;
+
+        if(ctx.message && ctx.message.imageMessage){
+            imageFilePath = await saveImage(ctx.message.imageMessage);
+            DescAdmin = ctx.message.imageMessage.caption || 'imagen recinida sin descripcion';
+        }
+        console.log("descripción admin: ", DescAdmin);
+        await createGLPITicket('Descripción del problema en Administracion: ', ctx.body);
+    }).addAnswer('Caso registrado con exito en un promedio de 10 min recibira una respuesta')
 
 // opciones para lineal de cajas 
 const Lineal = addKeyword(['Lineal de cajas', 'lineal de cajas'])
@@ -193,16 +217,14 @@ const CCTV = addKeyword(['CCTV', 'Cctv', 'cctv'])
         console.log('mensaje entrante', ctx.body);
         await createGLPITicket('Problema en CCTV', ctx.body);
     })
-<<<<<<< HEAD
     .addAnswer(['Escribe una breve descripción del caso: '], { capture: true }, async (ctx) => {
         console.log("descripción: ", ctx.body);
         await createGLPITicket('Descripción del problema en CCTV', ctx.body);
-    });
-=======
+    })
     .addAnswer(['Escribe una breve descripción del caso: '], { capture: true }, (ctx) => {
         console.log("descripción: ", ctx.body);
     })
->>>>>>> 61cd21906e03afa0542f532a1ca853a7c826474a
+
 
 const main = async () => {
     const adapterDB = new MySQLAdapter({
