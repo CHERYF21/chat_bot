@@ -17,7 +17,7 @@ const { downloadContentFromMessage } = require("@whiskeysockets/baileys");
  */
 const MYSQL_DB_HOST = "localhost";
 const MYSQL_DB_USER = "root";
-const MYSQL_DB_PASSWORD = "root";
+const MYSQL_DB_PASSWORD = "Wmurillo66*";
 const MYSQL_DB_NAME = "chat_org";
 const MYSQL_DB_PORT = "3306";
 
