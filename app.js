@@ -49,7 +49,7 @@ const saveImage = async (message) => {
     for await (const chunk of stream) {
         buffer = Buffer.concat([buffer, chunk]);
     }
-    const filePath = path.join(__dirname, 'images', `${Date.now()}.jpg`);
+    const filePath = path.join(__dirname, 'images', `${Date.now()}.jpg`); //nombre de la carpeta donde sevan almacenar las imagenes
     fs.writeFileSync(filePath, buffer);
     return filePath;
 };
@@ -160,9 +160,18 @@ const Lineal = addKeyword(['Lineal de cajas', 'lineal de cajas'])
         await createGLPITicket('Problema en Lineal de Cajas', ctx.body);
     })
     .addAnswer(['Escribe una breve descripción del caso: '], { capture: true }, async (ctx) => {
+        let DescLineal = ctx.body;
+        let imageFilePath = null;
+
+        if(ctx.message && ctx.message.imageMessage){
+            imageFilePath = await saveImage(ctx.message.imageMessage);
+            DescLineal = ctx.message.imageMessage.caption || 'imagen recinida sin descripcion';
+        }
+        console.log("descripción admin: ", DescLineal);
         console.log("descripción: ", ctx.body);
         await createGLPITicket('Descripción del problema en Lineal de Cajas', ctx.body);
-    });
+    })
+    .addAnswer('Caso registrado con exito en un promedio de 10 min recibira una respuesta')
 
 // Opciones para recibo
 const Recibo = addKeyword(['Recibo', 'recibo'])
@@ -189,9 +198,16 @@ const Recibo = addKeyword(['Recibo', 'recibo'])
         await createGLPITicket('Problema en Recibo', ctx.body);
     })
     .addAnswer(['Escribe una breve descripción del caso: '], { capture: true }, async (ctx) => {
-        console.log("descripción: ", ctx.body);
+        let DescRecibo = ctx.body;
+        let imageFilePath = null;
+
+        if(ctx.message && ctx.message.imageMessage){
+            imageFilePath = await saveImage(ctx.message.imageMessage);
+            DescRecibo = ctx.message.imageMessage.caption || 'imagen recinida sin descripcion';
+        }
+        console.log("descripción: ", DescRecibo);
         await createGLPITicket('Descripción del problema en Recibo', ctx.body);
-    });
+    }).addAnswer('En un promedio de 10 min recibiras respuesta')
 
 // Opciones para CCTV
 const CCTV = addKeyword(['CCTV', 'Cctv', 'cctv'])
@@ -221,9 +237,17 @@ const CCTV = addKeyword(['CCTV', 'Cctv', 'cctv'])
         console.log("descripción: ", ctx.body);
         await createGLPITicket('Descripción del problema en CCTV', ctx.body);
     })
-    .addAnswer(['Escribe una breve descripción del caso: '], { capture: true }, (ctx) => {
-        console.log("descripción: ", ctx.body);
-    })
+    .addAnswer(['Escribe una breve descripción del caso: '], { capture: true }, async (ctx) => {
+        let DescCCTV = ctx.body;
+        let imageFilePath = null;
+
+        if(ctx.message && ctx.message.imageMessage){
+            imageFilePath = await saveImage(ctx.message.imageMessage);
+            DescCCTV = ctx.message.imageMessage.caption || 'imagen recinida sin descripcion';
+        }
+        console.log("descripción: ", DescCCTV);
+        await createGLPITicket('Descripción del problema en Recibo', ctx.body);
+    }).addAnswer('En un promedio de 10 min recibiras respuesta')
 
 
 const main = async () => {
