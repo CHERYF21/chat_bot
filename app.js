@@ -59,7 +59,10 @@ const primerFiltro = addKeyword(['hola', 'ola', 'Buenos días', 'buenos dias', '
                 'pedregal',
                 'sabaneta parque',
                 'sabaneta avenida',
-                'almendros'];
+                'almendros',
+                'san joaquin',
+                'rionegro',
+                'san antonio de prado'];
 
             const sedevalida = sedes.some(sede => userInput.includes(sede.toLowerCase()));
 
@@ -69,14 +72,14 @@ const primerFiltro = addKeyword(['hola', 'ola', 'Buenos días', 'buenos dias', '
             console.log('mensaje entrante', ctx.body)
         })
     .addAnswer(['Ingresa el área donde se presenta el inconveniente: ',
-        'Administracion',
+        'Administración',
         'Lineal de cajas',
         'Recibo',
         'CCTV'
     ])
 
 // opciones para administracion 
-const AdminFiltro = addKeyword(['Administracion', 'administracion'])
+const AdminFiltro = addKeyword(['Administración', 'administracion'])
     .addAnswer(['Selecciona cuál es el caso: ',
         '1- Impresora no imprime',
         '2- Equipo sin conexión o navegación',
@@ -106,7 +109,7 @@ const AdminFiltro = addKeyword(['Administracion', 'administracion'])
     })
 
 // opciones para lineal de cajas 
-const Lineal = addKeyword(['Lineal cajas', 'lineal cajas'])
+const Lineal = addKeyword(['Lineal de cajas', 'lineal de cajas'])
     .addAnswer(['Selecciona cuál es el caso: ',
         '1- Impresora no imprime',
         '2- No permite realizar procedimientos',
