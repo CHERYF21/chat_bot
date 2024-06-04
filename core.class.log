@@ -2,25 +2,25 @@
   key: {
     remoteJid: '573212380006@s.whatsapp.net',
     fromMe: false,
-    id: '3A7C4AC1B7C47D39BDD1',
+    id: '3A767EF09A97134C53CE',
     participant: undefined
   },
-  messageTimestamp: 1717504700,
+  messageTimestamp: 1717516586,
   pushName: '~AndresM🤪~',
   broadcast: false,
   message: Message {
-    conversation: 'Hola',
+    conversation: 'Buenos días!',
     messageContextInfo: MessageContextInfo {
       deviceListMetadata: [DeviceListMetadata],
       deviceListMetadataVersion: 2
     }
   },
-  body: 'Hola',
+  body: 'Buenos días!',
   from: '573212380006'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_9032e6c9-e104-4f4b-b13f-1efe142c3b53',
-  keyword: 'key_0fa33997-81f8-4b57-92fc-9e7ca3c8ad93',
+  ref: 'ans_72b92958-0255-414e-9cfe-f41c4051d7a0',
+  keyword: 'key_3c52066b-3bad-4bf7-a0f7-e2405ea7d88f',
   answer: 'Bienvenido a soporte TI\natenderemos tu solicitud',
   options: {
     media: null,
@@ -34,11 +34,11 @@
     keyword: {},
     callback: false
   },
-  refSerialize: '827c4a9c4e0ac6c84680e7a2418fc9ab'
+  refSerialize: 'e0c8b059c5d081ec2869e5d5215842cb'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_cad19eb6-54bb-4719-a068-2c90108217d5',
-  keyword: 'ans_9032e6c9-e104-4f4b-b13f-1efe142c3b53',
+  ref: 'ans_d4990e88-a974-476a-88bf-1cfc5ae46562',
+  keyword: 'ans_72b92958-0255-414e-9cfe-f41c4051d7a0',
   answer: '¿De qué sede te comunicas?\n' +
     'La 33\n' +
     'Floresta\n' +
@@ -61,31 +61,51 @@
     keyword: {},
     callback: true
   },
-  refSerialize: '6632386919cf0f97a8211db52f698ca6'
+  refSerialize: '7b44e22987e5b43d69ab4f2bf879f6c6'
 }
 [handleMsg]:  {
   key: {
     remoteJid: '573212380006@s.whatsapp.net',
     fromMe: false,
-    id: '3A53583A49AB217B4AFE',
+    id: '3A77D0E0FFDAE0BE75D9',
     participant: undefined
   },
-  messageTimestamp: 1717504709,
+  messageTimestamp: 1717516596,
   pushName: '~AndresM🤪~',
   broadcast: false,
   message: Message {
-    conversation: 'Almendros',
+    conversation: 'San Joaquín',
     messageContextInfo: MessageContextInfo {
       deviceListMetadata: [DeviceListMetadata],
       deviceListMetadataVersion: 2
     }
   },
-  body: 'Almendros',
+  body: 'San Joaquín',
+  from: '573212380006'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '573212380006@s.whatsapp.net',
+    fromMe: false,
+    id: '3A36AA142257C1202BC8',
+    participant: undefined
+  },
+  messageTimestamp: 1717516611,
+  pushName: '~AndresM🤪~',
+  broadcast: false,
+  message: Message {
+    conversation: 'Rionegro',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'Rionegro',
   from: '573212380006'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_cc9c2d0c-e69d-4b29-a57b-f265590df916',
-  keyword: 'ans_cad19eb6-54bb-4719-a068-2c90108217d5',
+  ref: 'ans_04708a2a-f2b1-4dcb-b5d0-34e3a5670ecd',
+  keyword: 'ans_d4990e88-a974-476a-88bf-1cfc5ae46562',
   answer: 'Ingresa el área donde se presenta el inconveniente: \n' +
     'Administración\n' +
     'Lineal de cajas\n' +
@@ -94,49 +114,6 @@
   options: {
     media: null,
     buttons: [],
-    capture: false,
-    child: null,
-    delay: 0,
-    idle: null,
-    ref: null,
-    nested: [],
-    keyword: {},
-    callback: false
-  },
-  refSerialize: '469ffadf06624ffe7026200cb075957b'
-}
-[handleMsg]:  {
-  key: {
-    remoteJid: '573212380006@s.whatsapp.net',
-    fromMe: false,
-    id: '3AD5B1D00414D05A9564',
-    participant: undefined
-  },
-  messageTimestamp: 1717504723,
-  pushName: '~AndresM🤪~',
-  broadcast: false,
-  message: Message {
-    conversation: 'Lineal',
-    messageContextInfo: MessageContextInfo {
-      deviceListMetadata: [DeviceListMetadata],
-      deviceListMetadataVersion: 2
-    }
-  },
-  body: 'Lineal',
-  from: '573212380006'
-}
-[QUEUE_SE_ENVIO]:  {
-  ref: 'ans_27732fed-bf3a-48b0-a346-b55f383b260b',
-  keyword: 'key_e52e7e4d-45db-49ae-92b3-295afd32001d',
-  answer: 'Selecciona cuál es el caso: \n' +
-    '1- Impresora no imprime\n' +
-    '2- No permite realizar procedimientos\n' +
-    '3- Equipo sin conexión o navegación\n' +
-    '4- Balanza no pesa o descalibrada\n' +
-    '5- Datafono dice pos sin conexión',
-  options: {
-    media: null,
-    buttons: [],
     capture: true,
     child: null,
     delay: 0,
@@ -146,200 +123,16 @@
     keyword: {},
     callback: true
   },
-  refSerialize: '38bd92ca547bcd01dd04a3bcfe3f41a7'
+  refSerialize: 'd3ba7def84367d261904d336fb888f94'
 }
 [handleMsg]:  {
   key: {
     remoteJid: '573212380006@s.whatsapp.net',
     fromMe: false,
-    id: '3A583F5E00159C7D7CC8',
+    id: '3AF773EF98BF4C9DB623',
     participant: undefined
   },
-  messageTimestamp: 1717504738,
-  pushName: '~AndresM🤪~',
-  broadcast: false,
-  message: Message {
-    conversation: '1',
-    messageContextInfo: MessageContextInfo {
-      deviceListMetadata: [DeviceListMetadata],
-      deviceListMetadataVersion: 2
-    }
-  },
-  body: '1',
-  from: '573212380006'
-}
-[QUEUE_SE_ENVIO]:  {
-  ref: 'ans_019bf023-7b78-4492-894e-0337102cca49',
-  keyword: 'ans_27732fed-bf3a-48b0-a346-b55f383b260b',
-  answer: 'Escribe una breve descripción del caso: ',
-  options: {
-    media: null,
-    buttons: [],
-    capture: true,
-    child: null,
-    delay: 0,
-    idle: null,
-    ref: null,
-    nested: [],
-    keyword: {},
-    callback: true
-  },
-  refSerialize: '13108cb7bb59f091f04fd290fe63ebbb'
-}
-[handleMsg]:  {
-  key: {
-    remoteJid: '573212380006@s.whatsapp.net',
-    fromMe: false,
-    id: '3A1B318903670AF91B78',
-    participant: undefined
-  },
-  messageTimestamp: 1717504805,
-  pushName: '~AndresM🤪~',
-  broadcast: false,
-  message: Message {
-    imageMessage: ImageMessage {
-      interactiveAnnotations: [],
-      scanLengths: [Array],
-      url: 'https://mmg.whatsapp.net/v/t62.7118-24/29459669_1444616396167657_6755392948643696565_n.enc?ccb=11-4&oh=01_Q5AaIPeUYoL6Qx71IiiQiexXyBTHslHVpQUh_3Rzs-rrdf7S&oe=66866CBD&_nc_sid=5e03e0&mms3=true',
-      mimetype: 'image/jpeg',
-      caption: 'Empresaria presenta este problema',
-      fileSha256: [Uint8Array],
-      fileLength: [Long],
-      height: 720,
-      width: 1280,
-      mediaKey: [Uint8Array],
-      fileEncSha256: [Uint8Array],
-      directPath: '/v/t62.7118-24/29459669_1444616396167657_6755392948643696565_n.enc?ccb=11-4&oh=01_Q5AaIPeUYoL6Qx71IiiQiexXyBTHslHVpQUh_3Rzs-rrdf7S&oe=66866CBD&_nc_sid=5e03e0',
-      mediaKeyTimestamp: [Long],
-      jpegThumbnail: [Uint8Array],
-      firstScanSidecar: [Uint8Array],
-      firstScanLength: 4978,
-      scansSidecar: [Uint8Array],
-      midQualityFileSha256: [Uint8Array]
-    },
-    messageContextInfo: MessageContextInfo {
-      deviceListMetadata: [DeviceListMetadata],
-      deviceListMetadataVersion: 2
-    }
-  },
-  body: '_event_media__ce293c40-c371-40ce-b609-12ade0f51fdb',
-  from: '573212380006'
-}
-[handleMsg]:  {
-  key: {
-    remoteJid: '573212380006@s.whatsapp.net',
-    fromMe: false,
-    id: '3AB2D113AA81646B639A',
-    participant: undefined
-  },
-  messageTimestamp: 1717504931,
-  pushName: '~AndresM🤪~',
-  broadcast: false,
-  message: Message {
-    conversation: 'Hola!',
-    messageContextInfo: MessageContextInfo {
-      deviceListMetadata: [DeviceListMetadata],
-      deviceListMetadataVersion: 2
-    }
-  },
-  body: 'Hola!',
-  from: '573212380006'
-}
-[QUEUE_SE_ENVIO]:  {
-  ref: 'ans_9032e6c9-e104-4f4b-b13f-1efe142c3b53',
-  keyword: 'key_0fa33997-81f8-4b57-92fc-9e7ca3c8ad93',
-  answer: 'Bienvenido a soporte TI\natenderemos tu solicitud',
-  options: {
-    media: null,
-    buttons: [],
-    capture: false,
-    child: null,
-    delay: 0,
-    idle: null,
-    ref: null,
-    nested: [],
-    keyword: {},
-    callback: false
-  },
-  refSerialize: '827c4a9c4e0ac6c84680e7a2418fc9ab'
-}
-[QUEUE_SE_ENVIO]:  {
-  ref: 'ans_cad19eb6-54bb-4719-a068-2c90108217d5',
-  keyword: 'ans_9032e6c9-e104-4f4b-b13f-1efe142c3b53',
-  answer: '¿De qué sede te comunicas?\n' +
-    'La 33\n' +
-    'Floresta\n' +
-    'Pedregal\n' +
-    'Sabaneta parque\n' +
-    'Sabaneta avenida\n' +
-    'Almendros\n' +
-    'San Joaquin\n' +
-    'Rionegro\n' +
-    'San Antonio De Prado',
-  options: {
-    media: null,
-    buttons: [],
-    capture: true,
-    child: null,
-    delay: 0,
-    idle: null,
-    ref: null,
-    nested: [],
-    keyword: {},
-    callback: true
-  },
-  refSerialize: '6632386919cf0f97a8211db52f698ca6'
-}
-[handleMsg]:  {
-  key: {
-    remoteJid: '573212380006@s.whatsapp.net',
-    fromMe: false,
-    id: '3AE05AE84E91DE7350D0',
-    participant: undefined
-  },
-  messageTimestamp: 1717504936,
-  pushName: '~AndresM🤪~',
-  broadcast: false,
-  message: Message {
-    conversation: 'Floresta',
-    messageContextInfo: MessageContextInfo {
-      deviceListMetadata: [DeviceListMetadata],
-      deviceListMetadataVersion: 2
-    }
-  },
-  body: 'Floresta',
-  from: '573212380006'
-}
-[QUEUE_SE_ENVIO]:  {
-  ref: 'ans_cc9c2d0c-e69d-4b29-a57b-f265590df916',
-  keyword: 'ans_cad19eb6-54bb-4719-a068-2c90108217d5',
-  answer: 'Ingresa el área donde se presenta el inconveniente: \n' +
-    'Administración\n' +
-    'Lineal de cajas\n' +
-    'Recibo\n' +
-    'CCTV',
-  options: {
-    media: null,
-    buttons: [],
-    capture: false,
-    child: null,
-    delay: 0,
-    idle: null,
-    ref: null,
-    nested: [],
-    keyword: {},
-    callback: false
-  },
-  refSerialize: '469ffadf06624ffe7026200cb075957b'
-}
-[handleMsg]:  {
-  key: {
-    remoteJid: '573212380006@s.whatsapp.net',
-    fromMe: false,
-    id: '3A73D7A1E33F6AB05CC2',
-    participant: undefined
-  },
-  messageTimestamp: 1717504943,
+  messageTimestamp: 1717516648,
   pushName: '~AndresM🤪~',
   broadcast: false,
   message: Message {
@@ -353,8 +146,8 @@
   from: '573212380006'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_64c68fdb-008e-467d-96ee-cf0b0ddb7629',
-  keyword: 'key_470ce62b-c5c0-4bdf-8ffb-b9683700e38c',
+  ref: 'ans_d1ab6581-d119-4c7a-97b7-cedba7af374f',
+  keyword: 'key_cc9fa489-0dc3-41b8-9a04-9f6320356020',
   answer: 'Selecciona cuál es el caso: \n' +
     '1- Impresora no imprime\n' +
     '2- Equipo sin conexión o navegación\n' +
@@ -374,31 +167,31 @@
     keyword: {},
     callback: true
   },
-  refSerialize: 'cc17812c601b754bd5109fde9a53cc01'
+  refSerialize: '0cf3bf70159abd5bbb9fef8a7b7ebba4'
 }
 [handleMsg]:  {
   key: {
     remoteJid: '573212380006@s.whatsapp.net',
     fromMe: false,
-    id: '3ADB8C7CB22BF4299B67',
+    id: '3A5434FF11DE27786E57',
     participant: undefined
   },
-  messageTimestamp: 1717504955,
+  messageTimestamp: 1717516658,
   pushName: '~AndresM🤪~',
   broadcast: false,
   message: Message {
-    conversation: '4',
+    conversation: '2',
     messageContextInfo: MessageContextInfo {
       deviceListMetadata: [DeviceListMetadata],
       deviceListMetadataVersion: 2
     }
   },
-  body: '4',
+  body: '2',
   from: '573212380006'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_6f7318a1-96b4-4ed9-97d3-7484a2019bcf',
-  keyword: 'ans_64c68fdb-008e-467d-96ee-cf0b0ddb7629',
+  ref: 'ans_736ea35f-e207-4fd9-89a6-ff14c388b475',
+  keyword: 'ans_d1ab6581-d119-4c7a-97b7-cedba7af374f',
   answer: 'Envia una imagen con descripcion del problema: ',
   options: {
     media: null,
@@ -412,32 +205,31 @@
     keyword: {},
     callback: true
   },
-  refSerialize: 'ff219ad861fb0da3f841ade7a4e8a397'
+  refSerialize: 'd5ebea0634c9c0388e31369e8d469993'
 }
 [handleMsg]:  {
   key: {
     remoteJid: '573212380006@s.whatsapp.net',
     fromMe: false,
-    id: '3A1B5D5753D6DD953F6C',
+    id: '3ADD4BACE82E24B29EB3',
     participant: undefined
   },
-  messageTimestamp: 1717504968,
+  messageTimestamp: 1717516668,
   pushName: '~AndresM🤪~',
   broadcast: false,
   message: Message {
     imageMessage: ImageMessage {
       interactiveAnnotations: [],
       scanLengths: [Array],
-      url: 'https://mmg.whatsapp.net/v/t62.7118-24/29459669_1444616396167657_6755392948643696565_n.enc?ccb=11-4&oh=01_Q5AaIPeUYoL6Qx71IiiQiexXyBTHslHVpQUh_3Rzs-rrdf7S&oe=66866CBD&_nc_sid=5e03e0&mms3=true',
+      url: 'https://mmg.whatsapp.net/v/t62.7118-24/29459669_1444616396167657_6755392948643696565_n.enc?ccb=11-4&oh=01_Q5AaIJEUTOKt1f6OQHlPRC1sGxhjdfm2r4lvhYDSG_AUQZ9W&oe=6686A4FD&_nc_sid=5e03e0&mms3=true',
       mimetype: 'image/jpeg',
-      caption: 'No imprime',
       fileSha256: [Uint8Array],
       fileLength: [Long],
       height: 720,
       width: 1280,
       mediaKey: [Uint8Array],
       fileEncSha256: [Uint8Array],
-      directPath: '/v/t62.7118-24/29459669_1444616396167657_6755392948643696565_n.enc?ccb=11-4&oh=01_Q5AaIPeUYoL6Qx71IiiQiexXyBTHslHVpQUh_3Rzs-rrdf7S&oe=66866CBD&_nc_sid=5e03e0',
+      directPath: '/v/t62.7118-24/29459669_1444616396167657_6755392948643696565_n.enc?ccb=11-4&oh=01_Q5AaIJEUTOKt1f6OQHlPRC1sGxhjdfm2r4lvhYDSG_AUQZ9W&oe=6686A4FD&_nc_sid=5e03e0',
       mediaKeyTimestamp: [Long],
       jpegThumbnail: [Uint8Array],
       firstScanSidecar: [Uint8Array],
@@ -450,12 +242,12 @@
       deviceListMetadataVersion: 2
     }
   },
-  body: '_event_media__042b2530-efd4-4a9a-bd10-f21f88706cf3',
+  body: '_event_media__7ce026ed-2bc6-4cd4-859d-d8cd6ce34d00',
   from: '573212380006'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_9d5b35df-9cd9-4d1b-a502-4cf6efce57b7',
-  keyword: 'ans_6f7318a1-96b4-4ed9-97d3-7484a2019bcf',
+  ref: 'ans_072f4611-1c69-499a-8bf5-aea6c18308b4',
+  keyword: 'ans_736ea35f-e207-4fd9-89a6-ff14c388b475',
   answer: 'Caso registrado con exito en un promedio de 10 min recibira una respuesta',
   options: {
     media: null,
@@ -469,5 +261,5 @@
     keyword: {},
     callback: false
   },
-  refSerialize: '6981f4a30c69bca9955f7d417a910a3c'
+  refSerialize: 'bf0fc7bb05b34f783bec52ff2b4de3b2'
 }
