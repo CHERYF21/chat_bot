@@ -22,12 +22,13 @@ const MYSQL_DB_NAME = "chat_org";
 const MYSQL_DB_PORT = "3306";
 
 /**
- * Configuración de GLPI
+ * Credenciales de GLPI
  */
 const GLPI_API_URL = "http://localhost/glpi/apirest.php/";
 const GLPI_USER_TOKEN = "theiFbs0MHnLfo5lxTUdtHJqYyW00eqeZ9tItSay";
 const GLPI_API_TOKEN = "F8YETkJFPsW8SxEODJV9FQguCkPhcwUKT3T94kew";
 
+// verifica el token de la session 
 const getSessionToken = async () => {
   try {
     const response = await axios.get(`${GLPI_API_URL}/initSession`, {
@@ -45,7 +46,7 @@ const getSessionToken = async () => {
     return null;
   }
 };
-
+// crea ticket en el GLPI 
 const createGLPITicket = async (ticketData) => {
   const sessionToken = await getSessionToken();
   if (!sessionToken) {
@@ -86,7 +87,7 @@ const createGLPITicket = async (ticketData) => {
     return null;
   }
 };
-
+// almacena la imagen localmente 
 const saveImage = async (message) => {
   const stream = await downloadContentFromMessage(message, "image");
   let buffer = Buffer.from([]);
@@ -97,7 +98,7 @@ const saveImage = async (message) => {
   fs.writeFileSync(filePath, buffer);
   return filePath;
 };
-
+// almacena la data que ingresa el usuario
 const ticketData = {
   title: "",
   description: "",
@@ -106,7 +107,7 @@ const ticketData = {
   issue: "",
   images: [],
 };
-
+// filtro que response al primer Hola 
 const primerFiltro = addKeyword([
   "hola",
   "ola",
@@ -178,7 +179,7 @@ const primerFiltro = addKeyword([
       ticketData.area = userMenu;
     }
   );
-
+// opciones para administracion 
 const AdminFiltro = addKeyword(["Administración", "administracion"])
   .addAnswer(
     [
@@ -227,7 +228,7 @@ const AdminFiltro = addKeyword(["Administración", "administracion"])
   .addAnswer(
     "Caso registrado con exito en un promedio de 10 min recibira una respuesta"
   );
-
+// opciones para lineal de cajas 
 const Lineal = addKeyword(["Lineal de cajas", "lineal de cajas"])
   .addAnswer(
     [
@@ -273,7 +274,7 @@ const Lineal = addKeyword(["Lineal de cajas", "lineal de cajas"])
     }
   )
   .addAnswer("En un promedio de 10 min recibiras respuesta");
-
+// opciones para recibo 
 const Recibo = addKeyword(["Recibo", "recibo"])
   .addAnswer(
     [
@@ -304,7 +305,7 @@ const Recibo = addKeyword(["Recibo", "recibo"])
     { capture: true },
     async (ctx) => {
       let imageFilePath = null;
-
+// captura la imgen y la descripcion 
       if (ctx.message && ctx.message.imageMessage) {
         imageFilePath = await saveImage(ctx.message.imageMessage);
         ticketData.description =
