@@ -24,8 +24,8 @@ const MYSQL_DB_PORT = "3306";
 /**
  * Configuración de GLPI
  */
-const GLPI_API_URL = "http://127.0.0.1:8200/apirest.php";
-const GLPI_API_TOKEN = "PSeaV8EpdZnZzRxMAg3kJsilbBkq6BhdF8zucnlX";
+const GLPI_API_URL = "http://localhost:8200/apirest.php";
+const GLPI_API_TOKEN = "XruJiquZtNLMfL8EHGPvpeNSSz3GgVLecNG26WrE";
 
 const createGLPITicket = async (title, description) => {
   try {
