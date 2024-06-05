@@ -17,40 +17,71 @@ const { downloadContentFromMessage } = require("@whiskeysockets/baileys");
  */
 const MYSQL_DB_HOST = "localhost";
 const MYSQL_DB_USER = "root";
-const MYSQL_DB_PASSWORD = "Wmurillo66*";
+const MYSQL_DB_PASSWORD = "root";
 const MYSQL_DB_NAME = "chat_org";
 const MYSQL_DB_PORT = "3306";
 
 /**
  * Configuración de GLPI
  */
-const GLPI_API_URL = "http://localhost:8200/apirest.php";
-const GLPI_API_TOKEN = "XruJiquZtNLMfL8EHGPvpeNSSz3GgVLecNG26WrE";
-
-const createGLPITicket = async (title, description) => {
+const GLPI_API_URL = "http://localhost/glpi/apirest.php/";
+const GLPI_USER_TOKEN = "theiFbs0MHnLfo5lxTUdtHJqYyW00eqeZ9tItSay";
+const GLPI_API_TOKEN = "F8YETkJFPsW8SxEODJV9FQguCkPhcwUKT3T94kew";
+// VERIFICACION DE SESSION GLPI 
+const getSessionToken = async () => {
   try {
-    const response = await axios.post(
-      `${GLPI_API_URL}/ticket`,
-      {
-        input: {
-          name: title,
-          content: description,
-          status: 1, // Estado del ticket (1 para nuevo)
-        },
+    const response = await axios.get(`${GLPI_API_URL}/initSession`, {
+      headers: {
+        "Authorization": `user_token ${GLPI_USER_TOKEN}`,
+        "App-Token": GLPI_API_TOKEN,
       },
+    });
+    return response.data.session_token;
+  } catch (error) {
+    console.error("Error iniciando sesión en GLPI:", error.response ? error.response.data : error.message);
+    return null;
+  }
+};
+// crear tiqu 
+const createGLPITicket = async (title, description, imagePath = null) => {
+  const sessionToken = await getSessionToken();
+  if (!sessionToken) {
+    console.error("No se pudo obtener el session_token");
+    return null;
+  }
+
+  try {
+    const input = {
+      name: title,
+      content: description,
+      status: 1, // Estado del ticket (1 para nuevo)
+    };
+
+    // Si hay una imagen, inclúyela en los datos del ticket
+    if (imagePath) {
+      input.documents = [
+        {
+          name: 'Problema adjunto',
+          upload_file: fs.readFileSync(imagePath, { encoding: 'base64' }),
+        },
+      ];
+    }
+
+    const response = await axios.post(
+      `${GLPI_API_URL}/Ticket`,
+      [input],
       {
         headers: {
           "Content-Type": "application/json",
-          Authorization: `user_token ${GLPI_API_TOKEN}`,
+          "Session-Token": sessionToken,
+          "App-Token": GLPI_API_TOKEN,
         },
       }
     );
+    console.log("Ticket creado con éxito:", response.data);
     return response.data;
   } catch (error) {
-    console.error(
-      "Error creando ticket en GLPI:",
-      error.response ? error.response.data : error.message
-    );
+    console.error("Error creando ticket en GLPI:", error.response ? error.response.data : error.message);
     return null;
   }
 };
