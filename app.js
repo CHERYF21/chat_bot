@@ -27,6 +27,7 @@ const {
   const GLPI_API_URL = "http://localhost/glpi/apirest.php/";
   const GLPI_USER_TOKEN = "theiFbs0MHnLfo5lxTUdtHJqYyW00eqeZ9tItSay";
   const GLPI_API_TOKEN = "F8YETkJFPsW8SxEODJV9FQguCkPhcwUKT3T94kew";
+
   
   const getSessionToken = async () => {
     try {
@@ -77,7 +78,7 @@ const {
           },
         }
       );
-      console.log("Ticket creado con éxito:", response.data);
+      console.log(response.data.id)
       return response.data;
     } catch (error) {
       console.error("Error creando ticket en GLPI:", error.response ? error.response.data : error.message);
@@ -186,7 +187,7 @@ const {
         "3- Sin acceso a SIEZA Interprice",
         "4- Monarch no imprime",
         "5- Equipo no enciende",
-        "6-Emisora no suena",
+        "6- Emisora no suena",
       ],
       { capture: true },
       async (ctx, { fallBack }) => {
@@ -224,23 +225,27 @@ const {
       }
     )
     .addAnswer(
-      "Caso registrado con exito en un promedio de 10 min recibira una respuesta"
+      ["Caso registrado con exito en un promedio de 10 min recibira una respuesta", `El número de su ticket es: ${response.data.id}`]
     );
   
   const Lineal = addKeyword(["Lineal de cajas", "lineal de cajas"])
     .addAnswer(
       [
         "Selecciona cuál es el caso: ",
-        "1- Impresora no imprime",
-        "2- No permite realizar procedimientos",
-        "3- Equipo sin conexión o navegación",
-        "4- Balanza no pesa o descalibrada",
-        "5- Datafono dice pos sin conexión",
+        "Impresora no imprime",
+        "No permite realizar procedimientos",
+        "Equipo sin conexión o navegación",
+        "Balanza no pesa o descalibrada",
+        "Datafono dice pos sin conexión",
       ],
       { capture: true },
       async (ctx, { fallBack }) => {
         const userInput = ctx.body.toLowerCase();
-        const optionsLineal = ["1", "2", "3", "4", "5"];
+        const optionsLineal = ["Impresora no imprime", 
+        "No permite realizar procedimientos", 
+        "Equipo sin conexión o navegación", 
+        "Balanza no pesa o descalibrada", 
+        "Datafono dice pos sin conexión"];
   
         const optionValida = optionsLineal.some((option) =>
           userInput.includes(option.toLowerCase())
@@ -280,16 +285,18 @@ const {
     .addAnswer(
       [
         "Selecciona cuál es el caso: ",
-        "1- Equipo no enciende",
-        "2- Impresora no imprime",
-        "3- Equipo sin conexión o navegación",
-        "4- Sin acceso a SIEZA InterPrice",
+        "Equipo no enciende",
+        "Impresora no imprime",
+        "Equipo sin conexión o navegación",
+        "Sin acceso a SIEZA InterPrice",
       ],
       { capture: true },
       async (ctx, { fallBack }) => {
         const reciboOption = ctx.body.toLowerCase();
-        const optionsRecibo = ["1", "2", "3", "4"];
-  
+        const optionsRecibo = ["Equipo no enciende", 
+        "Impresora no imprime", 
+        "Equipo sin conexión o navegación", 
+        "Sin acceso a SIEZA InterPrice"];
         const optionValida = optionsRecibo.some((option) =>
           reciboOption.includes(option.toLowerCase())
         );
@@ -328,15 +335,15 @@ const {
     .addAnswer(
       [
         "Selecciona cuál es el caso: ",
-        "1- Alarmas",
-        "2- Cámaras",
-        "3- DVR",
-        "4- Televisores",
+        "Alarmas",
+        "Cámaras",
+        "DVR",
+        "Televisores",
       ],
       { capture: true },
       async (ctx, { fallBack }) => {
         const CCTVOption = ctx.body.toLowerCase();
-        const optionsCCTV = ["1", "2", "3", "4"];
+        const optionsCCTV = ["Alarmas", "Cámaras", "DVR", "Televisores"];
   
         const optionValida = optionsCCTV.some((option) =>
           CCTVOption.includes(option.toLowerCase())

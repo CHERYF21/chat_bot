@@ -2,10 +2,10 @@
   key: {
     remoteJid: '573113884877@s.whatsapp.net',
     fromMe: false,
-    id: '71DA7183D4F6FB11336CF335EDEC590A',
+    id: '65C57ABBDDC71AFF5CF02A051397D801',
     participant: undefined
   },
-  messageTimestamp: 1717597137,
+  messageTimestamp: 1717601670,
   pushName: 'Cheryf',
   broadcast: false,
   message: Message {
@@ -19,8 +19,8 @@
   from: '573113884877'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_ab710eff-a65d-4749-9c4d-635bfc14322d',
-  keyword: 'key_fa2d2647-8c81-4169-887b-5c262fadab65',
+  ref: 'ans_04f3b685-bd45-4066-a844-b7a1228795ed',
+  keyword: 'key_19d592b7-8494-4683-b447-5aa6d471ef14',
   answer: 'Bienvenido a soporte TI\natenderemos tu solicitud',
   options: {
     media: null,
@@ -34,11 +34,11 @@
     keyword: {},
     callback: false
   },
-  refSerialize: 'de6897b33b24e836f50a650e6c5cb818'
+  refSerialize: '9e38c7753e8c323adc9fded2219e2ea0'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_0a5a5fd4-2c20-40f3-afa3-b2a32c258559',
-  keyword: 'ans_ab710eff-a65d-4749-9c4d-635bfc14322d',
+  ref: 'ans_df486e75-daaa-4899-b82e-9f0d4cd72e6c',
+  keyword: 'ans_04f3b685-bd45-4066-a844-b7a1228795ed',
   answer: '¿De qué sede te comunicas?\n' +
     'La 33\n' +
     'Floresta\n' +
@@ -61,16 +61,16 @@
     keyword: {},
     callback: true
   },
-  refSerialize: 'd070411d374f758db2860c672940ef92'
+  refSerialize: '9c16f21df888bc0989db1def411e125b'
 }
 [handleMsg]:  {
   key: {
     remoteJid: '573113884877@s.whatsapp.net',
     fromMe: false,
-    id: 'C968260F8C1162BBB630DFA01BF2D9D1',
+    id: 'A52E7C5FBCC22CC1B85734D40DCDB521',
     participant: undefined
   },
-  messageTimestamp: 1717597144,
+  messageTimestamp: 1717601674,
   pushName: 'Cheryf',
   broadcast: false,
   message: Message {
@@ -84,8 +84,8 @@
   from: '573113884877'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_15d4852d-7458-4630-b3d8-33340f89eafd',
-  keyword: 'ans_0a5a5fd4-2c20-40f3-afa3-b2a32c258559',
+  ref: 'ans_75d93573-296c-4529-bd77-af159ac63b1d',
+  keyword: 'ans_df486e75-daaa-4899-b82e-9f0d4cd72e6c',
   answer: 'Ingresa el área donde se presenta el inconveniente: \n' +
     'Administración\n' +
     'Lineal de cajas\n' +
@@ -103,16 +103,16 @@
     keyword: {},
     callback: true
   },
-  refSerialize: '872ae74ef76249f00b87197bac1b3538'
+  refSerialize: '1f472b8c52591287497203efa222c41b'
 }
 [handleMsg]:  {
   key: {
     remoteJid: '573113884877@s.whatsapp.net',
     fromMe: false,
-    id: '9B2C76EEA66703E4DDE8105EDB839BAE',
+    id: '9D4DC32A8A674921129F35FEBC8A014D',
     participant: undefined
   },
-  messageTimestamp: 1717597149,
+  messageTimestamp: 1717601678,
   pushName: 'Cheryf',
   broadcast: false,
   message: Message {
@@ -126,15 +126,15 @@
   from: '573113884877'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_0eb19874-179e-4242-8194-b6416915cb16',
-  keyword: 'key_1c119561-3c47-44db-a632-f6c9cdcda885',
+  ref: 'ans_623529a7-3f16-4943-b1f2-78630ebd377a',
+  keyword: 'key_bfa87a53-fa10-41c2-8b63-720cd9c64892',
   answer: 'Selecciona cuál es el caso: \n' +
     '1- Impresora no imprime\n' +
     '2- Equipo sin conexión o navegación\n' +
     '3- Sin acceso a SIEZA Interprice\n' +
     '4- Monarch no imprime\n' +
     '5- Equipo no enciende\n' +
-    '6-Emisora no suena',
+    '6- Emisora no suena',
   options: {
     media: null,
     buttons: [],
@@ -147,16 +147,16 @@
     keyword: {},
     callback: true
   },
-  refSerialize: '078232bb1125ee8511c4a92ecceda625'
+  refSerialize: 'c02aab897b752d039d280b4316f5ee8b'
 }
 [handleMsg]:  {
   key: {
     remoteJid: '573113884877@s.whatsapp.net',
     fromMe: false,
-    id: 'DF16CE4283FB4DC8E077F377D7201515',
+    id: '175F25043CE08CA36AE9E288D306C049',
     participant: undefined
   },
-  messageTimestamp: 1717597152,
+  messageTimestamp: 1717601681,
   pushName: 'Cheryf',
   broadcast: false,
   message: Message {
@@ -168,4 +168,61 @@
   },
   body: '1',
   from: '573113884877'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_21a232f1-b36f-4c42-828f-2c2b4a57785a',
+  keyword: 'ans_623529a7-3f16-4943-b1f2-78630ebd377a',
+  answer: 'Envia una imagen con descripcion del problema: ',
+  options: {
+    media: null,
+    buttons: [],
+    capture: true,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: '3b620b10ef2f63caae968a2c271088fa'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '573113884877@s.whatsapp.net',
+    fromMe: false,
+    id: 'E390A2D857CD2188934FA608C3F2865E',
+    participant: undefined
+  },
+  messageTimestamp: 1717601686,
+  pushName: 'Cheryf',
+  broadcast: false,
+  message: Message {
+    conversation: 'Ticket',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'Ticket',
+  from: '573113884877'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_8b979ed7-ec06-47b2-ac67-a40417bba6ac',
+  keyword: 'ans_21a232f1-b36f-4c42-828f-2c2b4a57785a',
+  answer: 'Caso registrado con exito en un promedio de 10 min recibira una respuesta\n' +
+    'El número de su ticket es: ',
+  options: {
+    media: null,
+    buttons: [],
+    capture: false,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: false
+  },
+  refSerialize: '8e9e76a5dae3c8898dfe19a7098fc6e9'
 }
