@@ -264,12 +264,10 @@ const Lineal = addKeyword(["Lineal de cajas", "lineal de cajas"])
         imageFilePath = await saveImage(ctx.message.imageMessage);
         ticketData.description =
           ctx.message.imageMessage.caption || "Imagen recibida sin descripción";
-        ticketData.images.push(imageFilePath);
-      } else {
-        ticketData.description = ctx.body;
+        ticketData.images.push(imageFilePath); // Agrega el archivo al arreglo
       }
 
-      console.log("descripción: ", ticketData.description);
+      console.log("descripción lineal: ", ticketData.description, imageFilePath);
       ticketData.title = `Ticket de ${ticketData.area} - ${ticketData.issue}`;
       await createGLPITicket(ticketData);
     }
@@ -311,12 +309,10 @@ const Recibo = addKeyword(["Recibo", "recibo"])
         imageFilePath = await saveImage(ctx.message.imageMessage);
         ticketData.description =
           ctx.message.imageMessage.caption || "Imagen recibida sin descripción";
-        ticketData.images.push(imageFilePath);
-      } else {
-        ticketData.description = ctx.body;
+        ticketData.images.push(imageFilePath); // Agrega el archivo al arreglo
       }
 
-      console.log("descripción: ", ticketData.description);
+      console.log("descripción admin: ", ticketData.description, imageFilePath);
       ticketData.title = `Ticket de ${ticketData.area} - ${ticketData.issue}`;
       await createGLPITicket(ticketData);
     }
@@ -358,12 +354,10 @@ const CCTV = addKeyword(["CCTV", "Cctv", "cctv"])
         imageFilePath = await saveImage(ctx.message.imageMessage);
         ticketData.description =
           ctx.message.imageMessage.caption || "Imagen recibida sin descripción";
-        ticketData.images.push(imageFilePath);
-      } else {
-        ticketData.description = ctx.body;
+        ticketData.images.push(imageFilePath); // Agrega el archivo al arreglo
       }
 
-      console.log("descripción: ", ticketData.description);
+      console.log("descripción admin: ", ticketData.description, imageFilePath);
       ticketData.title = `Ticket de ${ticketData.area} - ${ticketData.issue}`;
       await createGLPITicket(ticketData);
     }
