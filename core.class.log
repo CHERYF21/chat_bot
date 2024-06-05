@@ -1,0 +1,171 @@
+[handleMsg]:  {
+  key: {
+    remoteJid: '573113884877@s.whatsapp.net',
+    fromMe: false,
+    id: '71DA7183D4F6FB11336CF335EDEC590A',
+    participant: undefined
+  },
+  messageTimestamp: 1717597137,
+  pushName: 'Cheryf',
+  broadcast: false,
+  message: Message {
+    conversation: 'Hola',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'Hola',
+  from: '573113884877'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_ab710eff-a65d-4749-9c4d-635bfc14322d',
+  keyword: 'key_fa2d2647-8c81-4169-887b-5c262fadab65',
+  answer: 'Bienvenido a soporte TI\natenderemos tu solicitud',
+  options: {
+    media: null,
+    buttons: [],
+    capture: false,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: false
+  },
+  refSerialize: 'de6897b33b24e836f50a650e6c5cb818'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_0a5a5fd4-2c20-40f3-afa3-b2a32c258559',
+  keyword: 'ans_ab710eff-a65d-4749-9c4d-635bfc14322d',
+  answer: '¿De qué sede te comunicas?\n' +
+    'La 33\n' +
+    'Floresta\n' +
+    'Pedregal\n' +
+    'Sabaneta parque\n' +
+    'Sabaneta avenida\n' +
+    'Almendros\n' +
+    'San Joaquin\n' +
+    'Rionegro\n' +
+    'San Antonio De Prado',
+  options: {
+    media: null,
+    buttons: [],
+    capture: true,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: 'd070411d374f758db2860c672940ef92'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '573113884877@s.whatsapp.net',
+    fromMe: false,
+    id: 'C968260F8C1162BBB630DFA01BF2D9D1',
+    participant: undefined
+  },
+  messageTimestamp: 1717597144,
+  pushName: 'Cheryf',
+  broadcast: false,
+  message: Message {
+    conversation: 'La 33',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'La 33',
+  from: '573113884877'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_15d4852d-7458-4630-b3d8-33340f89eafd',
+  keyword: 'ans_0a5a5fd4-2c20-40f3-afa3-b2a32c258559',
+  answer: 'Ingresa el área donde se presenta el inconveniente: \n' +
+    'Administración\n' +
+    'Lineal de cajas\n' +
+    'Recibo\n' +
+    'CCTV',
+  options: {
+    media: null,
+    buttons: [],
+    capture: true,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: '872ae74ef76249f00b87197bac1b3538'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '573113884877@s.whatsapp.net',
+    fromMe: false,
+    id: '9B2C76EEA66703E4DDE8105EDB839BAE',
+    participant: undefined
+  },
+  messageTimestamp: 1717597149,
+  pushName: 'Cheryf',
+  broadcast: false,
+  message: Message {
+    conversation: 'Administración',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'Administración',
+  from: '573113884877'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_0eb19874-179e-4242-8194-b6416915cb16',
+  keyword: 'key_1c119561-3c47-44db-a632-f6c9cdcda885',
+  answer: 'Selecciona cuál es el caso: \n' +
+    '1- Impresora no imprime\n' +
+    '2- Equipo sin conexión o navegación\n' +
+    '3- Sin acceso a SIEZA Interprice\n' +
+    '4- Monarch no imprime\n' +
+    '5- Equipo no enciende\n' +
+    '6-Emisora no suena',
+  options: {
+    media: null,
+    buttons: [],
+    capture: true,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: '078232bb1125ee8511c4a92ecceda625'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '573113884877@s.whatsapp.net',
+    fromMe: false,
+    id: 'DF16CE4283FB4DC8E077F377D7201515',
+    participant: undefined
+  },
+  messageTimestamp: 1717597152,
+  pushName: 'Cheryf',
+  broadcast: false,
+  message: Message {
+    conversation: '1',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: '1',
+  from: '573113884877'
+}

@@ -11,6 +11,7 @@ const fs = require("fs");
 const path = require("path");
 const axios = require("axios");
 const { downloadContentFromMessage } = require("@whiskeysockets/baileys");
+const { title } = require("process");
 
 /**
  * Declaramos las conexiones de MySQL
@@ -27,6 +28,7 @@ const MYSQL_DB_PORT = "3306";
 const GLPI_API_URL = "http://localhost/glpi/apirest.php/";
 const GLPI_USER_TOKEN = "theiFbs0MHnLfo5lxTUdtHJqYyW00eqeZ9tItSay";
 const GLPI_API_TOKEN = "F8YETkJFPsW8SxEODJV9FQguCkPhcwUKT3T94kew";
+
 // VERIFICACION DE SESSION GLPI 
 const getSessionToken = async () => {
   try {
@@ -68,7 +70,7 @@ const createGLPITicket = async (title, description, imagePath = null) => {
     }
 
     const response = await axios.post(
-      `${GLPI_API_URL}/Ticket`,
+      `${GLPI_API_URL}/Ticket`, // Asegúrate de usar la "T" mayúscula
       [input],
       {
         headers: {
@@ -85,6 +87,7 @@ const createGLPITicket = async (title, description, imagePath = null) => {
     return null;
   }
 };
+
 // funcion para almacenar la imagen localmente antes de enviarla a la BD
 const saveImage = async (message) => {
   const stream = await downloadContentFromMessage(message, "image");
@@ -191,7 +194,7 @@ const AdminFiltro = addKeyword(["Administración", "administracion"])
       if (!responseValida) {
         return fallBack();
       }
-      const AdminSelection = ctx.body;
+      const AdminSelection = [ctx.body];
       console.log("respuesta admin select", AdminSelection);
       await createGLPITicket("Problema en Administración", ctx.body);
     }
@@ -208,7 +211,7 @@ const AdminFiltro = addKeyword(["Administración", "administracion"])
         DescAdmin =
           ctx.message.imageMessage.caption || "imagen recinida sin descripcion";
       }
-      console.log("descripción admin: ", DescAdmin, imageFilePath);
+      console.log("prueba de arreglo: ", userResponses);
       await createGLPITicket("Descripción del problema en Administracion: ",DescAdmin, imageFilePath);
     }
   )
