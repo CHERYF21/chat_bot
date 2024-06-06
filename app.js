@@ -213,7 +213,7 @@ const infoUser = addKeyword([
   );
 
 // opciones para administracion
-const AdminFiltro = addKeyword(["Administración", "administracion","GH","gh"])
+const AdminFiltro = addKeyword(["Administración", "administracion","GH","gh","administrativo","Administrativo"])
   .addAnswer(
     [
       "Selecciona cuál es el caso: ",
@@ -268,40 +268,49 @@ const AdminFiltro = addKeyword(["Administración", "administracion","GH","gh"])
 
       console.log("descripción admin: ", ticketData.description, imageFilePath);
       ticketData.title = `Ticket de ${ticketData.area} 
-      - ${ticketData.issue} 
-      - ${ticketData.usuario} 
-      - ${ticketData.sede}
-      - ${ticketData.telefono}`;
+       ${ticketData.issue}\n-
+       ${ticketData.usuario}\n- 
+       ${ticketData.sede}\n-
+       ${ticketData.telefono}`;
       ticketId = await createGLPITicket(ticketData);
       console.log("prueba variable ticket: ", ticketId);
     }
   )
   .addAnswer("Caso registrado registrado con exito, escribe la palabra TICKET para ver el numero de caso.")
 // opciones para lineal de cajas
-const Lineal = addKeyword(["Lineal de cajas", "lineal de cajas"])
+const Lineal = addKeyword(["Lineal de cajas", "lineal de cajas","Lineal","lineal","Cajas","cajas"])
   .addAnswer(
     [
       "Selecciona cuál es el caso: ",
-      "1- Impresora no imprime",
-      "2- No permite realizar procedimientos",
-      "3- Equipo sin conexión o navegación",
-      "4- Balanza no pesa o descalibrada",
-      "5- Datafono dice pos sin conexión",
+      "1- Fallas en periféricos (Teclado, Mouse, Impresora, Balanza, Pantalla).",
+      "2- Equipo no funciona.",
+      "3- Equipo sin conexión o navegación.",
+      "4- Error en datafonos.",
+      "5- Usuario no funciona.",
+      "6- Error en aplicativo pos.",
+      "7- Otros"
     ],
     { capture: true },
     async (ctx, { fallBack }) => {
       const userInput = ctx.body.toLowerCase();
-      const optionsLineal = ["1", "2", "3", "4", "5"];
+      const optionsLineal = {
+        "1":"Fallas en periféricos (Teclado, Mouse, Impresora, Balanza, Pantalla).",
+        "2":"Equipo no funciona.", 
+        "3":" Equipo sin conexión o navegación.", 
+        "4":"Error en datafonos.", 
+        "5":"Usuario no funciona.",
+        "6":"Error en aplicativo pos.",
+        "7":"Otros"
+      };
 
-      const optionValida = optionsLineal.some((option) =>
-        userInput.includes(option.toLowerCase())
-      );
-
-      if (!optionValida) {
+      if (optionsLineal[userInput]) {
+        const opcion = optionsLineal[userInput];
+        ctx.body = `${opcion}`
+        ticketData.issue = `Problema en Lineal: ${ctx.body}`;
+        console.log("mensaje entrante", ctx.body);
+      }else{
         return fallBack();
       }
-      console.log("mensaje entrante", ctx.body);
-      ticketData.issue = `Problema en Lineal de Cajas: ${ctx.body}`;
     }
   )
   .addAnswer(
@@ -322,7 +331,11 @@ const Lineal = addKeyword(["Lineal de cajas", "lineal de cajas"])
         ticketData.description,
         imageFilePath
       );
-      ticketData.title = `Ticket de ${ticketData.area} - ${ticketData.issue} - ${ticketData.usuario}`;
+      ticketData.title = `Ticket de ${ticketData.area} 
+      ${ticketData.issue}\n-
+      ${ticketData.usuario}\n- 
+      ${ticketData.sede}\n-
+      ${ticketData.telefono}`;
       await createGLPITicket(ticketData);
     }
   )
@@ -339,18 +352,22 @@ const Recibo = addKeyword(["Recibo", "recibo"])
     ],
     { capture: true },
     async (ctx, { fallBack }) => {
-      const reciboOption = ctx.body.toLowerCase();
-      const optionsRecibo = ["1", "2", "3", "4"];
+      const reciboOption = ctx.body.toLowerCase().trim();
+      const optionsRecibo = {
+        "1":"Equipo no enciende", 
+        "2":"Impresora no imprime", 
+        "3":"Equipo sin conexión o navegación", 
+        "4":"Sin acceso a SIEZA InterPrice"
+      };
 
-      const optionValida = optionsRecibo.some((option) =>
-        reciboOption.includes(option.toLowerCase())
-      );
-
-      if (!optionValida) {
+      if (optionsRecibo[reciboOption]) {
+        const opcion = optionsRecibo[reciboOption];
+        ctx.body = `${opcion}`;
+        console.log("mensaje entrante", ctx.body);
+        ticketData.issue = `Problema en Recibo: ${ctx.body}`;
+      }else{
         return fallBack();
       }
-      console.log("mensaje entrante", ctx.body);
-      ticketData.issue = `Problema en Recibo: ${ctx.body}`;
     }
   )
   .addAnswer(
@@ -367,7 +384,11 @@ const Recibo = addKeyword(["Recibo", "recibo"])
       }
 
       console.log("descripción admin: ", ticketData.description, imageFilePath);
-      ticketData.title = `Ticket de ${ticketData.area} - ${ticketData.issue}`;
+      ticketData.title = `Ticket de ${ticketData.area} 
+      ${ticketData.issue}\n-
+      ${ticketData.usuario}\n- 
+      ${ticketData.sede}\n-
+      ${ticketData.telefono}`;
       await createGLPITicket(ticketData);
     }
   )
@@ -385,18 +406,22 @@ const CCTV = addKeyword(["CCTV", "Cctv", "cctv"])
     ],
     { capture: true },
     async (ctx, { fallBack }) => {
-      const CCTVOption = ctx.body.toLowerCase();
-      const optionsCCTV = ["1", "2", "3", "4"];
+      const CCTVOption = ctx.body.toLowerCase().trim();
+      const optionsCCTV = {
+        "1":"Alarmas", 
+        "2":"Cámaras", 
+        "3":"DVR", 
+        "4":"Televisores"
+      };
 
-      const optionValida = optionsCCTV.some((option) =>
-        CCTVOption.includes(option.toLowerCase())
-      );
-
-      if (!optionValida) {
+      if (optionsCCTV[CCTVOption]) {
+        const opcion = optionsCCTV[CCTVOption];
+        ctx.body = `${opcion}`;
+        console.log("mensaje entrante", ctx.body);
+        ticketData.issue = `Problema en CCTV: ${ctx.body}`;
+      }else{
         return fallBack();
       }
-      console.log("mensaje entrante", ctx.body);
-      ticketData.issue = `Problema en CCTV: ${ctx.body}`;
     }
   )
   .addAnswer(
@@ -413,17 +438,13 @@ const CCTV = addKeyword(["CCTV", "Cctv", "cctv"])
       }
 
       console.log("descripción admin: ", ticketData.description, imageFilePath);
-      ticketData.title = `Ticket de ${ticketData.area} - ${ticketData.issue}`;
+      ticketData.title = `Ticket de ${ticketData.area} 
+      ${ticketData.issue}\n-
+      ${ticketData.usuario}\n- 
+      ${ticketData.sede}\n-
+      ${ticketData.telefono}`;
       await createGLPITicket(ticketData);
     }
-  )
-  .addAnswer(
-    [
-      "Datos recibidos con exito, quieres hacer alguna modificacion antes de enviar tu caso?",
-      "1- Confirmar",
-      "2- Modificar informacion",
-    ],
-    { capture: true }
   )
   .addAnswer("En un promedio de 10 min recibiras respuesta");
 
