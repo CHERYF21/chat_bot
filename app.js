@@ -28,7 +28,7 @@ const GLPI_API_URL = "http://localhost/glpi/apirest.php/";
 const GLPI_USER_TOKEN = "theiFbs0MHnLfo5lxTUdtHJqYyW00eqeZ9tItSay";
 const GLPI_API_TOKEN = "F8YETkJFPsW8SxEODJV9FQguCkPhcwUKT3T94kew";
 
-// verifica el token de la session 
+// verifica el token de la session
 const getSessionToken = async () => {
   try {
     const response = await axios.get(`${GLPI_API_URL}/initSession`, {
@@ -46,7 +46,20 @@ const getSessionToken = async () => {
     return null;
   }
 };
-// crea ticket en el GLPI 
+
+// almacena la data que ingresa el usuario
+const ticketData = {
+  title: "",
+  description: "",
+  sede: "",
+  area: "",
+  issue: "",
+  usuario:"",
+  telefono:"",
+  images: [],
+};
+
+// crea ticket en el GLPI
 const createGLPITicket = async (ticketData) => {
   const sessionToken = await getSessionToken();
   if (!sessionToken) {
@@ -55,11 +68,16 @@ const createGLPITicket = async (ticketData) => {
   }
 
   try {
-    let imageHtml = '';
+    let imageHtml = "";
     if (ticketData.images.length > 0) {
-      imageHtml = ticketData.images.map(imagePath => {
-        return `<p><img src="data:image/jpeg;base64,${fs.readFileSync(imagePath, { encoding: 'base64' })}" alt="Imagen adjunta"></p>`;
-      }).join('');
+      imageHtml = ticketData.images
+        .map((imagePath) => {
+          return `<p><img src="data:image/jpeg;base64,${fs.readFileSync(
+            imagePath,
+            { encoding: "base64" }
+          )}" alt="Imagen adjunta"></p>`;
+        })
+        .join("");
     }
 
     const input = {
@@ -77,8 +95,8 @@ const createGLPITicket = async (ticketData) => {
         "App-Token": GLPI_API_TOKEN,
       },
     });
-    console.log("Ticket creado con éxito:", response.data);
-    return response.data;
+    console.log("Ticket creado con éxito:", response.data.id);
+    return response.data.id;
   } catch (error) {
     console.error(
       "Error creando ticket en GLPI:",
@@ -87,7 +105,7 @@ const createGLPITicket = async (ticketData) => {
     return null;
   }
 };
-// almacena la imagen localmente 
+// almacena la imagen localmente
 const saveImage = async (message) => {
   const stream = await downloadContentFromMessage(message, "image");
   let buffer = Buffer.from([]);
@@ -98,67 +116,81 @@ const saveImage = async (message) => {
   fs.writeFileSync(filePath, buffer);
   return filePath;
 };
-// almacena la data que ingresa el usuario
-const ticketData = {
-  title: "",
-  description: "",
-  sede: "",
-  area: "",
-  issue: "",
-  images: [],
-};
-// filtro que response al primer Hola 
-const primerFiltro = addKeyword([
+
+// prueba de solicitud de identificacion y respuesta al primer mensaje HOLA
+const infoUser = addKeyword([
   "hola",
   "ola",
   "Buenos días",
   "buenos dias",
   "buenas tardes",
 ])
-  .addAnswer(["Bienvenido a soporte TI", "atenderemos tu solicitud"])
   .addAnswer(
+    ["Bienvenido a soporte TI 😊", "ingresa tu nombre completo: "],
+    { capture: true },
+    (ctx, { fallBack }) => {
+      const nombre = ctx.body.trim();
+      if (!nombre) {
+        return fallBack();
+      }
+      ticketData.usuario = `Enviado por: ${nombre}`;
+      console.log("usuario", nombre);
+
+      const phoneNumbre = ctx.from.split('@')[0];//captura el numero de cel
+      ticketData.telefono = `Numero de celular: ${phoneNumbre}`
+      console.log("Numero telefonico: ", phoneNumbre);
+    }
+    
+  )
+  .addAnswer(
+    //las sedes se van a modificar eleccion por numero
     [
       "¿De qué sede te comunicas?",
-      "La 33",
-      "Floresta",
-      "Pedregal",
-      "Sabaneta parque",
-      "Sabaneta avenida",
-      "Almendros",
-      "San Joaquin",
-      "Rionegro",
-      "San Antonio De Prado",
+      "1️- LA 33",
+      "2️- SAN CRISTOBAL",
+      "3️ -POBLADO",
+      "4️- RIONEGRO",
+      "5️- SABANETA AVENIDA",
+      "6️- PRADO",
+      "7️- PARQUE",
+      "8️- PEDREGAL",
+      "9️- SAN JOAQUIN",
+      "10- FLORESTA",
+      "11- SAN MARCOS",
+      "12-LAURELES",
     ],
     { capture: true },
     (ctx, { fallBack }) => {
-      const userInput = ctx.body.toLowerCase();
-      const sedes = [
-        "la 33",
-        "floresta",
-        "pedregal",
-        "sabaneta parque",
-        "sabaneta avenida",
-        "almendros",
-        "san joaquin",
-        "rionegro",
-        "san antonio de prado",
-      ];
+      const userInput = ctx.body.toLowerCase().trim();
+      const sedeNombres = {
+        "1": "LA 33",
+        "2": "SAN CRISTOBAL",
+        "3": "POBLADO",
+        "4": "RIONEGRO",
+        "5": "SABANETA AVENIDA",
+        "6": "PRADO",
+        "7": "PARQUE",
+        "8": "PEDREGAL",
+        "9": "SAN JOAQUIN",
+        "10": "FLORESTA",
+        "11": "SAN MARCOS",
+        "12": "LAURELES"
+      };
 
-      const sedevalida = sedes.some((sede) =>
-        userInput.includes(sede.toLowerCase())
-      );
-
-      if (!sedevalida) {
+      if (sedeNombres[userInput]) {
+        const sedeName = sedeNombres[userInput];
+        ctx.body = `${sedeName}`;
+        console.log("seleccion condicional: ", ctx.body);
+        ticketData.sede = ctx.body;
+      }else{
         return fallBack();
       }
-      console.log("sede seleccionada: ", userInput);
-      ticketData.sede = userInput;
     }
   )
   .addAnswer(
     [
       "Ingresa el área donde se presenta el inconveniente: ",
-      "Administración",
+      "Administración-GH",
       "Lineal de cajas",
       "Recibo",
       "CCTV",
@@ -179,36 +211,50 @@ const primerFiltro = addKeyword([
       ticketData.area = userMenu;
     }
   );
-// opciones para administracion 
-const AdminFiltro = addKeyword(["Administración", "administracion"])
+
+// opciones para administracion
+const AdminFiltro = addKeyword(["Administración", "administracion","GH","gh"])
   .addAnswer(
     [
       "Selecciona cuál es el caso: ",
-      "1- Impresora no imprime",
-      "2- Equipo sin conexión o navegación",
-      "3- Sin acceso a SIEZA Interprice",
-      "4- Monarch no imprime",
-      "5- Equipo no enciende",
-      "6-Emisora no suena",
+      "1- Fallas en periféricos (Teclado, Mouse, Impresora, Escáner, Pantalla).",
+      "2- Equipo sin conexión o navegación.",
+      "3- Sin acceso a siesa Enterprise u/o ERP.",
+      "4- Error en ERP.",
+      "5- Error impresora de flejes.",
+      "6- Equipo no funciona.",
+      "7- Error en Emisora.",
+      "8- Fallo general",
+      "9- Otros"
+
     ],
     { capture: true },
     async (ctx, { fallBack }) => {
       const respAdmin = ctx.body.trim();
-      const optionsAdmin = ["1", "2", "3", "4", "5", "6"];
-      const responseValida = optionsAdmin.some((option) =>
-        respAdmin.includes(option.toLowerCase())
-      );
+      const optionsAdmin = {
+        "1":"Fallas en periféricos (Teclado, Mouse, Impresora, Escáner, Pantalla).",
+        "2":"Equipo sin conexión o navegación.",
+        "3":"Sin acceso a siesa Enterprise u/o ERP.",
+        "4":"Error en ERP.",
+        "5":"Error impresora de flejes.",
+        "6":"Equipo no funciona.",
+        "7":"Error en Emisora.",
+        "8":"Fallo general",
+        "9":"Otros"
+      };
 
-      if (!responseValida) {
+      if (optionsAdmin[respAdmin]) {
+        const option = optionsAdmin[respAdmin];
+        ctx.body =  `${option}`;
+        console.log("opcion admin: ", ctx.body);
+        ticketData.issue = `Problema en Administración: ${ctx.body}`;
+      }else{
         return fallBack();
       }
-      const AdminSelection = ctx.body;
-      console.log("respuesta admin select", AdminSelection);
-      ticketData.issue = `Problema en Administración: ${AdminSelection}`;
     }
   )
   .addAnswer(
-    ["Envia una imagen con descripcion del problema: "],
+    ["Envia una sola imagen con descripcion del problema: "],
     { capture: true },
     async (ctx) => {
       let imageFilePath = null;
@@ -221,14 +267,17 @@ const AdminFiltro = addKeyword(["Administración", "administracion"])
       }
 
       console.log("descripción admin: ", ticketData.description, imageFilePath);
-      ticketData.title = `Ticket de ${ticketData.area} - ${ticketData.issue}`;
-      await createGLPITicket(ticketData);
+      ticketData.title = `Ticket de ${ticketData.area} 
+      - ${ticketData.issue} 
+      - ${ticketData.usuario} 
+      - ${ticketData.sede}
+      - ${ticketData.telefono}`;
+      ticketId = await createGLPITicket(ticketData);
+      console.log("prueba variable ticket: ", ticketId);
     }
   )
-  .addAnswer(
-    "Caso registrado con exito en un promedio de 10 min recibira una respuesta"
-  );
-// opciones para lineal de cajas 
+  .addAnswer("Caso registrado registrado con exito, escribe la palabra TICKET para ver el numero de caso.")
+// opciones para lineal de cajas
 const Lineal = addKeyword(["Lineal de cajas", "lineal de cajas"])
   .addAnswer(
     [
@@ -268,13 +317,17 @@ const Lineal = addKeyword(["Lineal de cajas", "lineal de cajas"])
         ticketData.images.push(imageFilePath); // Agrega el archivo al arreglo
       }
 
-      console.log("descripción lineal: ", ticketData.description, imageFilePath);
-      ticketData.title = `Ticket de ${ticketData.area} - ${ticketData.issue}`;
+      console.log(
+        "descripción lineal: ",
+        ticketData.description,
+        imageFilePath
+      );
+      ticketData.title = `Ticket de ${ticketData.area} - ${ticketData.issue} - ${ticketData.usuario}`;
       await createGLPITicket(ticketData);
     }
   )
-  .addAnswer("En un promedio de 10 min recibiras respuesta");
-// opciones para recibo 
+  .addAnswer("En un promedio de 10 min recibiras respuesta, su numero de ticket es: ");
+// opciones para recibo
 const Recibo = addKeyword(["Recibo", "recibo"])
   .addAnswer(
     [
@@ -305,7 +358,7 @@ const Recibo = addKeyword(["Recibo", "recibo"])
     { capture: true },
     async (ctx) => {
       let imageFilePath = null;
-// captura la imgen y la descripcion 
+      // captura la imgen y la descripcion
       if (ctx.message && ctx.message.imageMessage) {
         imageFilePath = await saveImage(ctx.message.imageMessage);
         ticketData.description =
@@ -320,6 +373,7 @@ const Recibo = addKeyword(["Recibo", "recibo"])
   )
   .addAnswer("En un promedio de 10 min recibiras respuesta");
 
+// opciones menus cctv
 const CCTV = addKeyword(["CCTV", "Cctv", "cctv"])
   .addAnswer(
     [
@@ -363,6 +417,14 @@ const CCTV = addKeyword(["CCTV", "Cctv", "cctv"])
       await createGLPITicket(ticketData);
     }
   )
+  .addAnswer(
+    [
+      "Datos recibidos con exito, quieres hacer alguna modificacion antes de enviar tu caso?",
+      "1- Confirmar",
+      "2- Modificar informacion",
+    ],
+    { capture: true }
+  )
   .addAnswer("En un promedio de 10 min recibiras respuesta");
 
 const main = async () => {
@@ -373,13 +435,7 @@ const main = async () => {
     password: MYSQL_DB_PASSWORD,
     port: MYSQL_DB_PORT,
   });
-  const adapterFlow = createFlow([
-    primerFiltro,
-    AdminFiltro,
-    Lineal,
-    Recibo,
-    CCTV,
-  ]);
+  const adapterFlow = createFlow([infoUser, AdminFiltro, Lineal, Recibo, CCTV]);
   const adapterProvider = createProvider(BaileysProvider);
   createBot({
     flow: adapterFlow,
