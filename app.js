@@ -25,7 +25,7 @@ const MYSQL_DB_PORT = "3306";
  * Credenciales de GLPI
  */
 const GLPI_API_URL = "http://localhost/glpi/apirest.php/";
-const GLPI_USER_TOKEN = "theiFbs0MHnLfo5lxTUdtHJqYyW00eqeZ9tItSay";
+const GLPI_USER_TOKEN = "o1e4PA6jyf91Epc7mGz3AWkKWPZ6wJhxvQ9rydnx";
 const GLPI_API_TOKEN = "F8YETkJFPsW8SxEODJV9FQguCkPhcwUKT3T94kew";
 
 // verifica el token de la session
@@ -95,7 +95,6 @@ const createGLPITicket = async (ticketData) => {
         "App-Token": GLPI_API_TOKEN,
       },
     });
-    console.log("Ticket creado con éxito:", response.data.id);
     return response.data.id;
   } catch (error) {
     console.error(
@@ -107,7 +106,7 @@ const createGLPITicket = async (ticketData) => {
 };
 // almacena la imagen localmente
 const saveImage = async (message) => {
-  const stream = await downloadContentFromMessage(message, "image");
+  const stream = await downloadContentFromMessage(message, "image"); //en la carpeta image
   let buffer = Buffer.from([]);
   for await (const chunk of stream) {
     buffer = Buffer.concat([buffer, chunk]);
@@ -117,7 +116,7 @@ const saveImage = async (message) => {
   return filePath;
 };
 
-// prueba de solicitud de identificacion y respuesta al primer mensaje HOLA
+//respuesta al primer mensaje HOLA
 const infoUser = addKeyword([
   "hola",
   "ola",
@@ -137,16 +136,12 @@ const infoUser = addKeyword([
         return fallBack();
       }
       ticketData.usuario = `Enviado por: ${nombre}`;
-      console.log("usuario", nombre);
 
       const phoneNumbre = ctx.from.split('@')[0];//captura el numero de cel
       ticketData.telefono = `Numero de celular: ${phoneNumbre}`
-      console.log("Numero telefonico: ", phoneNumbre);
-    }
-    
+    } 
   )
   .addAnswer(
-    //las sedes se van a modificar eleccion por numero
     [
       "¿De qué sede te comunicas?",
       "1- LA 33",
@@ -180,10 +175,9 @@ const infoUser = addKeyword([
         "12": "LAURELES"
       };
 
-      if (sedeNombres[userInput]) {
+      if (sedeNombres[userInput]) { 
         const sedeName = sedeNombres[userInput];
         ctx.body = `${sedeName}`;
-        console.log("seleccion condicional: ", ctx.body);
         ticketData.sede = ctx.body;
       }else{
         return fallBack();
@@ -210,7 +204,6 @@ const infoUser = addKeyword([
       if (!opcionValida) {
         return fallBack();
       }
-      console.log("menu principal: ", userMenu);
       ticketData.area = userMenu;
     }
   );
@@ -249,7 +242,6 @@ const AdminFiltro = addKeyword(["Administración", "administracion","GH","gh","a
       if (optionsAdmin[respAdmin]) {
         const option = optionsAdmin[respAdmin];
         ctx.body =  `${option}`;
-        console.log("opcion admin: ", ctx.body);
         ticketData.issue = `Problema en Administración: ${ctx.body}`;
       }else{
         return fallBack();
@@ -269,23 +261,21 @@ const AdminFiltro = addKeyword(["Administración", "administracion","GH","gh","a
         ticketData.images.push(imageFilePath); // Agrega el archivo al arreglo
       }
 
-      console.log("descripción admin: ", ticketData.description, imageFilePath);
       ticketData.title = `Ticket de ${ticketData.area} 
        ${ticketData.issue}\n-
        ${ticketData.usuario}\n- 
        ${ticketData.sede}\n-
        ${ticketData.telefono}`;
       const ticketId = await createGLPITicket(ticketData);
-      console.log("prueba variable ticket: ", ticketId);
 
       const responseMessage = ticketId
-      ? `Caso registrado con éxito, este es su número de ticket: ${ticketId},  en breves nos comunicaremos con usted`
+      ? `Caso registrado con éxito, este es su número de ticket: ${ticketId},  en breves nos comunicaremos con usted.`
       : "Hubo un error al registrar el caso. Por favor, inténtelo de nuevo.";
 
       await flowDynamic(responseMessage);
     }
   )
-  // .addAnswer("Caso registrado registrado con exito, este es su numero de caso: ")
+
 // opciones para lineal de cajas
 const Lineal = addKeyword(["Lineal de cajas", "lineal de cajas","Lineal","lineal","Cajas","cajas"])
   .addAnswer(
@@ -305,7 +295,7 @@ const Lineal = addKeyword(["Lineal de cajas", "lineal de cajas","Lineal","lineal
       const optionsLineal = {
         "1":"Fallas en periféricos (Teclado, Mouse, Impresora, Balanza, Pantalla).",
         "2":"Equipo no funciona.", 
-        "3":" Equipo sin conexión o navegación.", 
+        "3":"Equipo sin conexión o navegación.", 
         "4":"Error en datafonos.", 
         "5":"Usuario no funciona.",
         "6":"Error en aplicativo pos.",
@@ -316,7 +306,6 @@ const Lineal = addKeyword(["Lineal de cajas", "lineal de cajas","Lineal","lineal
         const opcion = optionsLineal[userInput];
         ctx.body = `${opcion}`
         ticketData.issue = `Problema en Lineal: ${ctx.body}`;
-        console.log("mensaje entrante", ctx.body);
       }else{
         return fallBack();
       }
@@ -335,21 +324,15 @@ const Lineal = addKeyword(["Lineal de cajas", "lineal de cajas","Lineal","lineal
         ticketData.images.push(imageFilePath); // Agrega el archivo al arreglo
       }
 
-      console.log(
-        "descripción lineal: ",
-        ticketData.description,
-        imageFilePath
-      );
       ticketData.title = `Ticket de ${ticketData.area} 
       ${ticketData.issue}\n-
       ${ticketData.usuario}\n- 
       ${ticketData.sede}\n-
       ${ticketData.telefono}`;
       const ticketId = await createGLPITicket(ticketData);
-      console.log("prueba variable ticket: ", ticketId);
 
       const responseMessage = ticketId
-      ? `Caso registrado con éxito, este es su número de ticket: ${ticketId},  en breves nos comunicaremos con usted`
+      ? `Caso registrado con éxito, este es su número de ticket: ${ticketId},  en breves nos comunicaremos con usted.`
       : "Hubo un error al registrar el caso. Por favor, inténtelo de nuevo.";
 
       await flowDynamic(responseMessage);
@@ -378,7 +361,6 @@ const Recibo = addKeyword(["Recibo", "recibo"])
       if (optionsRecibo[reciboOption]) {
         const opcion = optionsRecibo[reciboOption];
         ctx.body = `${opcion}`;
-        console.log("mensaje entrante", ctx.body);
         ticketData.issue = `Problema en Recibo: ${ctx.body}`;
       }else{
         return fallBack();
@@ -398,17 +380,15 @@ const Recibo = addKeyword(["Recibo", "recibo"])
         ticketData.images.push(imageFilePath); // Agrega el archivo al arreglo
       }
 
-      console.log("descripción admin: ", ticketData.description, imageFilePath);
       ticketData.title = `Ticket de ${ticketData.area} 
       ${ticketData.issue}\n-
       ${ticketData.usuario}\n- 
       ${ticketData.sede}\n-
       ${ticketData.telefono}`;
       const ticketId = await createGLPITicket(ticketData);
-      console.log("prueba variable ticket: ", ticketId);
 
       const responseMessage = ticketId
-      ? `Caso registrado con éxito, este es su número de ticket: ${ticketId},  en breves nos comunicaremos con usted`
+      ? `Caso registrado con éxito, este es su número de ticket: ${ticketId},  en breves nos comunicaremos con usted.`
       : "Hubo un error al registrar el caso. Por favor, inténtelo de nuevo.";
 
       await flowDynamic(responseMessage);
@@ -438,7 +418,6 @@ const CCTV = addKeyword(["CCTV", "Cctv", "cctv"])
       if (optionsCCTV[CCTVOption]) {
         const opcion = optionsCCTV[CCTVOption];
         ctx.body = `${opcion}`;
-        console.log("mensaje entrante", ctx.body);
         ticketData.issue = `Problema en CCTV: ${ctx.body}`;
       }else{
         return fallBack();
@@ -458,17 +437,15 @@ const CCTV = addKeyword(["CCTV", "Cctv", "cctv"])
         ticketData.images.push(imageFilePath); // Agrega el archivo al arreglo
       }
 
-      console.log("descripción admin: ", ticketData.description, imageFilePath);
       ticketData.title = `Ticket de ${ticketData.area} 
       ${ticketData.issue}\n-
       ${ticketData.usuario}\n- 
       ${ticketData.sede}\n-
       ${ticketData.telefono}`;
       const ticketId = await createGLPITicket(ticketData);
-      console.log("prueba variable ticket: ", ticketId);
 
       const responseMessage = ticketId
-      ? `Caso registrado con éxito, este es su número de ticket: ${ticketId}, en breves nos comunicaremos con usted`
+      ? `Caso registrado con éxito, este es su número de ticket: ${ticketId}, en breves nos comunicaremos con usted.`
       : "Hubo un error al registrar el caso. Por favor, inténtelo de nuevo.";
 
       await flowDynamic(responseMessage);
