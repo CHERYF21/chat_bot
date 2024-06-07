@@ -124,6 +124,9 @@ const infoUser = addKeyword([
   "Buenos días",
   "buenos dias",
   "buenas tardes",
+  "dias",
+  "buenos",
+  "días"
 ])
   .addAnswer(
     ["Bienvenido a soporte TI 😊", "ingresa tu nombre completo: "],
@@ -320,9 +323,9 @@ const Lineal = addKeyword(["Lineal de cajas", "lineal de cajas","Lineal","lineal
     }
   )
   .addAnswer(
-    ["Escribe una breve descripción del caso: "],
+    ["Envia una sola imagen con descripcion del problema: "],
     { capture: true },
-    async (ctx) => {
+    async (ctx, {flowDynamic}) => {
       let imageFilePath = null;
 
       if (ctx.message && ctx.message.imageMessage) {
@@ -343,6 +346,7 @@ const Lineal = addKeyword(["Lineal de cajas", "lineal de cajas","Lineal","lineal
       ${ticketData.sede}\n-
       ${ticketData.telefono}`;
       const ticketId = await createGLPITicket(ticketData);
+      console.log("prueba variable ticket: ", ticketId);
 
       const responseMessage = ticketId
       ? `Caso registrado con éxito, este es su número de ticket: ${ticketId}`
@@ -382,7 +386,7 @@ const Recibo = addKeyword(["Recibo", "recibo"])
     }
   )
   .addAnswer(
-    ["Escribe una breve descripción del caso: "],
+    ["Envia una sola imagen con descripcion del problema:  "],
     { capture: true },
     async (ctx, {flowDynamic}) => {
       let imageFilePath = null;
@@ -401,6 +405,7 @@ const Recibo = addKeyword(["Recibo", "recibo"])
       ${ticketData.sede}\n-
       ${ticketData.telefono}`;
       const ticketId = await createGLPITicket(ticketData);
+      console.log("prueba variable ticket: ", ticketId);
 
       const responseMessage = ticketId
       ? `Caso registrado con éxito, este es su número de ticket: ${ticketId}`
@@ -441,9 +446,9 @@ const CCTV = addKeyword(["CCTV", "Cctv", "cctv"])
     }
   )
   .addAnswer(
-    ["Escribe una breve descripción del caso: "],
+    ["Envia una sola imagen con descripcion del problema: "],
     { capture: true },
-    async (ctx) => {
+    async (ctx,{flowDynamic}) => {
       let imageFilePath = null;
 
       if (ctx.message && ctx.message.imageMessage) {
@@ -460,6 +465,7 @@ const CCTV = addKeyword(["CCTV", "Cctv", "cctv"])
       ${ticketData.sede}\n-
       ${ticketData.telefono}`;
       const ticketId = await createGLPITicket(ticketData);
+      console.log("prueba variable ticket: ", ticketId);
 
       const responseMessage = ticketId
       ? `Caso registrado con éxito, este es su número de ticket: ${ticketId}`
