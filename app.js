@@ -130,7 +130,7 @@ const infoUser = addKeyword([
     { capture: true },
     (ctx, { fallBack }) => {
       const nombre = ctx.body.trim();
-      if (!nombre) {
+      if (!nombre || nombre.length < 4) {
         return fallBack();
       }
       ticketData.usuario = `Enviado por: ${nombre}`;
@@ -146,15 +146,15 @@ const infoUser = addKeyword([
     //las sedes se van a modificar eleccion por numero
     [
       "¿De qué sede te comunicas?",
-      "1️- LA 33",
-      "2️- SAN CRISTOBAL",
-      "3️ -POBLADO",
-      "4️- RIONEGRO",
-      "5️- SABANETA AVENIDA",
-      "6️- PRADO",
-      "7️- PARQUE",
-      "8️- PEDREGAL",
-      "9️- SAN JOAQUIN",
+      "1- LA 33",
+      "2- SAN CRISTOBAL",
+      "3 -POBLADO",
+      "4- RIONEGRO",
+      "5- SABANETA AVENIDA",
+      "6- PRADO",
+      "7- PARQUE",
+      "8- PEDREGAL",
+      "9- SAN JOAQUIN",
       "10- FLORESTA",
       "11- SAN MARCOS",
       "12-LAURELES",
@@ -197,7 +197,7 @@ const infoUser = addKeyword([
     ],
     { capture: true },
     (ctx, { fallBack }) => {
-      const userMenu = ctx.body.toLowerCase();
+      const userMenu = ctx.body.toLowerCase().trim();
       const menu = ["Administración", "Lineal de cajas", "Recibo", "CCTV"];
 
       const opcionValida = menu.some((men) =>
@@ -256,7 +256,7 @@ const AdminFiltro = addKeyword(["Administración", "administracion","GH","gh","a
   .addAnswer(
     ["Envia una sola imagen con descripcion del problema: "],
     { capture: true },
-    async (ctx) => {
+    async (ctx, {flowDynamic}) => {
       let imageFilePath = null;
 
       if (ctx.message && ctx.message.imageMessage) {
@@ -272,11 +272,17 @@ const AdminFiltro = addKeyword(["Administración", "administracion","GH","gh","a
        ${ticketData.usuario}\n- 
        ${ticketData.sede}\n-
        ${ticketData.telefono}`;
-      ticketId = await createGLPITicket(ticketData);
+      const ticketId = await createGLPITicket(ticketData);
       console.log("prueba variable ticket: ", ticketId);
+
+      const responseMessage = ticketId
+      ? `Caso registrado con éxito, este es su número de ticket: ${ticketId}`
+      : "Hubo un error al registrar el caso. Por favor, inténtelo de nuevo.";
+
+      await flowDynamic(responseMessage);
     }
   )
-  .addAnswer("Caso registrado registrado con exito, escribe la palabra TICKET para ver el numero de caso.")
+  // .addAnswer("Caso registrado registrado con exito, este es su numero de caso: ")
 // opciones para lineal de cajas
 const Lineal = addKeyword(["Lineal de cajas", "lineal de cajas","Lineal","lineal","Cajas","cajas"])
   .addAnswer(
@@ -336,10 +342,15 @@ const Lineal = addKeyword(["Lineal de cajas", "lineal de cajas","Lineal","lineal
       ${ticketData.usuario}\n- 
       ${ticketData.sede}\n-
       ${ticketData.telefono}`;
-      await createGLPITicket(ticketData);
+      const ticketId = await createGLPITicket(ticketData);
+
+      const responseMessage = ticketId
+      ? `Caso registrado con éxito, este es su número de ticket: ${ticketId}`
+      : "Hubo un error al registrar el caso. Por favor, inténtelo de nuevo.";
+
+      await flowDynamic(responseMessage);
     }
   )
-  .addAnswer("En un promedio de 10 min recibiras respuesta, su numero de ticket es: ");
 // opciones para recibo
 const Recibo = addKeyword(["Recibo", "recibo"])
   .addAnswer(
@@ -373,7 +384,7 @@ const Recibo = addKeyword(["Recibo", "recibo"])
   .addAnswer(
     ["Escribe una breve descripción del caso: "],
     { capture: true },
-    async (ctx) => {
+    async (ctx, {flowDynamic}) => {
       let imageFilePath = null;
       // captura la imgen y la descripcion
       if (ctx.message && ctx.message.imageMessage) {
@@ -389,10 +400,15 @@ const Recibo = addKeyword(["Recibo", "recibo"])
       ${ticketData.usuario}\n- 
       ${ticketData.sede}\n-
       ${ticketData.telefono}`;
-      await createGLPITicket(ticketData);
+      const ticketId = await createGLPITicket(ticketData);
+
+      const responseMessage = ticketId
+      ? `Caso registrado con éxito, este es su número de ticket: ${ticketId}`
+      : "Hubo un error al registrar el caso. Por favor, inténtelo de nuevo.";
+
+      await flowDynamic(responseMessage);
     }
   )
-  .addAnswer("En un promedio de 10 min recibiras respuesta");
 
 // opciones menus cctv
 const CCTV = addKeyword(["CCTV", "Cctv", "cctv"])
@@ -443,10 +459,15 @@ const CCTV = addKeyword(["CCTV", "Cctv", "cctv"])
       ${ticketData.usuario}\n- 
       ${ticketData.sede}\n-
       ${ticketData.telefono}`;
-      await createGLPITicket(ticketData);
+      const ticketId = await createGLPITicket(ticketData);
+
+      const responseMessage = ticketId
+      ? `Caso registrado con éxito, este es su número de ticket: ${ticketId}`
+      : "Hubo un error al registrar el caso. Por favor, inténtelo de nuevo.";
+
+      await flowDynamic(responseMessage);
     }
   )
-  .addAnswer("En un promedio de 10 min recibiras respuesta");
 
 const main = async () => {
   const adapterDB = new MySQLAdapter({
