@@ -279,7 +279,7 @@ const AdminFiltro = addKeyword(["Administración", "administracion","GH","gh","a
       console.log("prueba variable ticket: ", ticketId);
 
       const responseMessage = ticketId
-      ? `Caso registrado con éxito, este es su número de ticket: ${ticketId}`
+      ? `Caso registrado con éxito, este es su número de ticket: ${ticketId},  en breves nos comunicaremos con usted`
       : "Hubo un error al registrar el caso. Por favor, inténtelo de nuevo.";
 
       await flowDynamic(responseMessage);
@@ -349,7 +349,7 @@ const Lineal = addKeyword(["Lineal de cajas", "lineal de cajas","Lineal","lineal
       console.log("prueba variable ticket: ", ticketId);
 
       const responseMessage = ticketId
-      ? `Caso registrado con éxito, este es su número de ticket: ${ticketId}`
+      ? `Caso registrado con éxito, este es su número de ticket: ${ticketId},  en breves nos comunicaremos con usted`
       : "Hubo un error al registrar el caso. Por favor, inténtelo de nuevo.";
 
       await flowDynamic(responseMessage);
@@ -408,7 +408,7 @@ const Recibo = addKeyword(["Recibo", "recibo"])
       console.log("prueba variable ticket: ", ticketId);
 
       const responseMessage = ticketId
-      ? `Caso registrado con éxito, este es su número de ticket: ${ticketId}`
+      ? `Caso registrado con éxito, este es su número de ticket: ${ticketId},  en breves nos comunicaremos con usted`
       : "Hubo un error al registrar el caso. Por favor, inténtelo de nuevo.";
 
       await flowDynamic(responseMessage);
@@ -468,7 +468,7 @@ const CCTV = addKeyword(["CCTV", "Cctv", "cctv"])
       console.log("prueba variable ticket: ", ticketId);
 
       const responseMessage = ticketId
-      ? `Caso registrado con éxito, este es su número de ticket: ${ticketId}`
+      ? `Caso registrado con éxito, este es su número de ticket: ${ticketId}, en breves nos comunicaremos con usted`
       : "Hubo un error al registrar el caso. Por favor, inténtelo de nuevo.";
 
       await flowDynamic(responseMessage);
