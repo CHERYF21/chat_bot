@@ -24,9 +24,9 @@ const MYSQL_DB_PORT = "3306";
 /**
  * Credenciales de GLPI
  */
-const GLPI_API_URL = "http://localhost/glpi/apirest.php/";
-const GLPI_USER_TOKEN = "o1e4PA6jyf91Epc7mGz3AWkKWPZ6wJhxvQ9rydnx";
-const GLPI_API_TOKEN = "F8YETkJFPsW8SxEODJV9FQguCkPhcwUKT3T94kew";
+const GLPI_API_URL = "http://10.21.90.7:8200/apirest.php/";
+const GLPI_USER_TOKEN = "QVniFo9pZ5Cnwh981N1ynXxfqJygsW5FkDTGTvOg";
+const GLPI_API_TOKEN = "eEvEVj8zPOvMKcYHJiEpza0KqprRm1X6MzWiJBdN";
 
 // verifica el token de la session
 const getSessionToken = async () => {
@@ -47,16 +47,31 @@ const getSessionToken = async () => {
   }
 };
 
-// almacena la data que ingresa el usuario
-const ticketData = {
+// Almacena los datos que ingresa el usuario
+let ticketData = {
   title: "",
   description: "",
   sede: "",
   area: "",
   issue: "",
-  usuario:"",
-  telefono:"",
+  usuario: "",
+  telefono: "",
   images: [],
+};
+
+// Función para limpiar ticketData
+const clearTicketData = () => {
+  ticketData = {
+    title: "",
+    description: "",
+    sede: "",
+    area: "",
+    issue: "",
+    usuario: "",
+    telefono: "",
+    images: [],
+  };
+  console.log("ticketData ha sido limpiado automáticamente.");
 };
 
 // crea ticket en el GLPI
@@ -66,6 +81,12 @@ const createGLPITicket = async (ticketData) => {
     console.error("No se pudo obtener el session_token");
     return null;
   }
+
+    // Validar campos obligatorios
+    if (!ticketData.title || !ticketData.description || !ticketData.sede || !ticketData.area || !ticketData.issue || !ticketData.usuario || !ticketData.telefono || ticketData.images.length === 0) {
+      console.error("Faltan campos obligatorios en ticketData");
+      return null;
+    }
 
   try {
     let imageHtml = "";
@@ -115,18 +136,6 @@ const saveImage = async (message) => {
   fs.writeFileSync(filePath, buffer);
   return filePath;
 };
-
-const exitKeywords = ["salir","cancelar","exit"];
-
-const checkExit = (ctx, {flowDynamic}) => {
-  const message = ctx.body.toLowerCase().trim();
-  if(exitKeywords.includes(message)){
-    flowDynamic([{body: "saliste del flujo, escribe *HOLA* para empezar de nuevo"}]);
-    return true;
-  }
-  return false;
-};
-
 //respuesta al primer mensaje HOLA
 const infoUser = addKeyword([
   "hola",
@@ -138,93 +147,95 @@ const infoUser = addKeyword([
   "buenos",
   "días"
 ])
-.addAnswer(
-  ["Bienvenido a soporte TI 😊", "ingresa tu nombre completo: "],
-  { capture: true },
-  (ctx, { fallBack, flowDynamic }) => {
-    if (!checkExit(ctx, { flowDynamic })) {
+  .addAnswer(
+    ["Bienvenido a soporte TI 😊", "ingresa tu nombre completo: "],
+    { capture: true },
+    (ctx, { fallBack }) => {
       const nombre = ctx.body.trim();
       if (!nombre || nombre.length < 4) {
         return fallBack();
       }
       ticketData.usuario = `Enviado por: ${nombre}`;
       const phoneNumbre = ctx.from.split('@')[0];//captura el numero de cel
-      ticketData.telefono = `Numero de celular: ${phoneNumbre}`;
-    }
-  }
-)
-.addAnswer(
-  [
-    "¿De qué sede te comunicas?",
-    "1- LA 33",
-    "2- SAN CRISTOBAL",
-    "3- POBLADO",
-    "4- RIONEGRO",
-    "5- SABANETA AVENIDA",
-    "6- PRADO",
-    "7- PARQUE",
-    "8- PEDREGAL",
-    "9- SAN JOAQUIN",
-    "10- FLORESTA",
-    "11- SAN MARCOS",
-    "12- LAURELES",
-  ],
-  { capture: true },
-  (ctx, { fallBack, flowDynamic }) => {
-    if (!checkExit(ctx, { flowDynamic })) {
+      ticketData.telefono = `Numero de celular: ${phoneNumbre}`
+
+      setTimeout(clearTicketData, 120000);
+    } 
+  )
+  .addAnswer(
+    [
+      "¿De qué sede te comunicas?",
+      "001 - LA 33",
+      "002 - SAN CRISTOBAL",
+      "003 - POBLADO",
+      "004 - RIONEGRO",
+      "005 - SABANETA AVENIDA",
+      "006 - INTERMEDIA",
+      "007 - PRADO",
+      "008 - SABANETA PARQUE",
+      "009 - PEDREGAL",
+      "010 - SAN JOAQUIN",
+      "011 - FLORESTA",
+      "012 - SAN MARCOS",
+      "013 - LAURELES",
+      "014 - ADMIN",
+    ],
+    { capture: true },
+    (ctx, { fallBack }) => {
       const userInput = ctx.body.toLowerCase().trim();
       const sedeNombres = {
-        "1": "LA 33",
-        "2": "SAN CRISTOBAL",
-        "3": "POBLADO",
-        "4": "RIONEGRO",
-        "5": "SABANETA AVENIDA",
-        "6": "PRADO",
-        "7": "PARQUE",
-        "8": "PEDREGAL",
-        "9": "SAN JOAQUIN",
-        "10": "FLORESTA",
-        "11": "SAN MARCOS",
-        "12": "LAURELES"
+        "001": "LA 33",
+        "002": "SAN CRISTOBAL",
+        "003": "POBLADO",
+        "004": "RIONEGRO",
+        "005": "SABANETA AVENIDA",
+        "006": "INTERMEDIA",
+        "007": "PRADO",
+        "008": "SABANETA PARQUE",
+        "009": "PEDREGAL",
+        "010": "SAN JOAQUIN",
+        "011": "FLORESTA",
+        "012": "SAN MARCOS",
+        "013": "LAURELES",
+        "014": "ADMIN"
       };
 
-      if (sedeNombres[userInput]) {
+      if (sedeNombres[userInput]) { 
         const sedeName = sedeNombres[userInput];
-        ticketData.sede = sedeName;
-      } else {
+        ctx.body = `${sedeName}`;
+        ticketData.sede = ctx.body;
+      }else{
         return fallBack();
       }
     }
-  }
-)
+  )
   .addAnswer(
     [
-      "Ingresa el área donde se presenta el inconveniente: ",
-      "Administración-GH",
-      "Lineal de cajas",
+      "Ingresa el Ã¡rea donde se presenta el inconveniente: ",
+      "Admin - GH",
+      "Cajas",
       "Recibo",
       "CCTV",
     ],
     { capture: true },
-    (ctx, { fallBack, flowDynamic }) => {
-      if(checkExit(ctx, {flowDynamic})) return;
-
+    (ctx, { fallBack }) => {
       const userMenu = ctx.body.toLowerCase().trim();
-      const menu = ["Administración", "Lineal de cajas", "Recibo", "CCTV"];
+      const menu = ["Admin", "Cajas", "Recibo", "CCTV"];
 
       const opcionValida = menu.some((men) =>
         userMenu.includes(men.toLowerCase())
       );
-
       if (!opcionValida) {
         return fallBack();
       }
       ticketData.area = userMenu;
+
+      setTimeout(clearTicketData, 120000);
     }
   );
 
 // opciones para administracion
-const AdminFiltro = addKeyword(["Administración", "administracion","GH","gh","administrativo","Administrativo"])
+const AdminFiltro = addKeyword(["Admin", "Administracion","admon","administracion","GH","gh","administrativo","Administrativo","014"])
   .addAnswer(
     [
       "Selecciona cuál es el caso: ",
@@ -261,6 +272,7 @@ const AdminFiltro = addKeyword(["Administración", "administracion","GH","gh","a
       }else{
         return fallBack();
       }
+      setTimeout(clearTicketData, 120000);
     }
   )
   .addAnswer(
@@ -276,6 +288,8 @@ const AdminFiltro = addKeyword(["Administración", "administracion","GH","gh","a
         ticketData.images.push(imageFilePath); // Agrega el archivo al arreglo
       }
 
+      setTimeout(clearTicketData, 120000);
+
       ticketData.title = `Ticket de ${ticketData.area} 
        ${ticketData.issue}\n-
        ${ticketData.usuario}\n- 
@@ -285,14 +299,14 @@ const AdminFiltro = addKeyword(["Administración", "administracion","GH","gh","a
 
       const responseMessage = ticketId
       ? `Caso registrado con éxito, este es su número de ticket: ${ticketId},  en breves nos comunicaremos con usted.`
-      : "Hubo un error al registrar el caso. Por favor, inténtelo de nuevo.";
+      : "Demoraste demasiado. Escribe *HOLA* para enviar el ticket de nuevo.";
 
       await flowDynamic(responseMessage);
     }
   )
 
 // opciones para lineal de cajas
-const Lineal = addKeyword(["Lineal de cajas", "lineal de cajas","Lineal","lineal","Cajas","cajas"])
+const Lineal = addKeyword(["Cajas", "lineal de cajas","Lineal","lineal","Cajas","cajas"])
   .addAnswer(
     [
       "Selecciona cuál es el caso: ",
@@ -324,6 +338,7 @@ const Lineal = addKeyword(["Lineal de cajas", "lineal de cajas","Lineal","lineal
       }else{
         return fallBack();
       }
+      setTimeout(clearTicketData, 120000);
     }
   )
   .addAnswer(
@@ -339,6 +354,8 @@ const Lineal = addKeyword(["Lineal de cajas", "lineal de cajas","Lineal","lineal
         ticketData.images.push(imageFilePath); // Agrega el archivo al arreglo
       }
 
+      setTimeout(clearTicketData, 120000);
+
       ticketData.title = `Ticket de ${ticketData.area} 
       ${ticketData.issue}\n-
       ${ticketData.usuario}\n- 
@@ -348,7 +365,7 @@ const Lineal = addKeyword(["Lineal de cajas", "lineal de cajas","Lineal","lineal
 
       const responseMessage = ticketId
       ? `Caso registrado con éxito, este es su número de ticket: ${ticketId},  en breves nos comunicaremos con usted.`
-      : "Hubo un error al registrar el caso. Por favor, inténtelo de nuevo.";
+      : "Demoraste demasiado. Escribe *HOLA* para enviar el ticket de nuevo.";
 
       await flowDynamic(responseMessage);
     }
@@ -380,6 +397,7 @@ const Recibo = addKeyword(["Recibo", "recibo"])
       }else{
         return fallBack();
       }
+      setTimeout(clearTicketData, 120000);
     }
   )
   .addAnswer(
@@ -395,6 +413,8 @@ const Recibo = addKeyword(["Recibo", "recibo"])
         ticketData.images.push(imageFilePath); // Agrega el archivo al arreglo
       }
 
+      setTimeout(clearTicketData, 120000);
+
       ticketData.title = `Ticket de ${ticketData.area} 
       ${ticketData.issue}\n-
       ${ticketData.usuario}\n- 
@@ -404,7 +424,7 @@ const Recibo = addKeyword(["Recibo", "recibo"])
 
       const responseMessage = ticketId
       ? `Caso registrado con éxito, este es su número de ticket: ${ticketId},  en breves nos comunicaremos con usted.`
-      : "Hubo un error al registrar el caso. Por favor, inténtelo de nuevo.";
+      : "Demoraste demasiado. Escribe *HOLA* para enviar el ticket de nuevo.";
 
       await flowDynamic(responseMessage);
     }
@@ -437,6 +457,7 @@ const CCTV = addKeyword(["CCTV", "Cctv", "cctv"])
       }else{
         return fallBack();
       }
+      setTimeout(clearTicketData, 120000);
     }
   )
   .addAnswer(
@@ -452,6 +473,8 @@ const CCTV = addKeyword(["CCTV", "Cctv", "cctv"])
         ticketData.images.push(imageFilePath); // Agrega el archivo al arreglo
       }
 
+      setTimeout(clearTicketData, 120000);
+
       ticketData.title = `Ticket de ${ticketData.area} 
       ${ticketData.issue}\n-
       ${ticketData.usuario}\n- 
@@ -461,7 +484,7 @@ const CCTV = addKeyword(["CCTV", "Cctv", "cctv"])
 
       const responseMessage = ticketId
       ? `Caso registrado con éxito, este es su número de ticket: ${ticketId}, en breves nos comunicaremos con usted.`
-      : "Hubo un error al registrar el caso. Por favor, inténtelo de nuevo.";
+      : "Demoraste demasiado. Escribe *HOLA* para enviar el ticket de nuevo.";
 
       await flowDynamic(responseMessage);
     }

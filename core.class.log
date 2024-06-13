@@ -1,0 +1,1310 @@
+[handleMsg]:  {
+  key: {
+    remoteJid: '573113884877@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB02371819A32A6A464EC',
+    participant: undefined
+  },
+  messageTimestamp: 1718297838,
+  pushName: 'Cheryf',
+  broadcast: false,
+  message: Message {
+    extendedTextMessage: ExtendedTextMessage {
+      text: 'hola',
+      contextInfo: [ContextInfo],
+      inviteLinkGroupTypeV2: 0
+    },
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'hola',
+  from: '573113884877'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_25275257-28c8-4f3e-9938-48916922b22f',
+  keyword: 'key_86639fb8-0e43-412f-973f-43d1d02c3d2d',
+  answer: 'Bienvenido a soporte TI 😊\ningresa tu nombre completo: ',
+  options: {
+    media: null,
+    buttons: [],
+    capture: true,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: '74011b513aec5574cdebcc8f9dda55d3'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '573113884877@s.whatsapp.net',
+    fromMe: false,
+    id: '6B035D0D4E037ADA99153B580880BDD8',
+    participant: undefined
+  },
+  messageTimestamp: 1718297839,
+  pushName: 'Cheryf',
+  broadcast: false,
+  message: Message {
+    protocolMessage: ProtocolMessage {
+      key: [MessageKey],
+      type: 4,
+      ephemeralExpiration: 86400,
+      ephemeralSettingTimestamp: [Long],
+      disappearingMode: [DisappearingMode]
+    },
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: '',
+  from: '573113884877'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '573113884877@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB0E0BBD75E6275975A4F',
+    participant: undefined
+  },
+  messageTimestamp: 1718297842,
+  pushName: 'Cheryf',
+  broadcast: false,
+  message: Message {
+    extendedTextMessage: ExtendedTextMessage {
+      text: 'carlos',
+      contextInfo: [ContextInfo],
+      inviteLinkGroupTypeV2: 0
+    },
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'carlos',
+  from: '573113884877'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_4ecff837-0ce9-473a-99fd-0001e651ed82',
+  keyword: 'ans_25275257-28c8-4f3e-9938-48916922b22f',
+  answer: '¿De qué sede te comunicas?\n' +
+    '1- LA 33\n' +
+    '2- SAN CRISTOBAL\n' +
+    '3 -POBLADO\n' +
+    '4- RIONEGRO\n' +
+    '5- SABANETA AVENIDA\n' +
+    '6- PRADO\n' +
+    '7- PARQUE\n' +
+    '8- PEDREGAL\n' +
+    '9- SAN JOAQUIN\n' +
+    '10- FLORESTA\n' +
+    '11- SAN MARCOS\n' +
+    '12-LAURELES',
+  options: {
+    media: null,
+    buttons: [],
+    capture: true,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: '2d5aa889f4b3a5f3ba27c4410bcc348f'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '573113884877@s.whatsapp.net',
+    fromMe: false,
+    id: 'DA27FF8635A23D704383776A28CCD3EB',
+    participant: undefined
+  },
+  messageTimestamp: 1718297842,
+  pushName: 'Cheryf',
+  broadcast: false,
+  message: Message {
+    protocolMessage: ProtocolMessage {
+      key: [MessageKey],
+      type: 4,
+      ephemeralExpiration: 86400,
+      ephemeralSettingTimestamp: [Long],
+      disappearingMode: [DisappearingMode]
+    },
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: '',
+  from: '573113884877'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '573113884877@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB0F88F2E198254E83130',
+    participant: undefined
+  },
+  messageTimestamp: 1718297844,
+  pushName: 'Cheryf',
+  broadcast: false,
+  message: Message {
+    extendedTextMessage: ExtendedTextMessage {
+      text: '5',
+      contextInfo: [ContextInfo],
+      inviteLinkGroupTypeV2: 0
+    },
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: '5',
+  from: '573113884877'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_c0687f55-5c29-4182-b997-cfcf8abb83a1',
+  keyword: 'ans_4ecff837-0ce9-473a-99fd-0001e651ed82',
+  answer: 'Ingresa el área donde se presenta el inconveniente: \n' +
+    'Administración-GH\n' +
+    'Lineal de cajas\n' +
+    'Recibo\n' +
+    'CCTV',
+  options: {
+    media: null,
+    buttons: [],
+    capture: true,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: '8ca41933564839c24e80647d5fe67a6d'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '573113884877@s.whatsapp.net',
+    fromMe: false,
+    id: 'E9E1022A5A47D2EAA4590C02D62EF39D',
+    participant: undefined
+  },
+  messageTimestamp: 1718297845,
+  pushName: 'Cheryf',
+  broadcast: false,
+  message: Message {
+    protocolMessage: ProtocolMessage {
+      key: [MessageKey],
+      type: 4,
+      ephemeralExpiration: 86400,
+      ephemeralSettingTimestamp: [Long],
+      disappearingMode: [DisappearingMode]
+    },
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: '',
+  from: '573113884877'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '573113884877@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB0B558B3B63CBF732CFB',
+    participant: undefined
+  },
+  messageTimestamp: 1718297848,
+  pushName: 'Cheryf',
+  broadcast: false,
+  message: Message {
+    extendedTextMessage: ExtendedTextMessage {
+      text: 'cctv',
+      contextInfo: [ContextInfo],
+      inviteLinkGroupTypeV2: 0
+    },
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'cctv',
+  from: '573113884877'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_2fbaf579-40d1-4af3-b4ce-ab5750fb42dd',
+  keyword: 'key_f0e1399a-c2ea-426e-8d6b-047068769f96',
+  answer: 'Selecciona cuál es el caso: \n1- Alarmas\n2- Cámaras\n3- DVR\n4- Televisores',
+  options: {
+    media: null,
+    buttons: [],
+    capture: true,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: 'd59ce761d823dd7468830c5373dcefa1'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '573113884877@s.whatsapp.net',
+    fromMe: false,
+    id: '70714BA0822E0BAC73E68EFE32EC92DE',
+    participant: undefined
+  },
+  messageTimestamp: 1718297848,
+  pushName: 'Cheryf',
+  broadcast: false,
+  message: Message {
+    protocolMessage: ProtocolMessage {
+      key: [MessageKey],
+      type: 4,
+      ephemeralExpiration: 86400,
+      ephemeralSettingTimestamp: [Long],
+      disappearingMode: [DisappearingMode]
+    },
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: '',
+  from: '573113884877'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '573113884877@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB0647C168FED93636D46',
+    participant: undefined
+  },
+  messageTimestamp: 1718297852,
+  pushName: 'Cheryf',
+  broadcast: false,
+  message: Message {
+    extendedTextMessage: ExtendedTextMessage {
+      text: '3',
+      contextInfo: [ContextInfo],
+      inviteLinkGroupTypeV2: 0
+    },
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: '3',
+  from: '573113884877'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_90ae57d9-83a0-4b03-b91e-29b0a4389987',
+  keyword: 'ans_2fbaf579-40d1-4af3-b4ce-ab5750fb42dd',
+  answer: 'Envia una sola imagen con descripcion del problema: ',
+  options: {
+    media: null,
+    buttons: [],
+    capture: true,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: '3807d073b2a184fade47c10f750a99bb'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '573113884877@s.whatsapp.net',
+    fromMe: false,
+    id: 'EF9BCB332DEC5D97775ED61A6EBDCFBD',
+    participant: undefined
+  },
+  messageTimestamp: 1718297852,
+  pushName: 'Cheryf',
+  broadcast: false,
+  message: Message {
+    protocolMessage: ProtocolMessage {
+      key: [MessageKey],
+      type: 4,
+      ephemeralExpiration: 86400,
+      ephemeralSettingTimestamp: [Long],
+      disappearingMode: [DisappearingMode]
+    },
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: '',
+  from: '573113884877'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '573113884877@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB06A1D6EF7035E364C6C',
+    participant: undefined
+  },
+  messageTimestamp: 1718297993,
+  pushName: 'Cheryf',
+  broadcast: false,
+  message: Message {
+    imageMessage: ImageMessage {
+      interactiveAnnotations: [],
+      scanLengths: [],
+      url: 'https://mmg.whatsapp.net/o1/v/t62.7118-24/f1/m234/up-oil-image-548e91ad-8fdd-4947-944c-081136970f26?ccb=9-4&oh=01_Q5AaIDKT1GWaeB9kfY3bLuDnMWH5BIL3KlUYti_zfzM9eBOH&oe=66903156&_nc_sid=000000&mms3=true',
+      mimetype: 'image/jpeg',
+      caption: 'sin content 2',
+      fileSha256: [Uint8Array],
+      fileLength: [Long],
+      height: 300,
+      width: 300,
+      mediaKey: [Uint8Array],
+      fileEncSha256: [Uint8Array],
+      directPath: '/o1/v/t62.7118-24/f1/m234/up-oil-image-548e91ad-8fdd-4947-944c-081136970f26?ccb=9-4&oh=01_Q5AaIDKT1GWaeB9kfY3bLuDnMWH5BIL3KlUYti_zfzM9eBOH&oe=66903156&_nc_sid=000000',
+      mediaKeyTimestamp: [Long],
+      jpegThumbnail: [Uint8Array],
+      contextInfo: [ContextInfo],
+      viewOnce: false
+    },
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: '_event_media__7afa5179-a5c1-4293-984f-0a090dde09da',
+  from: '573113884877'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '573113884877@s.whatsapp.net',
+    fromMe: false,
+    id: '3439F45CD477477B328376A27330FA00',
+    participant: undefined
+  },
+  messageTimestamp: 1718297994,
+  pushName: 'Cheryf',
+  broadcast: false,
+  message: Message {
+    protocolMessage: ProtocolMessage {
+      key: [MessageKey],
+      type: 4,
+      ephemeralExpiration: 86400,
+      ephemeralSettingTimestamp: [Long],
+      disappearingMode: [DisappearingMode]
+    },
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: '',
+  from: '573113884877'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '573113884877@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB0DCF89C63F6436EC90F',
+    participant: undefined
+  },
+  messageTimestamp: 1718298013,
+  pushName: 'Cheryf',
+  broadcast: false,
+  message: Message {
+    extendedTextMessage: ExtendedTextMessage {
+      text: 'hola',
+      contextInfo: [ContextInfo],
+      inviteLinkGroupTypeV2: 0
+    },
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'hola',
+  from: '573113884877'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_25275257-28c8-4f3e-9938-48916922b22f',
+  keyword: 'key_86639fb8-0e43-412f-973f-43d1d02c3d2d',
+  answer: 'Bienvenido a soporte TI 😊\ningresa tu nombre completo: ',
+  options: {
+    media: null,
+    buttons: [],
+    capture: true,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: '74011b513aec5574cdebcc8f9dda55d3'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '573113884877@s.whatsapp.net',
+    fromMe: false,
+    id: '33DBEA26709305C587CF5C814E02AB32',
+    participant: undefined
+  },
+  messageTimestamp: 1718298014,
+  pushName: 'Cheryf',
+  broadcast: false,
+  message: Message {
+    protocolMessage: ProtocolMessage {
+      key: [MessageKey],
+      type: 4,
+      ephemeralExpiration: 86400,
+      ephemeralSettingTimestamp: [Long],
+      disappearingMode: [DisappearingMode]
+    },
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: '',
+  from: '573113884877'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '573113884877@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB051BE7A058D737E3978',
+    participant: undefined
+  },
+  messageTimestamp: 1718298016,
+  pushName: 'Cheryf',
+  broadcast: false,
+  message: Message {
+    extendedTextMessage: ExtendedTextMessage {
+      text: 'carlos',
+      contextInfo: [ContextInfo],
+      inviteLinkGroupTypeV2: 0
+    },
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'carlos',
+  from: '573113884877'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_4ecff837-0ce9-473a-99fd-0001e651ed82',
+  keyword: 'ans_25275257-28c8-4f3e-9938-48916922b22f',
+  answer: '¿De qué sede te comunicas?\n' +
+    '1- LA 33\n' +
+    '2- SAN CRISTOBAL\n' +
+    '3 -POBLADO\n' +
+    '4- RIONEGRO\n' +
+    '5- SABANETA AVENIDA\n' +
+    '6- PRADO\n' +
+    '7- PARQUE\n' +
+    '8- PEDREGAL\n' +
+    '9- SAN JOAQUIN\n' +
+    '10- FLORESTA\n' +
+    '11- SAN MARCOS\n' +
+    '12-LAURELES',
+  options: {
+    media: null,
+    buttons: [],
+    capture: true,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: '2d5aa889f4b3a5f3ba27c4410bcc348f'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '573113884877@s.whatsapp.net',
+    fromMe: false,
+    id: 'FC1BE7057B369FF7380090790AA77F54',
+    participant: undefined
+  },
+  messageTimestamp: 1718298017,
+  pushName: 'Cheryf',
+  broadcast: false,
+  message: Message {
+    protocolMessage: ProtocolMessage {
+      key: [MessageKey],
+      type: 4,
+      ephemeralExpiration: 86400,
+      ephemeralSettingTimestamp: [Long],
+      disappearingMode: [DisappearingMode]
+    },
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: '',
+  from: '573113884877'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '573113884877@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB0426A7ED36FFE211973',
+    participant: undefined
+  },
+  messageTimestamp: 1718298019,
+  pushName: 'Cheryf',
+  broadcast: false,
+  message: Message {
+    extendedTextMessage: ExtendedTextMessage {
+      text: '5',
+      contextInfo: [ContextInfo],
+      inviteLinkGroupTypeV2: 0
+    },
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: '5',
+  from: '573113884877'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_c0687f55-5c29-4182-b997-cfcf8abb83a1',
+  keyword: 'ans_4ecff837-0ce9-473a-99fd-0001e651ed82',
+  answer: 'Ingresa el área donde se presenta el inconveniente: \n' +
+    'Administración-GH\n' +
+    'Lineal de cajas\n' +
+    'Recibo\n' +
+    'CCTV',
+  options: {
+    media: null,
+    buttons: [],
+    capture: true,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: '8ca41933564839c24e80647d5fe67a6d'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '573113884877@s.whatsapp.net',
+    fromMe: false,
+    id: '1B172DE3460B6B2624A3362E74BDFA8F',
+    participant: undefined
+  },
+  messageTimestamp: 1718298019,
+  pushName: 'Cheryf',
+  broadcast: false,
+  message: Message {
+    protocolMessage: ProtocolMessage {
+      key: [MessageKey],
+      type: 4,
+      ephemeralExpiration: 86400,
+      ephemeralSettingTimestamp: [Long],
+      disappearingMode: [DisappearingMode]
+    },
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: '',
+  from: '573113884877'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '573113884877@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB0466D2F1FA484072B8C',
+    participant: undefined
+  },
+  messageTimestamp: 1718298023,
+  pushName: 'Cheryf',
+  broadcast: false,
+  message: Message {
+    extendedTextMessage: ExtendedTextMessage {
+      text: 'cctv',
+      contextInfo: [ContextInfo],
+      inviteLinkGroupTypeV2: 0
+    },
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'cctv',
+  from: '573113884877'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_2fbaf579-40d1-4af3-b4ce-ab5750fb42dd',
+  keyword: 'key_f0e1399a-c2ea-426e-8d6b-047068769f96',
+  answer: 'Selecciona cuál es el caso: \n1- Alarmas\n2- Cámaras\n3- DVR\n4- Televisores',
+  options: {
+    media: null,
+    buttons: [],
+    capture: true,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: 'd59ce761d823dd7468830c5373dcefa1'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '573113884877@s.whatsapp.net',
+    fromMe: false,
+    id: '60529EDB020F081FB272B8E6486667C3',
+    participant: undefined
+  },
+  messageTimestamp: 1718298023,
+  pushName: 'Cheryf',
+  broadcast: false,
+  message: Message {
+    protocolMessage: ProtocolMessage {
+      key: [MessageKey],
+      type: 4,
+      ephemeralExpiration: 86400,
+      ephemeralSettingTimestamp: [Long],
+      disappearingMode: [DisappearingMode]
+    },
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: '',
+  from: '573113884877'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '573113884877@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB071FB2646225448F48E',
+    participant: undefined
+  },
+  messageTimestamp: 1718298026,
+  pushName: 'Cheryf',
+  broadcast: false,
+  message: Message {
+    extendedTextMessage: ExtendedTextMessage {
+      text: '2',
+      contextInfo: [ContextInfo],
+      inviteLinkGroupTypeV2: 0
+    },
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: '2',
+  from: '573113884877'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_90ae57d9-83a0-4b03-b91e-29b0a4389987',
+  keyword: 'ans_2fbaf579-40d1-4af3-b4ce-ab5750fb42dd',
+  answer: 'Envia una sola imagen con descripcion del problema: ',
+  options: {
+    media: null,
+    buttons: [],
+    capture: true,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: '3807d073b2a184fade47c10f750a99bb'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '573113884877@s.whatsapp.net',
+    fromMe: false,
+    id: '530312F2488FB4689645BFEF2581DDC9',
+    participant: undefined
+  },
+  messageTimestamp: 1718298027,
+  pushName: 'Cheryf',
+  broadcast: false,
+  message: Message {
+    protocolMessage: ProtocolMessage {
+      key: [MessageKey],
+      type: 4,
+      ephemeralExpiration: 86400,
+      ephemeralSettingTimestamp: [Long],
+      disappearingMode: [DisappearingMode]
+    },
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: '',
+  from: '573113884877'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '573113884877@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB0956C31FE9BD8E7DAC8',
+    participant: undefined
+  },
+  messageTimestamp: 1718298039,
+  pushName: 'Cheryf',
+  broadcast: false,
+  message: Message {
+    imageMessage: ImageMessage {
+      interactiveAnnotations: [],
+      scanLengths: [],
+      url: 'https://mmg.whatsapp.net/o1/v/t62.7118-24/f1/m269/up-oil-image-36b36d64-eb14-41c8-bed7-159246b30419?ccb=9-4&oh=01_Q5AaIAaLY9yLzcfa96_MbKrLJPVg-CMJoODmYQrx0G7XcIDy&oe=66927450&_nc_sid=000000&mms3=true',
+      mimetype: 'image/jpeg',
+      caption: 'aprobacion',
+      fileSha256: [Uint8Array],
+      fileLength: [Long],
+      height: 262,
+      width: 1147,
+      mediaKey: [Uint8Array],
+      fileEncSha256: [Uint8Array],
+      directPath: '/o1/v/t62.7118-24/f1/m269/up-oil-image-36b36d64-eb14-41c8-bed7-159246b30419?ccb=9-4&oh=01_Q5AaIAaLY9yLzcfa96_MbKrLJPVg-CMJoODmYQrx0G7XcIDy&oe=66927450&_nc_sid=000000',
+      mediaKeyTimestamp: [Long],
+      jpegThumbnail: [Uint8Array],
+      contextInfo: [ContextInfo],
+      viewOnce: false
+    },
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: '_event_media__6d792595-3b47-463e-9ba1-3572c51c66d4',
+  from: '573113884877'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '573113884877@s.whatsapp.net',
+    fromMe: false,
+    id: '397E4AC363EEF9E7EA360234CDB54703',
+    participant: undefined
+  },
+  messageTimestamp: 1718298041,
+  pushName: 'Cheryf',
+  broadcast: false,
+  message: Message {
+    protocolMessage: ProtocolMessage {
+      key: [MessageKey],
+      type: 4,
+      ephemeralExpiration: 86400,
+      ephemeralSettingTimestamp: [Long],
+      disappearingMode: [DisappearingMode]
+    },
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: '',
+  from: '573113884877'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '573113884877@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB06E79B34EABCB0FE9C7',
+    participant: undefined
+  },
+  messageTimestamp: 1718298318,
+  pushName: 'Cheryf',
+  broadcast: false,
+  message: Message {
+    extendedTextMessage: ExtendedTextMessage {
+      text: 'hola',
+      contextInfo: [ContextInfo],
+      inviteLinkGroupTypeV2: 0
+    },
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'hola',
+  from: '573113884877'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_25275257-28c8-4f3e-9938-48916922b22f',
+  keyword: 'key_86639fb8-0e43-412f-973f-43d1d02c3d2d',
+  answer: 'Bienvenido a soporte TI 😊\ningresa tu nombre completo: ',
+  options: {
+    media: null,
+    buttons: [],
+    capture: true,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: '74011b513aec5574cdebcc8f9dda55d3'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '573113884877@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB074E7D4E74FAB6E8622',
+    participant: undefined
+  },
+  messageTimestamp: 1718298323,
+  pushName: 'Cheryf',
+  broadcast: false,
+  message: Message {
+    extendedTextMessage: ExtendedTextMessage {
+      text: 'carlos',
+      contextInfo: [ContextInfo],
+      inviteLinkGroupTypeV2: 0
+    },
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'carlos',
+  from: '573113884877'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_4ecff837-0ce9-473a-99fd-0001e651ed82',
+  keyword: 'ans_25275257-28c8-4f3e-9938-48916922b22f',
+  answer: '¿De qué sede te comunicas?\n' +
+    '1- LA 33\n' +
+    '2- SAN CRISTOBAL\n' +
+    '3 -POBLADO\n' +
+    '4- RIONEGRO\n' +
+    '5- SABANETA AVENIDA\n' +
+    '6- PRADO\n' +
+    '7- PARQUE\n' +
+    '8- PEDREGAL\n' +
+    '9- SAN JOAQUIN\n' +
+    '10- FLORESTA\n' +
+    '11- SAN MARCOS\n' +
+    '12-LAURELES',
+  options: {
+    media: null,
+    buttons: [],
+    capture: true,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: '2d5aa889f4b3a5f3ba27c4410bcc348f'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '573113884877@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB0498C35E3611B4E75BA',
+    participant: undefined
+  },
+  messageTimestamp: 1718298327,
+  pushName: 'Cheryf',
+  broadcast: false,
+  message: Message {
+    extendedTextMessage: ExtendedTextMessage {
+      text: '5',
+      contextInfo: [ContextInfo],
+      inviteLinkGroupTypeV2: 0
+    },
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: '5',
+  from: '573113884877'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_c0687f55-5c29-4182-b997-cfcf8abb83a1',
+  keyword: 'ans_4ecff837-0ce9-473a-99fd-0001e651ed82',
+  answer: 'Ingresa el área donde se presenta el inconveniente: \n' +
+    'Administración-GH\n' +
+    'Lineal de cajas\n' +
+    'Recibo\n' +
+    'CCTV',
+  options: {
+    media: null,
+    buttons: [],
+    capture: true,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: '8ca41933564839c24e80647d5fe67a6d'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '573113884877@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB04371B1F9CA15424041',
+    participant: undefined
+  },
+  messageTimestamp: 1718298331,
+  pushName: 'Cheryf',
+  broadcast: false,
+  message: Message {
+    extendedTextMessage: ExtendedTextMessage {
+      text: 'cctv',
+      contextInfo: [ContextInfo],
+      inviteLinkGroupTypeV2: 0
+    },
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'cctv',
+  from: '573113884877'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_2fbaf579-40d1-4af3-b4ce-ab5750fb42dd',
+  keyword: 'key_f0e1399a-c2ea-426e-8d6b-047068769f96',
+  answer: 'Selecciona cuál es el caso: \n1- Alarmas\n2- Cámaras\n3- DVR\n4- Televisores',
+  options: {
+    media: null,
+    buttons: [],
+    capture: true,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: 'd59ce761d823dd7468830c5373dcefa1'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '573113884877@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB00F385AB3CF25052F20',
+    participant: undefined
+  },
+  messageTimestamp: 1718298448,
+  pushName: 'Cheryf',
+  broadcast: false,
+  message: Message {
+    extendedTextMessage: ExtendedTextMessage {
+      text: '4',
+      contextInfo: [ContextInfo],
+      inviteLinkGroupTypeV2: 0
+    },
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: '4',
+  from: '573113884877'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_90ae57d9-83a0-4b03-b91e-29b0a4389987',
+  keyword: 'ans_2fbaf579-40d1-4af3-b4ce-ab5750fb42dd',
+  answer: 'Envia una sola imagen con descripcion del problema: ',
+  options: {
+    media: null,
+    buttons: [],
+    capture: true,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: '3807d073b2a184fade47c10f750a99bb'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '573113884877@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB092C674812E1732BB5E',
+    participant: undefined
+  },
+  messageTimestamp: 1718298461,
+  pushName: 'Cheryf',
+  broadcast: false,
+  message: Message {
+    imageMessage: ImageMessage {
+      interactiveAnnotations: [],
+      scanLengths: [],
+      url: 'https://mmg.whatsapp.net/o1/v/t62.7118-24/f1/m269/up-oil-image-36b36d64-eb14-41c8-bed7-159246b30419?ccb=9-4&oh=01_Q5AaIAaLY9yLzcfa96_MbKrLJPVg-CMJoODmYQrx0G7XcIDy&oe=66927450&_nc_sid=000000&mms3=true',
+      mimetype: 'image/jpeg',
+      caption: 'prueba wilder',
+      fileSha256: [Uint8Array],
+      fileLength: [Long],
+      height: 262,
+      width: 1147,
+      mediaKey: [Uint8Array],
+      fileEncSha256: [Uint8Array],
+      directPath: '/o1/v/t62.7118-24/f1/m269/up-oil-image-36b36d64-eb14-41c8-bed7-159246b30419?ccb=9-4&oh=01_Q5AaIAaLY9yLzcfa96_MbKrLJPVg-CMJoODmYQrx0G7XcIDy&oe=66927450&_nc_sid=000000',
+      mediaKeyTimestamp: [Long],
+      jpegThumbnail: [Uint8Array],
+      contextInfo: [ContextInfo],
+      viewOnce: false
+    },
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: '_event_media__d4d676e5-73e6-4732-822d-7f5e39157e94',
+  from: '573113884877'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '573113884877@s.whatsapp.net',
+    fromMe: false,
+    id: '89274CAFA281A62D56814631C97013F8',
+    participant: undefined
+  },
+  messageTimestamp: 1718299956,
+  pushName: 'Cheryf',
+  broadcast: false,
+  message: Message {
+    protocolMessage: ProtocolMessage {
+      key: [MessageKey],
+      type: 4,
+      ephemeralExpiration: 86400,
+      ephemeralSettingTimestamp: [Long],
+      disappearingMode: [DisappearingMode]
+    },
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: '',
+  from: '573113884877'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '573113884877@s.whatsapp.net',
+    fromMe: false,
+    id: '5AB57324B5AA125A3D24ED27472CB9B6',
+    participant: undefined
+  },
+  messageTimestamp: 1718299956,
+  pushName: 'Cheryf',
+  broadcast: false,
+  message: Message {
+    protocolMessage: ProtocolMessage {
+      key: [MessageKey],
+      type: 4,
+      ephemeralExpiration: 86400,
+      ephemeralSettingTimestamp: [Long],
+      disappearingMode: [DisappearingMode]
+    },
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: '',
+  from: '573113884877'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '573113884877@s.whatsapp.net',
+    fromMe: false,
+    id: 'D528237475485A6D0D940018B52C7F86',
+    participant: undefined
+  },
+  messageTimestamp: 1718299956,
+  pushName: 'Cheryf',
+  broadcast: false,
+  message: Message {
+    protocolMessage: ProtocolMessage {
+      key: [MessageKey],
+      type: 4,
+      ephemeralExpiration: 86400,
+      ephemeralSettingTimestamp: [Long],
+      disappearingMode: [DisappearingMode]
+    },
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: '',
+  from: '573113884877'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '573113884877@s.whatsapp.net',
+    fromMe: false,
+    id: 'FEF48FD42ECAFF253F0F5BD987F33DD5',
+    participant: undefined
+  },
+  messageTimestamp: 1718299956,
+  pushName: 'Cheryf',
+  broadcast: false,
+  message: Message {
+    protocolMessage: ProtocolMessage {
+      key: [MessageKey],
+      type: 4,
+      ephemeralExpiration: 86400,
+      ephemeralSettingTimestamp: [Long],
+      disappearingMode: [DisappearingMode]
+    },
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: '',
+  from: '573113884877'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '573113884877@s.whatsapp.net',
+    fromMe: false,
+    id: 'CCCC9849B2870EFE75E9A3574A9E89D3',
+    participant: undefined
+  },
+  messageTimestamp: 1718299957,
+  pushName: 'Cheryf',
+  broadcast: false,
+  message: Message {
+    protocolMessage: ProtocolMessage {
+      key: [MessageKey],
+      type: 4,
+      ephemeralExpiration: 86400,
+      ephemeralSettingTimestamp: [Long],
+      disappearingMode: [DisappearingMode]
+    },
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: '',
+  from: '573113884877'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '573113884877@s.whatsapp.net',
+    fromMe: false,
+    id: 'BC90AAE5922C141BF35C264156B10D61',
+    participant: undefined
+  },
+  messageTimestamp: 1718299957,
+  pushName: 'Cheryf',
+  broadcast: false,
+  message: Message {
+    protocolMessage: ProtocolMessage {
+      key: [MessageKey],
+      type: 4,
+      ephemeralExpiration: 86400,
+      ephemeralSettingTimestamp: [Long],
+      disappearingMode: [DisappearingMode]
+    },
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: '',
+  from: '573113884877'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '573113884877@s.whatsapp.net',
+    fromMe: false,
+    id: 'C91E5FDFD07933A48F9D8ADED1282317',
+    participant: undefined
+  },
+  messageTimestamp: 1718300563,
+  pushName: 'Cheryf',
+  broadcast: false,
+  messageStubType: 2,
+  messageStubParameters: [ 'No matching sessions found for message' ],
+  body: undefined,
+  from: '573113884877'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '573212380006@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB0985BA729786FD537A5',
+    participant: undefined
+  },
+  messageTimestamp: 1718303651,
+  pushName: '~AndresM🤪~',
+  broadcast: false,
+  message: Message {
+    conversation: 'hola',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'hola',
+  from: '573212380006'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_25275257-28c8-4f3e-9938-48916922b22f',
+  keyword: 'key_86639fb8-0e43-412f-973f-43d1d02c3d2d',
+  answer: 'Bienvenido a soporte TI 😊\ningresa tu nombre completo: ',
+  options: {
+    media: null,
+    buttons: [],
+    capture: true,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: '74011b513aec5574cdebcc8f9dda55d3'
+}
