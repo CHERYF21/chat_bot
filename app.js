@@ -24,10 +24,9 @@ const MYSQL_DB_PORT = "3306";
 /**
  * Credenciales de GLPI
  */
-const GLPI_API_URL = "http://10.21.90.7:8200/apirest.php/";
-const GLPI_USER_TOKEN = "QVniFo9pZ5Cnwh981N1ynXxfqJygsW5FkDTGTvOg";
-const GLPI_API_TOKEN = "eEvEVj8zPOvMKcYHJiEpza0KqprRm1X6MzWiJBdN";
-
+const GLPI_API_URL = "http://localhost/glpi/apirest.php/";
+const GLPI_USER_TOKEN = "o1e4PA6jyf91Epc7mGz3AWkKWPZ6wJhxvQ9rydnx";
+const GLPI_API_TOKEN = "F8YETkJFPsW8SxEODJV9FQguCkPhcwUKT3T94kew";
 
 // verifica el token de la session
 const getSessionToken = async () => {
@@ -41,7 +40,7 @@ const getSessionToken = async () => {
     return response.data.session_token;
   } catch (error) {
     console.error(
-      "Error iniciando sesiÃ³n en GLPI:",
+      "Error iniciando sesión en GLPI:",
       error.response ? error.response.data : error.message
     );
     return null;
@@ -84,7 +83,7 @@ const createGLPITicket = async (ticketData) => {
     const input = {
       input: {
         name: ticketData.title,
-        content: `${ticketData.description}\n${imageHtml}`, // Agregar las imÃ¡genes al campo "content"
+        content: `${ticketData.description}\n${imageHtml}`, // Agregar las imágenes al campo "content"
         status: 1,
       },
     };
@@ -117,95 +116,101 @@ const saveImage = async (message) => {
   return filePath;
 };
 
+const exitKeywords = ["salir","cancelar","exit"];
+
+const checkExit = (ctx, {flowDynamic}) => {
+  const message = ctx.body.toLowerCase().trim();
+  if(exitKeywords.includes(message)){
+    flowDynamic([{body: "saliste del flujo, escribe *HOLA* para empezar de nuevo"}]);
+    return true;
+  }
+  return false;
+};
+
 //respuesta al primer mensaje HOLA
 const infoUser = addKeyword([
   "hola",
   "ola",
-  "Buenos dÃ­as",
+  "Buenos días",
   "buenos dias",
   "buenas tardes",
   "dias",
   "buenos",
-  "dÃ­as",
-  "buenas",
-  "dias",
-  "holi",
-  "ayuda"
-
+  "días"
 ])
-  .addAnswer(
-    ["Bienvenido a soporte TI ðŸ˜Š", "ingresa tu nombre completo: "],
-    { capture: true },
-    (ctx, { fallBack }) => {
+.addAnswer(
+  ["Bienvenido a soporte TI 😊", "ingresa tu nombre completo: "],
+  { capture: true },
+  (ctx, { fallBack, flowDynamic }) => {
+    if (!checkExit(ctx, { flowDynamic })) {
       const nombre = ctx.body.trim();
       if (!nombre || nombre.length < 4) {
         return fallBack();
       }
       ticketData.usuario = `Enviado por: ${nombre}`;
-
       const phoneNumbre = ctx.from.split('@')[0];//captura el numero de cel
-      ticketData.telefono = `Numero de celular: ${phoneNumbre}`
-    } 
-  )
-  .addAnswer(
-    [
-      "Â¿De quÃ© sede te comunicas?",
-      "001 - LA 33",
-      "002 - SAN CRISTOBAL",
-      "003 - POBLADO",
-      "004 - RIONEGRO",
-      "005 - SABANETA AVENIDA",
-      "006 - INTERMEDIA",
-      "007 - PRADO",
-      "008 - SABANETA PARQUE",
-      "009 - PEDREGAL",
-      "010 - SAN JOAQUIN",
-      "011 - FLORESTA",
-      "012 - SAN MARCOS",
-      "013 - LAURELES",
-      "014 - ADMIN"
-    ],
-    { capture: true },
-    (ctx, { fallBack }) => {
+      ticketData.telefono = `Numero de celular: ${phoneNumbre}`;
+    }
+  }
+)
+.addAnswer(
+  [
+    "¿De qué sede te comunicas?",
+    "1- LA 33",
+    "2- SAN CRISTOBAL",
+    "3- POBLADO",
+    "4- RIONEGRO",
+    "5- SABANETA AVENIDA",
+    "6- PRADO",
+    "7- PARQUE",
+    "8- PEDREGAL",
+    "9- SAN JOAQUIN",
+    "10- FLORESTA",
+    "11- SAN MARCOS",
+    "12- LAURELES",
+  ],
+  { capture: true },
+  (ctx, { fallBack, flowDynamic }) => {
+    if (!checkExit(ctx, { flowDynamic })) {
       const userInput = ctx.body.toLowerCase().trim();
       const sedeNombres = {
-        "001": "LA 33",
-        "002": "SAN CRISTOBAL",
-        "003": "POBLADO",
-        "004": "RIONEGRO",
-        "005": "SABANETA AVENIDA",
-        "006": "INTERMEDIA",
-        "007": "PRADO",
-        "008": "SABANETA PARQUE",
-        "009": "PEDREGAL",
-        "010": "SAN JOAQUIN",
-        "011": "FLORESTA",
-        "012": "SAN MARCOS",
-        "013": "LAURELES",
-        "014": "ADMIN"
+        "1": "LA 33",
+        "2": "SAN CRISTOBAL",
+        "3": "POBLADO",
+        "4": "RIONEGRO",
+        "5": "SABANETA AVENIDA",
+        "6": "PRADO",
+        "7": "PARQUE",
+        "8": "PEDREGAL",
+        "9": "SAN JOAQUIN",
+        "10": "FLORESTA",
+        "11": "SAN MARCOS",
+        "12": "LAURELES"
       };
 
-      if (sedeNombres[userInput]) { 
+      if (sedeNombres[userInput]) {
         const sedeName = sedeNombres[userInput];
-        ctx.body = `${sedeName}`;
-        ticketData.sede = ctx.body;
-      }else{
+        ticketData.sede = sedeName;
+      } else {
         return fallBack();
       }
     }
-  )
+  }
+)
   .addAnswer(
     [
-      "Ingresa el Ã¡rea donde se presenta el inconveniente: ",
-      "Admin - GH",
-      "Cajas",
+      "Ingresa el área donde se presenta el inconveniente: ",
+      "Administración-GH",
+      "Lineal de cajas",
       "Recibo",
       "CCTV",
     ],
     { capture: true },
-    (ctx, { fallBack }) => {
+    (ctx, { fallBack, flowDynamic }) => {
+      if(checkExit(ctx, {flowDynamic})) return;
+
       const userMenu = ctx.body.toLowerCase().trim();
-      const menu = ["Admin", "Cajas", "Recibo", "CCTV"];
+      const menu = ["Administración", "Lineal de cajas", "Recibo", "CCTV"];
 
       const opcionValida = menu.some((men) =>
         userMenu.includes(men.toLowerCase())
@@ -219,27 +224,27 @@ const infoUser = addKeyword([
   );
 
 // opciones para administracion
-const AdminFiltro = addKeyword(["Admin","Administracion","admon", "administracion","GH","gh","administrativo","Administrativo","014"])
+const AdminFiltro = addKeyword(["Administración", "administracion","GH","gh","administrativo","Administrativo"])
   .addAnswer(
     [
-      "Selecciona cuÃ¡l es el caso: ",
-      "1 - Fallas en perifÃ©ricos (Teclado, Mouse, Impresora, EscÃ¡ner, Pantalla).",
-      "2 - Equipo sin conexiÃ³n o navegaciÃ³n.",
-      "3 - Sin acceso a siesa Enterprise u/o ERP.",
-      "4 - Error en ERP.",
-      "5 - Error impresora de flejes.",
-      "6 - Equipo no funciona.",
-      "7 - Error en Emisora.",
-      "8 - Fallo general",
-      "9 - Otros"
+      "Selecciona cuál es el caso: ",
+      "1- Fallas en periféricos (Teclado, Mouse, Impresora, Escáner, Pantalla).",
+      "2- Equipo sin conexión o navegación.",
+      "3- Sin acceso a siesa Enterprise u/o ERP.",
+      "4- Error en ERP.",
+      "5- Error impresora de flejes.",
+      "6- Equipo no funciona.",
+      "7- Error en Emisora.",
+      "8- Fallo general",
+      "9- Otros"
 
     ],
     { capture: true },
     async (ctx, { fallBack }) => {
       const respAdmin = ctx.body.trim();
       const optionsAdmin = {
-        "1":"Fallas en perifÃ©ricos (Teclado, Mouse, Impresora, EscÃ¡ner, Pantalla).",
-        "2":"Equipo sin conexiÃ³n o navegaciÃ³n.",
+        "1":"Fallas en periféricos (Teclado, Mouse, Impresora, Escáner, Pantalla).",
+        "2":"Equipo sin conexión o navegación.",
         "3":"Sin acceso a siesa Enterprise u/o ERP.",
         "4":"Error en ERP.",
         "5":"Error impresora de flejes.",
@@ -252,14 +257,14 @@ const AdminFiltro = addKeyword(["Admin","Administracion","admon", "administracio
       if (optionsAdmin[respAdmin]) {
         const option = optionsAdmin[respAdmin];
         ctx.body =  `${option}`;
-        ticketData.issue = `Problema en AdministraciÃ³n: ${ctx.body}`;
+        ticketData.issue = `Problema en Administración: ${ctx.body}`;
       }else{
         return fallBack();
       }
     }
   )
   .addAnswer(
-    ["Envia *una sola imagen* con *descripcion* del problema: "],
+    ["Envia una sola imagen con descripcion del problema: "],
     { capture: true },
     async (ctx, {flowDynamic}) => {
       let imageFilePath = null;
@@ -267,7 +272,7 @@ const AdminFiltro = addKeyword(["Admin","Administracion","admon", "administracio
       if (ctx.message && ctx.message.imageMessage) {
         imageFilePath = await saveImage(ctx.message.imageMessage);
         ticketData.description =
-          ctx.message.imageMessage.caption || "Imagen recibida sin descripciÃ³n";
+          ctx.message.imageMessage.caption || "Imagen recibida sin descripción";
         ticketData.images.push(imageFilePath); // Agrega el archivo al arreglo
       }
 
@@ -279,34 +284,33 @@ const AdminFiltro = addKeyword(["Admin","Administracion","admon", "administracio
       const ticketId = await createGLPITicket(ticketData);
 
       const responseMessage = ticketId
-      ? `Caso registrado con Ã©xito, este es su nÃºmero de ticket: ${ticketId},  en breves nos comunicaremos con usted.`
-      : "Hubo un error al registrar el caso. Por favor, intÃ©ntelo de nuevo.";
+      ? `Caso registrado con éxito, este es su número de ticket: ${ticketId},  en breves nos comunicaremos con usted.`
+      : "Hubo un error al registrar el caso. Por favor, inténtelo de nuevo.";
 
       await flowDynamic(responseMessage);
     }
   )
-  .addAnswer("Para generar un nuevo ticket escribe 'Hola' ")
 
 // opciones para lineal de cajas
-const Lineal = addKeyword(["Cajas", "lineal de cajas","Lineal","lineal","Cajas","cajas"])
+const Lineal = addKeyword(["Lineal de cajas", "lineal de cajas","Lineal","lineal","Cajas","cajas"])
   .addAnswer(
     [
-      "Selecciona cuÃ¡l es el caso: ",
-      "1 - Fallas en perifÃ©ricos (Teclado, Mouse, Impresora, Balanza, Pantalla).",
-      "2 - Equipo no funciona.",
-      "3 - Equipo sin conexiÃ³n o navegaciÃ³n.",
-      "4 - Error en datafonos.",
-      "5 - Usuario no funciona.",
-      "6 - Error en aplicativo pos.",
-      "7 - Otros"
+      "Selecciona cuál es el caso: ",
+      "1- Fallas en periféricos (Teclado, Mouse, Impresora, Balanza, Pantalla).",
+      "2- Equipo no funciona.",
+      "3- Equipo sin conexión o navegación.",
+      "4- Error en datafonos.",
+      "5- Usuario no funciona.",
+      "6- Error en aplicativo pos.",
+      "7- Otros"
     ],
     { capture: true },
     async (ctx, { fallBack }) => {
       const userInput = ctx.body.toLowerCase();
       const optionsLineal = {
-        "1":"Fallas en perifÃ©ricos (Teclado, Mouse, Impresora, Balanza, Pantalla).",
+        "1":"Fallas en periféricos (Teclado, Mouse, Impresora, Balanza, Pantalla).",
         "2":"Equipo no funciona.", 
-        "3":"Equipo sin conexiÃ³n o navegaciÃ³n.", 
+        "3":"Equipo sin conexión o navegación.", 
         "4":"Error en datafonos.", 
         "5":"Usuario no funciona.",
         "6":"Error en aplicativo pos.",
@@ -323,7 +327,7 @@ const Lineal = addKeyword(["Cajas", "lineal de cajas","Lineal","lineal","Cajas",
     }
   )
   .addAnswer(
-    ["Envia *una sola imagen* con *descripcion* del problema: "],
+    ["Envia una sola imagen con descripcion del problema: "],
     { capture: true },
     async (ctx, {flowDynamic}) => {
       let imageFilePath = null;
@@ -331,7 +335,7 @@ const Lineal = addKeyword(["Cajas", "lineal de cajas","Lineal","lineal","Cajas",
       if (ctx.message && ctx.message.imageMessage) {
         imageFilePath = await saveImage(ctx.message.imageMessage);
         ticketData.description =
-          ctx.message.imageMessage.caption || "Imagen recibida sin descripciÃ³n";
+          ctx.message.imageMessage.caption || "Imagen recibida sin descripción";
         ticketData.images.push(imageFilePath); // Agrega el archivo al arreglo
       }
 
@@ -343,22 +347,21 @@ const Lineal = addKeyword(["Cajas", "lineal de cajas","Lineal","lineal","Cajas",
       const ticketId = await createGLPITicket(ticketData);
 
       const responseMessage = ticketId
-      ? `Caso registrado con Ã©xito, este es su nÃºmero de ticket: ${ticketId},  en breves nos comunicaremos con usted.`
-      : "Hubo un error al registrar el caso. Por favor, intÃ©ntelo de nuevo.";
+      ? `Caso registrado con éxito, este es su número de ticket: ${ticketId},  en breves nos comunicaremos con usted.`
+      : "Hubo un error al registrar el caso. Por favor, inténtelo de nuevo.";
 
       await flowDynamic(responseMessage);
     }
   )
-  .addAnswer("Para generar un nuevo ticket escribe 'Hola' ")
 // opciones para recibo
 const Recibo = addKeyword(["Recibo", "recibo"])
   .addAnswer(
     [
-      "Selecciona cuÃ¡l es el caso: ",
-      "1 - Equipo no enciende",
-      "2 - Impresora no imprime",
-      "3 - Equipo sin conexiÃ³n o navegaciÃ³n",
-      "4 - Sin acceso a SIEZA InterPrice",
+      "Selecciona cuál es el caso: ",
+      "1- Equipo no enciende",
+      "2- Impresora no imprime",
+      "3- Equipo sin conexión o navegación",
+      "4- Sin acceso a SIEZA InterPrice",
     ],
     { capture: true },
     async (ctx, { fallBack }) => {
@@ -366,7 +369,7 @@ const Recibo = addKeyword(["Recibo", "recibo"])
       const optionsRecibo = {
         "1":"Equipo no enciende", 
         "2":"Impresora no imprime", 
-        "3":"Equipo sin conexiÃ³n o navegaciÃ³n", 
+        "3":"Equipo sin conexión o navegación", 
         "4":"Sin acceso a SIEZA InterPrice"
       };
 
@@ -380,7 +383,7 @@ const Recibo = addKeyword(["Recibo", "recibo"])
     }
   )
   .addAnswer(
-    ["Envia *una sola imagen* con *descripcion* del problema:  "],
+    ["Envia una sola imagen con descripcion del problema:  "],
     { capture: true },
     async (ctx, {flowDynamic}) => {
       let imageFilePath = null;
@@ -388,7 +391,7 @@ const Recibo = addKeyword(["Recibo", "recibo"])
       if (ctx.message && ctx.message.imageMessage) {
         imageFilePath = await saveImage(ctx.message.imageMessage);
         ticketData.description =
-          ctx.message.imageMessage.caption || "Imagen recibida sin descripciÃ³n";
+          ctx.message.imageMessage.caption || "Imagen recibida sin descripción";
         ticketData.images.push(imageFilePath); // Agrega el archivo al arreglo
       }
 
@@ -400,21 +403,20 @@ const Recibo = addKeyword(["Recibo", "recibo"])
       const ticketId = await createGLPITicket(ticketData);
 
       const responseMessage = ticketId
-      ? `Caso registrado con Ã©xito, este es su nÃºmero de ticket: ${ticketId},  en breves nos comunicaremos con usted.`
-      : "Hubo un error al registrar el caso. Por favor, intÃ©ntelo de nuevo.";
+      ? `Caso registrado con éxito, este es su número de ticket: ${ticketId},  en breves nos comunicaremos con usted.`
+      : "Hubo un error al registrar el caso. Por favor, inténtelo de nuevo.";
 
       await flowDynamic(responseMessage);
     }
   )
-  .addAnswer("Para generar un nuevo ticket escribe 'Hola' ")
 
 // opciones menus cctv
 const CCTV = addKeyword(["CCTV", "Cctv", "cctv"])
   .addAnswer(
     [
-      "Selecciona cuÃ¡l es el caso: ",
+      "Selecciona cuál es el caso: ",
       "1- Alarmas",
-      "2- CÃ¡maras",
+      "2- Cámaras",
       "3- DVR",
       "4- Televisores",
     ],
@@ -423,7 +425,7 @@ const CCTV = addKeyword(["CCTV", "Cctv", "cctv"])
       const CCTVOption = ctx.body.toLowerCase().trim();
       const optionsCCTV = {
         "1":"Alarmas", 
-        "2":"CÃ¡maras", 
+        "2":"Cámaras", 
         "3":"DVR", 
         "4":"Televisores"
       };
@@ -438,7 +440,7 @@ const CCTV = addKeyword(["CCTV", "Cctv", "cctv"])
     }
   )
   .addAnswer(
-    ["Envia *una sola imagen* con *descripcion* del problema: "],
+    ["Envia una sola imagen con descripcion del problema: "],
     { capture: true },
     async (ctx,{flowDynamic}) => {
       let imageFilePath = null;
@@ -446,7 +448,7 @@ const CCTV = addKeyword(["CCTV", "Cctv", "cctv"])
       if (ctx.message && ctx.message.imageMessage) {
         imageFilePath = await saveImage(ctx.message.imageMessage);
         ticketData.description =
-          ctx.message.imageMessage.caption || "Imagen recibida sin descripciÃ³n";
+          ctx.message.imageMessage.caption || "Imagen recibida sin descripción";
         ticketData.images.push(imageFilePath); // Agrega el archivo al arreglo
       }
 
@@ -458,13 +460,12 @@ const CCTV = addKeyword(["CCTV", "Cctv", "cctv"])
       const ticketId = await createGLPITicket(ticketData);
 
       const responseMessage = ticketId
-      ? `Caso registrado con Ã©xito, este es su nÃºmero de ticket: ${ticketId}, en breves nos comunicaremos con usted.`
-      : "Hubo un error al registrar el caso. Por favor, intÃ©ntelo de nuevo.";
+      ? `Caso registrado con éxito, este es su número de ticket: ${ticketId}, en breves nos comunicaremos con usted.`
+      : "Hubo un error al registrar el caso. Por favor, inténtelo de nuevo.";
 
       await flowDynamic(responseMessage);
     }
   )
-  .addAnswer("Para generar un nuevo ticket escribe 'Hola' ")
 
 const main = async () => {
   const adapterDB = new MySQLAdapter({
