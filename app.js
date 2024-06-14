@@ -24,7 +24,7 @@ const MYSQL_DB_PORT = "3306";
 /**
  * Credenciales de GLPI
  */
-const GLPI_API_URL = "http://10.21.90.7:8200/apirest.php/";
+const GLPI_API_URL = "http://10.21.90.7:8300/apirest.php/";
 const GLPI_USER_TOKEN = "QVniFo9pZ5Cnwh981N1ynXxfqJygsW5FkDTGTvOg";
 const GLPI_API_TOKEN = "eEvEVj8zPOvMKcYHJiEpza0KqprRm1X6MzWiJBdN";
 
@@ -83,8 +83,8 @@ const createGLPITicket = async (ticketData) => {
   }
 
     // Validar campos obligatorios
-    if (!ticketData.title || !ticketData.description || !ticketData.sede || !ticketData.area || !ticketData.issue || !ticketData.usuario || !ticketData.telefono || ticketData.images.length === 0) {
-      console.error("Faltan campos obligatorios en ticketData");
+    if (!ticketData.title || !ticketData.description || !ticketData.sede || !ticketData.issue || !ticketData.usuario || !ticketData.telefono || ticketData.images.length === 0) {
+      console.error("Faltan campos obligatorios en ticketData", ticketData);
       return null;
     }
 
@@ -156,10 +156,10 @@ const infoUser = addKeyword([
         return fallBack();
       }
       ticketData.usuario = `Enviado por: ${nombre}`;
+      console.log(`Enviado por: ${nombre}`);
       const phoneNumbre = ctx.from.split('@')[0];//captura el numero de cel
       ticketData.telefono = `Numero de celular: ${phoneNumbre}`
-
-      setTimeout(clearTicketData, 120000);
+      setTimeout(clearTicketData, 120000);//Tiempo de espera para eliminar el ticket
     } 
   )
   .addAnswer(
@@ -229,13 +229,12 @@ const infoUser = addKeyword([
         return fallBack();
       }
       ticketData.area = userMenu;
-
-      setTimeout(clearTicketData, 120000);
+      setTimeout(clearTicketData, 120000);//Tiempo de espera para eliminar el ticket
     }
   );
 
 // opciones para administracion
-const AdminFiltro = addKeyword(["Admin", "Administracion","admon","administracion","GH","gh","administrativo","Administrativo","014"])
+const AdminFiltro = addKeyword(["Admin", "Administracion","admon","administracion","GH","gh","administrativo","Administrativo"])
   .addAnswer(
     [
       "Selecciona cuál es el caso: ",
@@ -272,7 +271,7 @@ const AdminFiltro = addKeyword(["Admin", "Administracion","admon","administracio
       }else{
         return fallBack();
       }
-      setTimeout(clearTicketData, 120000);
+      setTimeout(clearTicketData, 120000);//Tiempo de espera para eliminar el ticket
     }
   )
   .addAnswer(
@@ -287,9 +286,7 @@ const AdminFiltro = addKeyword(["Admin", "Administracion","admon","administracio
           ctx.message.imageMessage.caption || "Imagen recibida sin descripción";
         ticketData.images.push(imageFilePath); // Agrega el archivo al arreglo
       }
-
-      setTimeout(clearTicketData, 120000);
-
+      setTimeout(clearTicketData, 120000);//Tiempo de espera para eliminar el ticket
       ticketData.title = `Ticket de ${ticketData.area} 
        ${ticketData.issue}\n-
        ${ticketData.usuario}\n- 
@@ -338,7 +335,7 @@ const Lineal = addKeyword(["Cajas", "lineal de cajas","Lineal","lineal","Cajas",
       }else{
         return fallBack();
       }
-      setTimeout(clearTicketData, 120000);
+      setTimeout(clearTicketData, 120000);//Tiempo de espera para eliminar el ticket
     }
   )
   .addAnswer(
@@ -353,9 +350,7 @@ const Lineal = addKeyword(["Cajas", "lineal de cajas","Lineal","lineal","Cajas",
           ctx.message.imageMessage.caption || "Imagen recibida sin descripción";
         ticketData.images.push(imageFilePath); // Agrega el archivo al arreglo
       }
-
-      setTimeout(clearTicketData, 120000);
-
+      setTimeout(clearTicketData, 120000);//Tiempo de espera para eliminar el ticket
       ticketData.title = `Ticket de ${ticketData.area} 
       ${ticketData.issue}\n-
       ${ticketData.usuario}\n- 
@@ -397,7 +392,7 @@ const Recibo = addKeyword(["Recibo", "recibo"])
       }else{
         return fallBack();
       }
-      setTimeout(clearTicketData, 120000);
+      setTimeout(clearTicketData, 120000);//Tiempo de espera para eliminar el ticket
     }
   )
   .addAnswer(
@@ -412,9 +407,7 @@ const Recibo = addKeyword(["Recibo", "recibo"])
           ctx.message.imageMessage.caption || "Imagen recibida sin descripción";
         ticketData.images.push(imageFilePath); // Agrega el archivo al arreglo
       }
-
-      setTimeout(clearTicketData, 120000);
-
+      setTimeout(clearTicketData, 120000);//Tiempo de espera para eliminar el ticket
       ticketData.title = `Ticket de ${ticketData.area} 
       ${ticketData.issue}\n-
       ${ticketData.usuario}\n- 
@@ -457,7 +450,7 @@ const CCTV = addKeyword(["CCTV", "Cctv", "cctv"])
       }else{
         return fallBack();
       }
-      setTimeout(clearTicketData, 120000);
+      setTimeout(clearTicketData, 120000);//Tiempo de espera para eliminar el ticket
     }
   )
   .addAnswer(
@@ -472,9 +465,7 @@ const CCTV = addKeyword(["CCTV", "Cctv", "cctv"])
           ctx.message.imageMessage.caption || "Imagen recibida sin descripción";
         ticketData.images.push(imageFilePath); // Agrega el archivo al arreglo
       }
-
-      setTimeout(clearTicketData, 120000);
-
+      setTimeout(clearTicketData, 120000); //Tiempo de espera para eliminar el ticket
       ticketData.title = `Ticket de ${ticketData.area} 
       ${ticketData.issue}\n-
       ${ticketData.usuario}\n- 
@@ -489,7 +480,68 @@ const CCTV = addKeyword(["CCTV", "Cctv", "cctv"])
       await flowDynamic(responseMessage);
     }
   )
+const AdminOficinas = addKeyword(["014"])
+  .addAnswer([
+    "Selecciona cuál es el caso: ",    
+    "1- Fallas en periféricos (Teclado, Mouse, Impresora, Escáner, Pantalla).",
+    "2- Equipo sin conexión o navegación.",
+    "3- Sin acceso a siesa Enterprise u/o ERP.",
+    "4- Error en ERP.",
+    "5- Equipo no funciona.",
+    "6- Otros."
+  ], {capture: true}, 
+  async (ctx, {fallBack}) => {
+    const optionOficina = ctx.body.toLowerCase().trim();
+    const options = {
+      "1":"Fallas en periféricos (Teclado, Mouse, Impresora, Escáner, Pantalla).",
+      "2":" Equipo sin conexión o navegación.",
+      "3":" Sin acceso a siesa Enterprise u/o ERP.",
+      "4":" Error en ERP.",
+      "5":" Equipo no funciona.",
+      "6":" Otros."
+    }
+    if (options[optionOficina]) {
+      const opcion = options[optionOficina];
+      ctx.body = `${opcion}`;
+      ticketData.issue = `Problema en Administracion oficinas: ${ctx.body}`;
+    }else{
+      return fallBack();
+    }
+    setTimeout(clearTicketData, 120000);//Tiempo de espera para eliminar el ticket
+  }
+)
+.addAnswer(
+  ["Envia una sola imagen con descripcion del problema: "],
+  { capture: true },
+  async (ctx,{flowDynamic}) => {
+    let imageFilePath = null;
 
+    if (ctx.message && ctx.message.imageMessage) {
+      imageFilePath = await saveImage(ctx.message.imageMessage);
+      ticketData.description =
+        ctx.message.imageMessage.caption || "Imagen recibida sin descripción";
+      ticketData.images.push(imageFilePath); // Agrega el archivo al arreglo
+    }
+    setTimeout(clearTicketData, 120000); //Tiempo de espera para eliminar el ticket
+    ticketData.title = `Ticket de ${ticketData.area} 
+    ${ticketData.issue}\n-
+    ${ticketData.usuario}\n- 
+    ${ticketData.sede}\n-
+    ${ticketData.telefono}`;
+    console.log(`Ticket de ${ticketData.area} 
+    ${ticketData.issue}\n-
+    ${ticketData.usuario}\n- 
+    ${ticketData.sede}\n-
+    ${ticketData.telefono}`);
+    const ticketId = await createGLPITicket(ticketData);
+
+    const responseMessage = ticketId
+    ? `Caso registrado con éxito, este es su número de ticket: ${ticketId}, en breves nos comunicaremos con usted.`
+    : "Demoraste demasiado. Escribe *HOLA* para enviar el ticket de nuevo.";
+
+    await flowDynamic(responseMessage);
+  }
+)
 const main = async () => {
   const adapterDB = new MySQLAdapter({
     host: MYSQL_DB_HOST,
@@ -498,7 +550,7 @@ const main = async () => {
     password: MYSQL_DB_PASSWORD,
     port: MYSQL_DB_PORT,
   });
-  const adapterFlow = createFlow([infoUser, AdminFiltro, Lineal, Recibo, CCTV]);
+  const adapterFlow = createFlow([infoUser, AdminFiltro, Lineal, Recibo, CCTV, AdminOficinas]);
   const adapterProvider = createProvider(BaileysProvider);
   createBot({
     flow: adapterFlow,
